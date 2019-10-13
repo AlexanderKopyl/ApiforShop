@@ -1,9 +1,10 @@
-var mysql = require('mysql');
-var connection = mysql.createConnection({
+var db = require('mysql-promise')();
+db.configure({
     host: 'localhost',
     user: 'root',
     password: '19901810',
     database: 'apiforshop'
 });
 
-return connection;
+
+exports.connect = db;
