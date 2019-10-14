@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var order = require('../../models/customer/customer').order;
+var order = require('../../models/order/order').order;
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -15,7 +15,15 @@ router.get('/', function (req, res, next) {
 
 router.get('/:id', function (req, res, next) {
 
-    order.selectById(+req.params.id)
+    order.selectOrderById(+req.params.id)
+        .then(
+            (r) =>
+                res.json(JSON.parse(JSON.stringify(r[0])))
+        )
+
+});
+router.get('/user/:id', function (req, res, next) {
+    order.selectOrderByCustomerId(+req.params.id)
         .then(
             (r) =>
                 res.json(JSON.parse(JSON.stringify(r[0])))

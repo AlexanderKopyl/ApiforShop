@@ -13,7 +13,7 @@ var con = mysql.createPool({
     password: '',
     database: 'apiforshop',
     waitForConnections: true,
-    connectionLimit: 10,
+    connectionLimit: 100,
     queueLimit: 0
 });
 

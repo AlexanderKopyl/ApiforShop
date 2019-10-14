@@ -6,15 +6,31 @@ const Order = function() {
         selectAll: async function() {
 
             try {
-                result = await db.connect.query('SELECT * FROM oc_customer');
+                result = await db.connect.query('SELECT * FROM `oc_order` WHERE `order_status_id` > 0');
             } catch(e) {
                 console.error(e);
             }
             return JSON.parse(JSON.stringify(result)) || null;
         },
-        selectById: async function(customerId) {
+        selectOrderById: async function(orderId) {
             try {
-                result = await db.connect.execute('SELECT * FROM oc_customer WHERE `customer_id`= ?',[customerId]);
+                result = await db.connect.execute('SELECT * FROM `oc_order` WHERE `order_id`= ? AND order_status_id > 0',[orderId]);
+            } catch(e) {
+                console.error(e);
+            }
+            return JSON.parse(JSON.stringify(result)) || null;
+        },
+        selectOrderByCustomerId: async function(customerId) {
+            try {
+                result = await db.connect.execute('SELECT * FROM `oc_order` WHERE `customer_id`= ? AND order_status_id > 0',[customerId]);
+            } catch(e) {
+                console.error(e);
+            }
+            return JSON.parse(JSON.stringify(result)) || null;
+        },
+        selectHistoryOrderByOrderId: async function(orderId) {
+            try {
+                result = await db.connect.execute('SELECT * FROM `oc_order_history` WHERE `order_id`= ? AND order_status_id > 0',[orderId]);
             } catch(e) {
                 console.error(e);
             }
