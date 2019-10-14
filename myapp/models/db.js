@@ -1,10 +1,21 @@
-var db = require('mysql-promise')();
-db.configure({
+// var mysql = require('mysql');
+// var con = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '',
+//     database: 'apiforshop'
+// });
+
+var mysql = require('mysql2/promise');
+var con = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: '19901810',
-    database: 'apiforshop'
+    password: '',
+    database: 'apiforshop',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
 
 
-exports.connect = db;
+exports.connect = con;

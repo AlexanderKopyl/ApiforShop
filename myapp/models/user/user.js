@@ -1,12 +1,12 @@
 var db = require('../db');
 
-const Customer = function() {
+const User = function() {
     let result = {};
     return {
         selectAll: async function() {
 
             try {
-                result = await db.connect.query('SELECT * FROM oc_customer');
+                result = await db.connect.query('SELECT * FROM oc_user');
             } catch(e) {
                 console.error(e);
             }
@@ -14,7 +14,7 @@ const Customer = function() {
         },
         selectById: async function(customerId) {
             try {
-                result = await db.connect.execute('SELECT * FROM oc_customer WHERE `customer_id`= ?',[customerId]);
+                result = await db.connect.execute('SELECT * FROM oc_user WHERE `user_id`= ?',[customerId]);
             } catch(e) {
                 console.error(e);
             }
@@ -24,7 +24,7 @@ const Customer = function() {
 };
 
 module.exports = {
-    customer: new Customer()
+    user: new User()
 };
 
 

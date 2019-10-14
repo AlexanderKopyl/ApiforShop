@@ -1,6 +1,6 @@
 var db = require('../db');
 
-const Customer = function() {
+const Order = function() {
     let result = {};
     return {
         selectAll: async function() {
@@ -24,7 +24,5 @@ const Customer = function() {
 };
 
 module.exports = {
-    customer: new Customer()
+    order: new Order()
 };
-
-
