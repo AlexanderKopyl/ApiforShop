@@ -31,4 +31,13 @@ router.get('/user/:id', function (req, res, next) {
 
 });
 
+router.get('/history/:id', function (req, res, next) {
+    order.selectHistoryOrderByOrderId(+req.params.id)
+        .then(
+            (r) =>
+                res.json(JSON.parse(JSON.stringify(r[0])))
+        )
+
+});
+
 module.exports = router;
