@@ -26,9 +26,6 @@ class Header extends Component {
                                 <MDBNavLink to="/">Home</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
-                                <MDBNavLink to="/personal-cabinet">Личный кабинет</MDBNavLink>
-                            </MDBNavItem>
-                            <MDBNavItem>
                                 <MDBNavLink to="/customer-info">Личные данные</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
@@ -54,7 +51,6 @@ class Header extends Component {
                                         <MDBIcon icon="user"/>
                                     </MDBDropdownToggle>
                                     <MDBDropdownMenu className="dropdown-default">
-                                        <MDBDropdownItem>Action</MDBDropdownItem>
                                         <MDBDropdownItem href="/login">Войти</MDBDropdownItem>
                                         <MDBDropdownItem href="/logout">Выйти</MDBDropdownItem>
                                     </MDBDropdownMenu>

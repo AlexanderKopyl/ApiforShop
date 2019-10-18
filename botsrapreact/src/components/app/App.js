@@ -22,7 +22,6 @@ function App() {
                    exact />
             <Route path="/contact" component={ContactPage} />
             <Route path="/orders" component={Orders} />
-            <Route path="/personal-cabinet" component={PersonalCabinet} />
             <Route path="/login" component={LoginPage} />
             <Route render={() => <h2>Page not found</h2>} />
           </Switch>
