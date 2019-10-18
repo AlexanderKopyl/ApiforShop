@@ -4,7 +4,6 @@ import {
     MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,
     MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
 } from "mdbreact";
-import {BrowserRouter as Router} from 'react-router-dom';
 import './header.css';
 
 class Header extends Component {
@@ -12,10 +11,8 @@ class Header extends Component {
         isOpen: false
     };
 
-    handleToggle = () => {
-        this.setState({
-            isOpen: !this.state.isOpen
-        });
+    toggleCollapse = () => {
+        this.setState({ isOpen: !this.state.isOpen });
     };
 
     render() {
@@ -57,6 +54,7 @@ class Header extends Component {
                                         <MDBIcon icon="user"/>
                                     </MDBDropdownToggle>
                                     <MDBDropdownMenu className="dropdown-default">
+                                        <MDBDropdownItem>Action</MDBDropdownItem>
                                         <MDBDropdownItem href="/login">Войти</MDBDropdownItem>
                                         <MDBDropdownItem href="/logout">Выйти</MDBDropdownItem>
                                     </MDBDropdownMenu>
