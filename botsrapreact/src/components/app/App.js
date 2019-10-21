@@ -2,7 +2,15 @@ import React from 'react';
 import './App.css';
 import Header from '../header';
 import Footer from '../footer';
-import {ContactPage,LoginPage,Orders,PersonalCabinet} from "../pages";
+import {
+    ContactPage,
+    LoginPage,
+    Orders,
+    CustomerInfo,
+    BalancePage,
+    DocumentPage,
+    MainPage
+} from "../pages";
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
@@ -17,11 +25,12 @@ function App() {
         <div className="App">
           <Header/>
           <Switch>
-            <Route path="/"
-                   render={() => <h2>Welcome to StarDB</h2>}
-                   exact />
+            <Route path='/' exact component={MainPage}/>
             <Route path="/contact" component={ContactPage} />
             <Route path="/orders" component={Orders} />
+            <Route path="/customer-info" component={CustomerInfo} />
+            <Route path="/balance" component={BalancePage} />
+            <Route path="/document" component={DocumentPage} />
             <Route path="/login" component={LoginPage} />
             <Route render={() => <h2>Page not found</h2>} />
           </Switch>

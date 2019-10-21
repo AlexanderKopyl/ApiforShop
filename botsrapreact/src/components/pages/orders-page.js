@@ -507,7 +507,7 @@ const DatatablePage = () => {
             <MDBDataTable
                 striped
                 bordered
-                small
+                hover
                 data={data}
             />
         </MDBContainer>
