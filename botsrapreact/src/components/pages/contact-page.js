@@ -1,8 +1,11 @@
 import React from "react";
 import {MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn, MDBInput, MDBContainer} from "mdbreact";
-import { withRouter } from 'react-router-dom';
+import { Redirect,withRouter } from 'react-router-dom';
 
-const ContactPage = () => {
+const ContactPage = ({isLoggedIn}) => {
+    if (!isLoggedIn) {
+        return <Redirect to="/login"/>;
+    }
     return (
         <MDBContainer>
             <section className="my-5">

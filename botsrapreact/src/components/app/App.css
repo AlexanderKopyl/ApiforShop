@@ -193,7 +193,9 @@ main {
   border-radius: 5px !important;
   background-color: #007bff !important;
 }
-
+a.nav-link.Ripple-parent.logout-link i {
+  margin-right: 10px;
+}
 
 @media (max-width: 1199.98px) {
   .sidebar-fixed {

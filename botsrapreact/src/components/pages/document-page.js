@@ -1,8 +1,11 @@
 import React from 'react';
 import {MDBIcon, MDBContainer, MDBRow, MDBCol} from 'mdbreact';
-import {withRouter} from 'react-router-dom';
+import {Redirect,withRouter} from 'react-router-dom';
 
-const DocumentPage = () => {
+const DocumentPage = ({isLoggedIn}) => {
+    if (!isLoggedIn) {
+        return <Redirect to="/login"/>;
+    }
     return (
         <MDBContainer>
             <MDBRow>

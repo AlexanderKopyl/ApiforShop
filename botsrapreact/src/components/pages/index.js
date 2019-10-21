@@ -5,6 +5,7 @@ import CustomerInfo from './customer-info-page';
 import BalancePage from './balance-page';
 import DocumentPage from './document-page';
 import MainPage from './main-page';
+import ForgotPage from './forgot-page';
 
 
 
@@ -15,5 +16,6 @@ export {
     CustomerInfo,
     BalancePage,
     DocumentPage,
-    MainPage
+    ForgotPage,
+    MainPage,
 }

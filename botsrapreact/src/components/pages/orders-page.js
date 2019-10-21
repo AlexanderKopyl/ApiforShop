@@ -1,8 +1,13 @@
 import React from 'react';
 import {MDBContainer, MDBDataTable} from 'mdbreact';
-import {withRouter} from 'react-router-dom';
+import {Redirect,withRouter} from 'react-router-dom';
 
-const DatatablePage = () => {
+const DatatablePage = ({isLoggedIn}) => {
+
+    if (!isLoggedIn) {
+        return <Redirect to="/login"/>;
+    }
+
     const data = {
         columns: [
             {

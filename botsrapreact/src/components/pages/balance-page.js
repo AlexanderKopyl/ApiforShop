@@ -1,8 +1,11 @@
 import React from 'react';
 import {MDBDataTable, MDBContainer,} from 'mdbreact';
-import {withRouter} from 'react-router-dom';
+import {Redirect,withRouter} from 'react-router-dom';
 
-const BalancePage = () => {
+const BalancePage = ({isLoggedIn}) => {
+    if (!isLoggedIn) {
+        return <Redirect to="/"/>;
+    }
     const data = {
         columns: [
             {

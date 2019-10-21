@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import Header from '../header';
 import Footer from '../footer';
@@ -9,6 +9,7 @@ import {
     CustomerInfo,
     BalancePage,
     DocumentPage,
+    ForgotPage,
     MainPage
 } from "../pages";
 
@@ -17,28 +18,70 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-function App() {
 
-  return (
-      <Router>
+export default class App extends Component {
+    state = {
+        isLoggedIn: true
+    };
 
-        <div className="App">
-          <Header/>
-          <Switch>
-            <Route path='/' exact component={MainPage}/>
-            <Route path="/contact" component={ContactPage} />
-            <Route path="/orders" component={Orders} />
-            <Route path="/customer-info" component={CustomerInfo} />
-            <Route path="/balance" component={BalancePage} />
-            <Route path="/document" component={DocumentPage} />
-            <Route path="/login" component={LoginPage} />
-            <Route render={() => <h2>Page not found</h2>} />
-          </Switch>
-          <Footer/>
-        </div>
-      </Router>
+    onLogin = () => {
+        this.setState({
+            isLoggedIn: true
+        });
+    };
 
-  );
+    forgotPass = () => {
+        this.setState({
+            isLoggedIn: true
+        });
+    };
+
+    render() {
+        const { isLoggedIn } = this.state;
+
+        return (
+
+        <Router>
+
+            <div className="App">
+                <Header/>
+                <Switch>
+                    <Route path='/' exact render={() => (
+                        <MainPage  isLoggedIn={isLoggedIn}/>
+                    )}/>
+                    <Route path="/contact" render={() => (
+                        <ContactPage  isLoggedIn={isLoggedIn}/>
+                    )}/>
+                    <Route path="/orders"  render={() => (
+                        <Orders  isLoggedIn={isLoggedIn}/>
+                    )}/>
+                    <Route path="/customer-info" render={() => (
+                        <CustomerInfo  isLoggedIn={isLoggedIn}/>
+                    )}/>
+                    <Route path="/balance" render={() => (
+                        <BalancePage  isLoggedIn={isLoggedIn}/>
+                    )}/>
+                    <Route path="/document" render={() => (
+                        <DocumentPage  isLoggedIn={isLoggedIn}/>
+                    )}/>
+                    <Route path="/forgot" render={() => (
+                        <ForgotPage  forgotPass={this.forgotPass}/>
+                    )}/>
+
+                    <Route path="/login" render={() => (
+                            <LoginPage
+                                isLoggedIn={isLoggedIn}
+                                onLogin={this.onLogin}/>
+                        )}/>
+                    <Route render={() => <h2>Page not found</h2>}/>
+                </Switch>
+                <Footer/>
+            </div>
+        </Router>
+
+    );
+    }
+
+
 }
 
-export default App;
