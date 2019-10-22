@@ -15,12 +15,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": {
-    "https://site/*": {
-      "target": "/api/",
-      "changeOrigin": true
-    }
-  },
   "eslintConfig": {
     "extends": "react-app"
   },

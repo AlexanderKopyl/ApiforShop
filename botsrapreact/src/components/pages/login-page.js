@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component }from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBCardBody, MDBInput } from 'mdbreact';
 import {Redirect, withRouter} from 'react-router-dom';
 
@@ -22,10 +22,12 @@ const LoginPage = ({isLoggedIn, onLogin}) => {
                                 </MDBRow>
                             </div>
                             <MDBCardBody className="mx-4 mt-4">
-                                <MDBInput label="Your email" group type="text" validate />
+                                <MDBInput label="Your email" id="form_email" name="email" group type="text" validate />
                                 <MDBInput
                                     label="Your password"
                                     group
+                                    name="password"
+                                    id="form_password"
                                     type="password"
                                     validate
                                     containerClass="mb-0"
@@ -40,7 +42,7 @@ const LoginPage = ({isLoggedIn, onLogin}) => {
                                     <MDBBtn
                                         color="danger"
                                         type="button"
-                                        onClick={onLogin}
+                                        onClick={onLogin()}
                                         className="btn-block z-depth-2"
                                     >
                                         Log in

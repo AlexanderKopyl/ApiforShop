@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Header from '../header';
 import Footer from '../footer';
@@ -17,26 +17,36 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route,Redirect} from 'react-router-dom';
 
 export default function App() {
 
 
       let isLoggedIn = false;
 
-    fetch('http://localhost:3000/customer/email/0630674453/password/19901810', {mode: 'no-cors'})
-        .then(response => console.log(response));
+    // useEffect(() => {
+    //     fetchItem();
+    // }, []);
+
+    const [result, setItem] = useState({
+        images: {}
+    });
+
+    const fetchItem = async (login,password) => {
+        const fetchItem = await fetch(`http://localhost:3000/customer/email/${login}/password/${password}`);
+        const result = await fetchItem.json();
+        setItem(result);
+        console.log(result)
+    };
 
     // state = {
     //     isLoggedIn: false
     // };
 
-    const onLogin = () => {
+    const onLogin = (login,password) => {
 
         console.log('work');
-        this.setState({
-            isLoggedIn: true
-        });
+
     };
 
     const forgotPass = () => {
