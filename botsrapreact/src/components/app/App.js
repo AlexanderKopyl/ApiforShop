@@ -31,9 +31,7 @@ export default class App extends Component {
     };
 
     forgotPass = () => {
-        this.setState({
-            isLoggedIn: true
-        });
+       console.log('Send new password');
     };
 
     render() {
