@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/:id', function (req, res, next) {
-debugger
+    debugger
     customer.selectById(+req.params.id)
         .then(
             (r) =>
@@ -24,15 +24,11 @@ debugger
 });
 
 router.get('/email/:email/password/:password', function (req, res, next) {
-    customer.login(req.params.email,req.params.password)
+    customer.login(req.params.email, req.params.password)
         .then(
-            (r) =>{
-                if(r[0] === null){
-                    console.log('work')
-                }
-                res.json(JSON.parse(JSON.stringify(r)))
+            (r) => {
+                    res.json(JSON.parse(JSON.stringify(r)))
             }
-
         )
 
 });

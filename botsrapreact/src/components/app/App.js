@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
 import Header from '../header';
 import Footer from '../footer';
@@ -19,23 +19,32 @@ import 'mdbreact/dist/css/mdb.css';
 
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-export default class App extends Component {
-    state = {
-        isLoggedIn: true
-    };
+export default function App() {
 
-    onLogin = () => {
+
+      let isLoggedIn = false;
+
+    fetch('http://localhost:3000/customer/email/0630674453/password/19901810', {mode: 'no-cors'})
+        .then(response => console.log(response));
+
+    // state = {
+    //     isLoggedIn: false
+    // };
+
+    const onLogin = () => {
+
+        console.log('work');
         this.setState({
             isLoggedIn: true
         });
     };
 
-    forgotPass = () => {
+    const forgotPass = () => {
        console.log('Send new password');
     };
 
-    render() {
-        const { isLoggedIn } = this.state;
+
+        // const { isLoggedIn } = this.state;
 
         return (
 
@@ -63,13 +72,13 @@ export default class App extends Component {
                         <DocumentPage  isLoggedIn={isLoggedIn}/>
                     )}/>
                     <Route path="/forgot" render={() => (
-                        <ForgotPage  forgotPass={this.forgotPass}/>
+                        <ForgotPage  forgotPass={forgotPass}/>
                     )}/>
 
                     <Route path="/login" render={() => (
                             <LoginPage
                                 isLoggedIn={isLoggedIn}
-                                onLogin={this.onLogin}/>
+                                onLogin={onLogin}/>
                         )}/>
                     <Route render={() => <h2>Page not found</h2>}/>
                 </Switch>
@@ -78,7 +87,7 @@ export default class App extends Component {
         </Router>
 
     );
-    }
+
 
 
 }
