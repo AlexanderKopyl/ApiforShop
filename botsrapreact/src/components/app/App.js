@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import './App.css';
 import Header from '../header';
 import Footer from '../footer';
@@ -17,46 +17,16 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
-import {BrowserRouter as Router, Switch, Route,Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 
 export default function App() {
 
-
-      let isLoggedIn = false;
-
-    // useEffect(() => {
-    //     fetchItem();
-    // }, []);
-
-    const [result, setItem] = useState({
-        images: {}
-    });
-
-    const fetchItem = async (login,password) => {
-        const fetchItem = await fetch(`http://localhost:3000/customer/email/${login}/password/${password}`);
-        const result = await fetchItem.json();
-        setItem(result);
-        console.log(result)
-    };
-
-    // state = {
-    //     isLoggedIn: false
-    // };
-
-    const onLogin = (login,password) => {
-
-        console.log('work');
-
-    };
-
     const forgotPass = () => {
-       console.log('Send new password');
+        console.log('Send new password');
     };
 
 
-        // const { isLoggedIn } = this.state;
-
-        return (
+    return (
 
         <Router>
 
@@ -64,32 +34,28 @@ export default function App() {
                 <Header/>
                 <Switch>
                     <Route path='/' exact render={() => (
-                        <MainPage  isLoggedIn={isLoggedIn}/>
+                        <MainPage/>
                     )}/>
                     <Route path="/contact" render={() => (
-                        <ContactPage  isLoggedIn={isLoggedIn}/>
+                        <ContactPage/>
                     )}/>
-                    <Route path="/orders"  render={() => (
-                        <Orders  isLoggedIn={isLoggedIn}/>
+                    <Route path="/orders" render={() => (
+                        <Orders/>
                     )}/>
                     <Route path="/customer-info" render={() => (
-                        <CustomerInfo  isLoggedIn={isLoggedIn}/>
+                        <CustomerInfo/>
                     )}/>
                     <Route path="/balance" render={() => (
-                        <BalancePage  isLoggedIn={isLoggedIn}/>
+                        <BalancePage/>
                     )}/>
                     <Route path="/document" render={() => (
-                        <DocumentPage  isLoggedIn={isLoggedIn}/>
+                        <DocumentPage/>
                     )}/>
                     <Route path="/forgot" render={() => (
-                        <ForgotPage  forgotPass={forgotPass}/>
+                        <ForgotPage forgotPass={forgotPass}/>
                     )}/>
 
-                    <Route path="/login" render={() => (
-                            <LoginPage
-                                isLoggedIn={isLoggedIn}
-                                onLogin={onLogin}/>
-                        )}/>
+                    <Route path="/login" component={LoginPage}/>
                     <Route render={() => <h2>Page not found</h2>}/>
                 </Switch>
                 <Footer/>
@@ -97,7 +63,6 @@ export default function App() {
         </Router>
 
     );
-
 
 
 }

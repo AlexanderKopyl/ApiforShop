@@ -1,5 +1,5 @@
 import ContactPage from "./contact-page";
-import LoginPage from './login-page';
+import LoginPage from './auth/login-page';
 import Orders from './orders-page';
 import CustomerInfo from './customer-info-page';
 import BalancePage from './balance-page';
@@ -11,8 +11,8 @@ import ForgotPage from './forgot-page';
 
 export {
     ContactPage,
-    LoginPage,
     Orders,
+    LoginPage,
     CustomerInfo,
     BalancePage,
     DocumentPage,

@@ -1,5 +1,5 @@
 import React from 'react';
-import {MDBDataTable, MDBContainer,} from 'mdbreact';
+import {MDBDataTable, MDBContainer} from 'mdbreact';
 import {Redirect,withRouter} from 'react-router-dom';
 
 const BalancePage = ({isLoggedIn}) => {

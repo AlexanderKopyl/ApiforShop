@@ -2,11 +2,8 @@ import React from 'react';
 import {MDBCard, MDBContainer, MDBCardBody, MDBIcon, MDBRow, MDBCol, MDBCardText} from 'mdbreact';
 import {Redirect,withRouter} from 'react-router-dom';
 
-const MainPage = ({isLoggedIn}) => {
+const MainPage = () => {
 
-    if(!isLoggedIn){
-        return <Redirect to="/login"/>;
-    }
 
     return (
         <MDBContainer>
