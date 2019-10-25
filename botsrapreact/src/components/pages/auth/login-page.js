@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import LoginForm from './login-form'
 import {withRouter} from 'react-router-dom';
+import config from '../../../app.config'
 
 export default withRouter(class LoginPage extends Component{
 
@@ -12,7 +13,7 @@ export default withRouter(class LoginPage extends Component{
 
     onLogin = () => {
         const fetchItem = async (login, password) => {
-            const fetchItem = await fetch(`http://localhost:3000/api/customer/email/${login}/password/${password}`);
+            const fetchItem = await fetch(`${config.url}customer/email/${login}/password/${password}`);
             return await fetchItem.json();
         };
 
