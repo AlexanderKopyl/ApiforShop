@@ -16,14 +16,22 @@ export default {
                 setStr = unescape(cookie.substring(offset, end));
             }
         }
-        return(setStr);
+        return setStr;
     },
 
-    setCookie (name, value, expires, path, domain, secure) {
-        document.cookie = name + "=" + escape(value) +
-            ((expires) ? "; expires=" + expires : "") +
-            ((path) ? "; path=" + path : "") +
-            ((domain) ? "; domain=" + domain : "") +
-            ((secure) ? "; secure" : "");
+    setCookie (name, value, days, path) {
+        path = path || '/'; // заполняем путь если не заполнен
+        days = days || 10;  // заполняем время жизни если не получен параметр
+
+        let last_date = new Date();
+        last_date.setDate(last_date.getDate() + days);
+        value = escape(value) + ((days==null) ? "" : "; expires="+last_date.toUTCString());
+        document.cookie = name + "=" + value + "; path=" + path; // вешаем куки
+    },
+    deleteCookie ( cookie_name )
+    {
+        var cookie_date = new Date ( );  // Текущая дата и время
+        cookie_date.setTime ( cookie_date.getTime() - 1 );
+        document.cookie = cookie_name += "=; expires=" + cookie_date.toGMTString();
     }
 }

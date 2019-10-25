@@ -4,6 +4,8 @@ import {
     MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse
 } from "mdbreact";
 import './header.css';
+import fun from '../../lib/function';
+import {Redirect} from "react-router-dom";
 
 class Header extends Component {
     state = {
@@ -15,6 +17,11 @@ class Header extends Component {
     };
 
     render() {
+        // if(fun.getCookie('auth')){
+        //     <Redirect to="/"/>
+        // }
+        console.log(typeof fun.getCookie('auth'));
+
         return (
             <MDBNavbar color="default-color" dark expand="md" className="mb-5">
                 <MDBContainer>

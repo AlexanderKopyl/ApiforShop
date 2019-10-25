@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import LoginForm from './login-form'
 import {withRouter} from 'react-router-dom';
 import config from '../../../app.config'
+import fun from '../../../lib/function'
 
 export default withRouter(class LoginPage extends Component{
 
@@ -10,6 +11,7 @@ export default withRouter(class LoginPage extends Component{
         password:"",
         isLoggedIn: false
     };
+
 
     onLogin = () => {
         const fetchItem = async (login, password) => {
@@ -25,7 +27,13 @@ export default withRouter(class LoginPage extends Component{
                     this.setState({
                         isLoggedIn: true
                     });
+                    fun.setCookie('auth',this.state.isLoggedIn,1);
+                    fun.setCookie('customer_id',r[0].data[0].customer_id,1);
                     console.log(this.state);
+                    console.log(fun.getCookie('auth'));
+                }else{
+                    fun.setCookie('auth',this.state.isLoggedIn,1);
+
                 }
             }
             );
