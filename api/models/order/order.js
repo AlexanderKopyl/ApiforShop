@@ -1,16 +1,18 @@
 let {config: {prefix}} = require('../../server.config');
 module.exports = (sequelize, type) => {
-    return sequelize.define(`${prefix}customer`, {
-        customer_id: {
+    return sequelize.define(`${prefix}order`, {
+        order_id: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
+        customer_id:type.INTEGER,
         firstname: type.STRING,
         lastname: type.STRING,
         email: type.STRING,
         telephone: type.STRING,
-        status: type.BOOLEAN,
+        order_status_id: type.INTEGER,
+        date_added: type.DATE,
     },{
         timestamps: false,
         // disable the modification of tablenames; By default, sequelize will automatically
@@ -19,6 +21,6 @@ module.exports = (sequelize, type) => {
         freezeTableName: true,
 
         // define the table's name
-        tableName: `${prefix}customer`
+        tableName: `${prefix}order`
     })
 };

@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
-const { Customer } = require('../models/db');
+const { Customer } = require('../../models/db');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   Customer.findAll().then(users => res.json(users))
+});
+router.get('/:id', function(req, res, next) {
+  Customer.findOne({ where: {customer_id: req.params.id} }).then(user => res.json(user))
 });
 
 module.exports = router;
