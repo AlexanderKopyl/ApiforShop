@@ -1,4 +1,4 @@
-let {config: {prefix}} = require('../../server.config');
+let {config: {prefix}} = require('../../config/server.config');
 module.exports = (sequelize, type) => {
     return sequelize.define(`${prefix}customer`, {
         customer_id: {

@@ -3,7 +3,7 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
-const bodyParser = require('body-parser');
+
 
 let indexRouter = require('./routes/index');
 let orderRouter = require('./routes/order/order');
@@ -12,6 +12,23 @@ let customerRouter = require('./routes/customer/customer');
 
 
 let app = express();
+
+let passport   = require('passport');
+let session    = require('express-session');
+let bodyParser = require('body-parser');
+
+
+// app.use(bodyParser.json());
+// For Passport
+
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+
+app.use(passport.initialize());
+
+app.use(passport.session()); // persistent login sessions
+
+//For BodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // view engine setup

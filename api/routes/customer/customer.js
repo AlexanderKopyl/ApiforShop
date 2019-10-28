@@ -11,7 +11,6 @@ router.get('/:id', function (req, res, next) {
     Customer.findOne({where: {customer_id: req.params.id}}).then(user => res.json(user))
 });
 router.get('/:login/:password', function (req, res, next) {
-    console.log(req.params);
     Customer.findOne({
         where: {
             [Op.and]: [

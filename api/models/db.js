@@ -1,11 +1,11 @@
 const Sequelize = require('sequelize');
-let {config: {prefix}} = require('../server.config');
+let {config: {prefix,db,user_db,user_password,host,dialect}} = require('../config/server.config');
 const CustomerModel = require('./customer/customer');
 const OrderModel = require('./order/order');
 // Option 1: Passing parameters separately
-const sequelize = new Sequelize('apiforshop', 'root', '', {
-    host: 'localhost',
-    dialect:'mysql', /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
+const sequelize = new Sequelize(db, user_db, user_password, {
+    host,
+    dialect, /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
     pool: {
         max: 10,
         min: 0,
