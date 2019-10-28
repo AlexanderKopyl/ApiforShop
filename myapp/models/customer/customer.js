@@ -24,7 +24,9 @@ const Customer = function () {
         },
         login: async function (login, password) {
             try {
-                result = await db.connect.execute("SELECT `customer_id`,`firstname`,`lastname`,`telephone`,`email` FROM `oc_customer` WHERE (LOWER(email) ='" + login.toLowerCase() + "' OR telephone LIKE '%" + login.toLowerCase() + "')AND (password = SHA1(CONCAT(salt, SHA1(CONCAT(salt, SHA1('" + password + "'))))) OR password = '" + md5(password) + "')AND status = '1' LIMIT 0,1");
+                result = await db.connect.execute("SELECT `customer_id`,`firstname`,`lastname`,`telephone`,`email` FROM `oc_customer` " +
+                    "WHERE (LOWER(email) ='" + login.toLowerCase() + "' OR telephone LIKE '%" + login.toLowerCase() + "')" +
+                    "AND (password = SHA1(CONCAT(salt, SHA1(CONCAT(salt, SHA1('" + password + "'))))) OR password = '" + md5(password) + "')AND status = '1' LIMIT 0,1");
             } catch (e) {
                 console.error(e);
             }
