@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@csstools/normalize.css": "github:csstools/normalize.css",
     "mdbreact": "^4.21.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

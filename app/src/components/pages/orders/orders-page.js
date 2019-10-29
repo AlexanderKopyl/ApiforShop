@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {MDBContainer, MDBDataTable} from 'mdbreact';
 import {Redirect,withRouter} from 'react-router-dom';
-import config from '../../app.config'
-import fun from '../../lib/function'
+import config from '../../../app.config'
+import fun from '../../../lib/function'
 
 
 const DatatablePage = () => {
