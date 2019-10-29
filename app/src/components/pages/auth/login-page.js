@@ -15,24 +15,25 @@ export default withRouter(class LoginPage extends Component{
 
     onLogin = () => {
         const fetchItem = async (login, password) => {
-            const fetchItem = await fetch(`${config.url}customer/email/${login}/password/${password}`);
+            const fetchItem = await fetch(`${config.url}customers/${login}/${password}`);
+
             return await fetchItem.json();
         };
 
         fetchItem(this.state.email, this.state.password)
             .then((r) =>
             {
-                if (r[0].result_code === 0){
-
+                console.log(r);
+                if (r[0].token !== null){
+                    console.log(r);
                     this.setState({
                         isLoggedIn: true
                     });
-                    fun.setCookie('auth',this.state.isLoggedIn,1);
-                    fun.setCookie('customer_id',r[0].data[0].customer_id,1);
-                    console.log(this.state);
-                    console.log(fun.getCookie('auth'));
+                    fun.setItem('auth_token',r[0].token);
+                    fun.setItem('user_id',r[0].user.customer_id);
+                    // console.log(fun.getItem('user_id'));
                 }else{
-                    fun.setCookie('auth',this.state.isLoggedIn,1);
+                    fun.setItem('auth_token',r[0].token);
 
                 }
             }

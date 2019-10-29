@@ -70,14 +70,15 @@ router.get('/:login/:password', function (req, res, next) {
             user => {
                 if (user !== null) {
                     jwt.sign({user}, 'secretkey', {expiresIn: '1 day'}, (err, token) => {
-                        res.json({
+                        res.json([{
+                            user,
                             token
-                        });
+                        }]);
                     });
                 } else {
-                    res.json({
-                        user
-                    });
+                    res.json([{
+                        token:user
+                    }]);
                 }
             })
 });

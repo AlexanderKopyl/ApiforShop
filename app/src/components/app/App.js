@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from '../header';
 import Footer from '../footer';
+import fun from '../../lib/function'
 
 import {
     ContactPage,
@@ -25,7 +26,6 @@ export default function App() {
     const forgotPass = () => {
         console.log('Send new password');
     };
-
 
     return (
 

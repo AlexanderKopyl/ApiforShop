@@ -11,17 +11,11 @@ class Header extends Component {
     state = {
         isOpen: false
     };
-
     toggleCollapse = () => {
         this.setState({isOpen: !this.state.isOpen});
     };
 
     render() {
-        // if(fun.getCookie('auth')){
-        //     <Redirect to="/"/>
-        // }
-        console.log(typeof fun.getCookie('auth'));
-
         return (
             <MDBNavbar color="default-color" dark expand="md" className="mb-5">
                 <MDBContainer>
