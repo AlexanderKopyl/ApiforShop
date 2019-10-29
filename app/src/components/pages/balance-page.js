@@ -1,11 +1,18 @@
 import React from 'react';
 import {MDBDataTable, MDBContainer} from 'mdbreact';
 import {Redirect,withRouter} from 'react-router-dom';
+import fun from "../../lib/function";
 
-const BalancePage = ({isLoggedIn}) => {
-    if (!isLoggedIn) {
-        return <Redirect to="/"/>;
+const BalancePage = () => {
+
+    const auth_token = fun.getItem('auth_token');
+
+    if(auth_token === 'null' || auth_token === null){
+        return (
+            <Redirect to="/login"/>
+        )
     }
+
     const data = {
         columns: [
             {

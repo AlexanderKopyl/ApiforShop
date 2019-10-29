@@ -1,9 +1,19 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCard, MDBCardBody, MDBInput } from 'mdbreact';
-import {withRouter} from 'react-router-dom';
+import {Redirect,withRouter} from 'react-router-dom';
+import fun from "../../lib/function";
 
 
 const ForgotPage = ({forgotPass}) => {
+
+    const auth_token = fun.getItem('auth_token');
+
+    if(auth_token === 'null' || auth_token === null){
+        return (
+            <Redirect to="/login"/>
+        )
+    }
+
     return (
         <MDBContainer>
             <div className="login-form">

@@ -1,11 +1,18 @@
 import React from "react";
 import {MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn, MDBInput, MDBContainer} from "mdbreact";
 import { Redirect,withRouter } from 'react-router-dom';
+import fun from "../../lib/function";
 
-const ContactPage = ({isLoggedIn}) => {
-    if (!isLoggedIn) {
-        return <Redirect to="/login"/>;
+const ContactPage = () => {
+
+    const auth_token = fun.getItem('auth_token');
+
+    if(auth_token === 'null' || auth_token === null){
+        return (
+            <Redirect to="/login"/>
+        )
     }
+
     return (
         <MDBContainer>
             <section className="my-5">

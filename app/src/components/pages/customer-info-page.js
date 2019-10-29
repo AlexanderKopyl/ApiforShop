@@ -1,11 +1,16 @@
 import React from "react";
 import {MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn} from "mdbreact";
 import {Redirect, withRouter} from 'react-router-dom';
+import fun from "../../lib/function";
 
-function CustomerInfo({isLoggedIn}) {
+function CustomerInfo() {
 
-    if (!isLoggedIn) {
-        return <Redirect to="/login"/>;
+    const auth_token = fun.getItem('auth_token');
+
+    if(auth_token === 'null' || auth_token === null){
+        return (
+            <Redirect to="/login"/>
+        )
     }
 
     return (

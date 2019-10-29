@@ -6,13 +6,21 @@ import {
     MDBIcon,
     MDBCardHeader
 } from "mdbreact";
-import {Redirect} from 'react-router-dom';
+import {Redirect,withRouter} from 'react-router-dom';
+import fun from "../../../lib/function";
 
 const LoginForm = ({isLoggedIn, onLogin, changeHandler, submitHandler}) => {
 
-    if (isLoggedIn) {
+    const auth_token = fun.getItem('auth_token');
+    let isAuth ;
+
+    isAuth = !(auth_token === 'null' || auth_token === null);
+
+    if (isLoggedIn || isAuth) {
         return <Redirect to="/"/>;
     }
+
+
 
     return (
         <MDBContainer>
@@ -30,7 +38,6 @@ const LoginForm = ({isLoggedIn, onLogin, changeHandler, submitHandler}) => {
                                     <div className="grey-text">
                                         <MDBInput
                                             label="Type your email"
-                                            icon="envelope"
                                             onChange={changeHandler}
                                             type="email"
                                             name="email"
@@ -42,7 +49,6 @@ const LoginForm = ({isLoggedIn, onLogin, changeHandler, submitHandler}) => {
                                         />
                                         <MDBInput
                                             label="Type your password"
-                                            icon="lock"
                                             onChange={changeHandler}
                                             type="password"
                                             name="password"
@@ -78,4 +84,4 @@ const LoginForm = ({isLoggedIn, onLogin, changeHandler, submitHandler}) => {
     );
 };
 
-export default LoginForm;
+export default withRouter(LoginForm);

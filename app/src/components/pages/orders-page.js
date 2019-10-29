@@ -8,9 +8,7 @@ import fun from '../../lib/function'
 const DatatablePage = () => {
 
     const auth_token = fun.getItem('auth_token');
-
-
-    <Redirect to="/login"/>;
+    //<Redirect to="/login"/>;
     // console.log(auth_token);
 
     useEffect(() => {
@@ -19,6 +17,7 @@ const DatatablePage = () => {
 
     const [items, setItems] = useState([]);
     const user_id = fun.getItem('user_id');
+
     const fetchItems = async () => {
         const data = await fetch(`${config.url}orders/customer/${user_id}`,{
             headers: {
@@ -85,7 +84,13 @@ const DatatablePage = () => {
     };
     console.log(items);
 
+    if(auth_token === 'null' || auth_token === null){
+        return (
+            <Redirect to="/login"/>
+        )
+    }
     return (
+
         <MDBContainer>
             <MDBDataTable
                 striped

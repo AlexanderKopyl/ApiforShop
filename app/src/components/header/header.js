@@ -8,14 +8,23 @@ import fun from '../../lib/function';
 import {Redirect} from "react-router-dom";
 
 class Header extends Component {
+
     state = {
-        isOpen: false
+        isOpen: false,
+        auth_token:fun.getItem('auth_token')
     };
+
+
     toggleCollapse = () => {
         this.setState({isOpen: !this.state.isOpen});
     };
 
     render() {
+        const { auth_token } = this.state;
+        let isAuth ;
+
+        isAuth = !(auth_token === 'null' || auth_token === null);
+
         return (
             <MDBNavbar color="default-color" dark expand="md" className="mb-5">
                 <MDBContainer>
@@ -43,8 +52,7 @@ class Header extends Component {
                         </MDBNavbarNav>
                         <MDBNavbarNav right>
                             <MDBNavItem>
-                                <MDBNavLink to="/logout" className="logout-link"><MDBIcon icon="user"/>Выйти</MDBNavLink>
-                            </MDBNavItem>
+                                {isAuth ? <MDBNavLink to="/logout" className="logout-link"><MDBIcon icon="user"/>Выйти</MDBNavLink> :''}                            </MDBNavItem>
                         </MDBNavbarNav>
                     </MDBCollapse>
                 </MDBContainer>
