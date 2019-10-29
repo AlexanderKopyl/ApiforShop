@@ -78,6 +78,12 @@ const DatatablePage = () => {
                 field: 'telephone',
                 sort: 'asc',
                 width: 100
+            },
+            {
+                label: 'Total',
+                field: 'total',
+                sort: 'asc',
+                width: 100
             }
         ],
         rows: items

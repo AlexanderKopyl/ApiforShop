@@ -36,7 +36,6 @@ router.get('/:id',fun.verifyToken, function(req, res, next) {
         } else {
             Order.findOne({ where: {order_id: req.params.id, order_status_id:{[Op.gt]: 0} } })
                 .then(orders_user => {
-                    console.log(orders_user);
                     res.json({
                         message: 'Orders find',
                         result_code: 0,
@@ -58,7 +57,6 @@ router.get('/customer/:id',fun.verifyToken, function(req, res, next) {
         } else {
             Order.findAll({ where: {customer_id: req.params.id, order_status_id:{[Op.gt]: 0} } })
                 .then(orders_user => {
-                    console.log(orders_user);
                     res.json({
                         message: 'Orders find',
                         result_code: 0,

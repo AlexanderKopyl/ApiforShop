@@ -13,6 +13,8 @@ module.exports = (sequelize, type) => {
         date_added: type.DATE,
         order_status_id: type.INTEGER,
         telephone: type.STRING,
+        total: type.INTEGER,
+
 
     },{
         timestamps: false,
