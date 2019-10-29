@@ -5,7 +5,6 @@ import {
 } from "mdbreact";
 import './header.css';
 import fun from '../../lib/function';
-import {Redirect} from "react-router-dom";
 
 class Header extends Component {
 
