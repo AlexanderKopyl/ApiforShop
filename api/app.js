@@ -3,7 +3,8 @@ let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
-
+let jwt = require('jsonwebtoken');
+const fun = require('./lib/function');
 
 let indexRouter = require('./routes/index');
 let orderRouter = require('./routes/order/order');

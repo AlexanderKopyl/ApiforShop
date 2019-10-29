@@ -3,14 +3,57 @@ var router = express.Router();
 const {Op, fn, col, where} = require('sequelize');
 const {Customer} = require('../../models/db');
 let md5 = require('js-md5');
+let jwt = require('jsonwebtoken');
+const fun = require('../../lib/function');
+
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-    Customer.findAll().then(users => res.json(users))
+router.get('/', fun.verifyToken, function (req, res, next) {
+    jwt.verify(req.token, 'secretkey', (err, authData) => {
+        if (err) {
+            res.json({
+                message: 'User dont find',
+                result_code: 404
+            });
+        } else {
+            Customer.findAll()
+                .then(
+                    users => {
+                        res.json({
+                            message: 'Users find',
+                            result_code: 0,
+                            users,
+                            authData
+                        });
+                    });
+
+        }
+    });
+
+
 });
-router.get('/:id', function (req, res, next) {
-    Customer.findOne({where: {customer_id: req.params.id}}).then(user => res.json(user))
+router.get('/:id', fun.verifyToken, function (req, res, next) {
+    jwt.verify(req.token, 'secretkey', (err, authData) => {
+        if (err) {
+            res.json({
+                message: 'User dont find',
+                result_code: 404
+            });
+        } else {
+            Customer.findOne({where: {customer_id: req.params.id}})
+                .then(user => {
+                    res.json({
+                        message: 'Users find',
+                        result_code: 0,
+                        user
+                    });
+                })
+
+        }
+    });
+
 });
 router.get('/:login/:password', function (req, res, next) {
+    // Mock user
     Customer.findOne({
         where: {
             [Op.and]: [
@@ -23,7 +66,20 @@ router.get('/:login/:password', function (req, res, next) {
             ]
         }
     })
-        .then(user => res.json(user))
+        .then(
+            user => {
+                if (user !== null) {
+                    jwt.sign({user}, 'secretkey', {expiresIn: '1 day'}, (err, token) => {
+                        res.json({
+                            token
+                        });
+                    });
+                } else {
+                    res.json({
+                        user
+                    });
+                }
+            })
 });
 
 module.exports = router;
