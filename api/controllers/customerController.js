@@ -1,4 +1,4 @@
-const {Op, fn, col, where} = require('sequelize');
+const {Op, fn, col} = require('sequelize');
 const {Customer} = require('../models/db');
 let md5 = require('js-md5');
 let jwt = require('jsonwebtoken');
