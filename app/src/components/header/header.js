@@ -13,12 +13,15 @@ class Header extends Component {
     };
 
 
+
     toggleCollapse = () => {
         this.setState({isOpen: !this.state.isOpen});
     };
 
     render() {
         const auth_token  = fun.getItem('auth_token');
+
+
         let isAuth ;
 
         isAuth = !(auth_token === 'null' || auth_token === null);

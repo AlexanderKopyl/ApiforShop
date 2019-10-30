@@ -44,6 +44,7 @@ export default withRouter(class LoginPage extends Component {
                         });
 
                         fun.setItem('auth_token', r[0].token);
+                        fun.setItem('time_token', r[0].expire);
                         fun.setItem('user_id', r[0].user.customer_id);
                     } else {
                         fun.setItem('auth_token', r[0].token);

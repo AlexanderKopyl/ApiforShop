@@ -42,9 +42,13 @@ exports.customer_login = async (req, res, next) => {
         }
     });
     if (result !== null) {
-        jwt.sign({result}, 'secretkey', {expiresIn: '1 day'}, (err, token) => {
+
+        let now = new Date();
+
+        jwt.sign({result}, 'secretkey', {expiresIn: '1h'}, (err, token) => {
             res.json([{
                 user:result,
+                expire: now.setTime(now.getTime() + 1 * 3600 * 1000),
                 token
             }]);
         });

@@ -17,7 +17,8 @@ module.exports = {
                 if (err) {
                     res.json({
                         message: 'Orders dont find',
-                        result_code: 404
+                        result_code: 404,
+                        err
                     });
                 }else{
                     next();

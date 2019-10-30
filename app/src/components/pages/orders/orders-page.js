@@ -17,6 +17,14 @@ const DatatablePage = () => {
 
     const [items, setItems] = useState([]);
     const user_id = fun.getItem('user_id');
+    const time_token  = fun.getItem('time_token');
+    const now = new Date().getTime();
+
+    if(now > time_token){
+        fun.removeItem('auth_token');
+        fun.removeItem('time_token');
+        fun.removeItem('user_id');
+    }
 
     const fetchItems = async () => {
         const data = await fetch(`${config.url}orders/customer/${user_id}`,{
@@ -27,7 +35,7 @@ const DatatablePage = () => {
         const items = await data.json();
 
         // console.log(items.orders_user);
-        setItems(items.orders_user);
+        setItems(items.result);
     };
     const data = {
         columns: [
@@ -88,13 +96,15 @@ const DatatablePage = () => {
         ],
         rows: items
     };
-    console.log(items);
+    // console.log(items);
 
     if(auth_token === 'null' || auth_token === null){
         return (
             <Redirect to="/login"/>
         )
     }
+
+
     return (
 
         <MDBContainer>

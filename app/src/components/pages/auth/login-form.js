@@ -12,6 +12,9 @@ import fun from "../../../lib/function";
 const LoginForm = ({isLoggedIn, onLogin, changeHandler, submitHandler}) => {
 
     const auth_token = fun.getItem('auth_token');
+    const time_token  = fun.getItem('time_token');
+    const now = new Date().getTime();
+
     let isAuth ;
 
     isAuth = !(auth_token === 'null' || auth_token === null);
@@ -21,6 +24,12 @@ const LoginForm = ({isLoggedIn, onLogin, changeHandler, submitHandler}) => {
     }
 
 
+
+    if(now > time_token){
+        fun.removeItem('auth_token');
+        fun.removeItem('time_token');
+        fun.removeItem('user_id');
+    }
 
     return (
         <MDBContainer>

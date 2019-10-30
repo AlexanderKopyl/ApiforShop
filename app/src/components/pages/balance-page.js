@@ -6,6 +6,14 @@ import fun from "../../lib/function";
 const BalancePage = () => {
 
     const auth_token = fun.getItem('auth_token');
+    const time_token  = fun.getItem('time_token');
+    const now = new Date().getTime();
+
+    if(now > time_token){
+        fun.removeItem('auth_token');
+        fun.removeItem('time_token');
+        fun.removeItem('user_id');
+    }
 
     if(auth_token === 'null' || auth_token === null){
         return (
