@@ -9,8 +9,7 @@ import fun from '../../lib/function';
 class Header extends Component {
 
     state = {
-        isOpen: false,
-        auth_token:fun.getItem('auth_token')
+        isOpen: false
     };
 
 
@@ -19,7 +18,7 @@ class Header extends Component {
     };
 
     render() {
-        const { auth_token } = this.state;
+        const auth_token  = fun.getItem('auth_token');
         let isAuth ;
 
         isAuth = !(auth_token === 'null' || auth_token === null);

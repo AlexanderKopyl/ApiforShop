@@ -1,11 +1,11 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 const {Op, fn, col, where} = require('sequelize');
 const {Customer} = require('../../models/db');
 let md5 = require('js-md5');
 let jwt = require('jsonwebtoken');
 const fun = require('../../lib/function');
-
+// let bodyParser = require('body-parser');
 /* GET users listing. */
 router.get('/', fun.verifyToken, function (req, res, next) {
     jwt.verify(req.token, 'secretkey', (err, authData) => {
@@ -52,16 +52,17 @@ router.get('/:id', fun.verifyToken, function (req, res, next) {
     });
 
 });
-router.get('/:login/:password', function (req, res, next) {
+router.post('/login', function (req, res, next) {
+
     // Mock user
     Customer.findOne({
         where: {
             [Op.and]: [
                 {
-                    [Op.or]: [{email: {[Op.like]: '%' + req.params.login + '%'}}, {telephone: {[Op.like]: '%' + req.params.login}}]
+                    [Op.or]: [{email: {[Op.like]: '%' + req.body.login + '%'}}, {telephone: {[Op.like]: '%' + req.body.login}}]
                 },
                 {
-                    [Op.or]: [{password: fn('sha1', fn('concat', col('salt'), fn('sha1', fn('concat', col('salt'), fn('sha1', req.params.password)))))}, {password: md5(req.params.password)}]
+                    [Op.or]: [{password: fn('sha1', fn('concat', col('salt'), fn('sha1', fn('concat', col('salt'), fn('sha1', req.body.password)))))}, {password: md5(req.body.password)}]
                 }
             ]
         }
