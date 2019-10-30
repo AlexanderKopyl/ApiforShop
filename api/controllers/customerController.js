@@ -3,55 +3,34 @@ const {Customer} = require('../models/db');
 let md5 = require('js-md5');
 let jwt = require('jsonwebtoken');
 
-
-// Показать список всех авторов.
+// Показать список всех клиентов.
 exports.customer_list = (req, res, next) => {
-    jwt.verify(req.token, 'secretkey', (err, authData) => {
-        if (err) {
-            res.json({
-                message: 'User dont find',
-                result_code: 404
+    Customer.findAll()
+        .then(
+            users => {
+                res.json({
+                    message: 'Users find',
+                    result_code: 0,
+                    users,
+                    authData
+                });
             });
-        } else {
-            Customer.findAll()
-                .then(
-                    users => {
-                        res.json({
-                            message: 'Users find',
-                            result_code: 0,
-                            users,
-                            authData
-                        });
-                    });
-
-        }
-    });
-
-
 };
 
-// Показать подробную страницу для данного автора.
-exports.customer_detail = (req, res, next) =>  {
-    jwt.verify(req.token, 'secretkey', (err, authData) => {
-        if (err) {
+// Показать подробную страницу для данного клиента.
+exports.customer_detail = (req, res, next) => {
+
+    Customer.findOne({where: {customer_id: req.params.id}})
+        .then(user => {
             res.json({
-                message: 'User dont find',
-                result_code: 404
+                message: 'Users find',
+                result_code: 0,
+                user
             });
-        } else {
-            Customer.findOne({where: {customer_id: req.params.id}})
-                .then(user => {
-                    res.json({
-                        message: 'Users find',
-                        result_code: 0,
-                        user
-                    });
-                })
-
-        }
-    });
-
+        })
 };
+
+// Авторизация клиента.
 exports.customer_login = (req, res, next) => {
 
     // Mock user
@@ -78,7 +57,7 @@ exports.customer_login = (req, res, next) => {
                     });
                 } else {
                     res.json([{
-                        token:user
+                        token: user
                     }]);
                 }
             })

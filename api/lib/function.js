@@ -1,3 +1,5 @@
+let jwt = require('jsonwebtoken');
+
 module.exports = {
     verifyToken(req, res, next) {
         // Get auth header value
@@ -11,7 +13,17 @@ module.exports = {
             // Set the token
             req.token = bearerToken;
             // Next middleware
-            next();
+            jwt.verify(req.token, 'secretkey', (err, authData) => {
+                if (err) {
+                    res.json({
+                        message: 'Orders dont find',
+                        result_code: 404
+                    });
+                }else{
+                    next();
+                }
+            });
+
         } else {
             // Forbidden
             res.sendStatus(403);
