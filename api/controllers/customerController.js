@@ -2,39 +2,34 @@ const {Op, fn, col} = require('sequelize');
 const {Customer} = require('../models/db');
 let md5 = require('js-md5');
 let jwt = require('jsonwebtoken');
+let result = null;
 
 // Показать список всех клиентов.
-exports.customer_list = (req, res, next) => {
-    Customer.findAll()
-        .then(
-            users => {
-                res.json({
-                    message: 'Users find',
-                    result_code: 0,
-                    users,
-                    authData
-                });
-            });
+exports.customer_list = async (req, res, next) => {
+    result = await Customer.findAll();
+    res.json({
+        message: 'Users find',
+        result_code: 0,
+        result
+    });
 };
 
 // Показать подробную страницу для данного клиента.
-exports.customer_detail = (req, res, next) => {
+exports.customer_detail = async (req, res, next) => {
 
-    Customer.findOne({where: {customer_id: req.params.id}})
-        .then(user => {
-            res.json({
-                message: 'Users find',
-                result_code: 0,
-                user
-            });
-        })
+    result = await Customer.findOne({where: {customer_id: req.params.id}});
+    res.json({
+        message: 'Users find',
+        result_code: 0,
+        result
+    });
 };
 
 // Авторизация клиента.
-exports.customer_login = (req, res, next) => {
+exports.customer_login = async (req, res, next) => {
 
     // Mock user
-    Customer.findOne({
+    result = await Customer.findOne({
         where: {
             [Op.and]: [
                 {
@@ -45,20 +40,17 @@ exports.customer_login = (req, res, next) => {
                 }
             ]
         }
-    })
-        .then(
-            user => {
-                if (user !== null) {
-                    jwt.sign({user}, 'secretkey', {expiresIn: '1 day'}, (err, token) => {
-                        res.json([{
-                            user,
-                            token
-                        }]);
-                    });
-                } else {
-                    res.json([{
-                        token: user
-                    }]);
-                }
-            })
+    });
+    if (result !== null) {
+        jwt.sign({result}, 'secretkey', {expiresIn: '1 day'}, (err, token) => {
+            res.json([{
+                user:result,
+                token
+            }]);
+        });
+    } else {
+        res.json([{
+            token: result
+        }]);
+    }
 };
