@@ -1,6 +1,6 @@
 ###
 
-POST http://localhost:3001//api/customers/login
+POST http://localhost:3001/api/customers/login
 Content-Type: application/json
 
 {
@@ -11,4 +11,12 @@ Content-Type: application/json
 ###
 GET http://localhost:3001/api/customers
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiY3VzdG9tZXJfaWQiOjEzMjgsImZpcnN0bmFtZSI6ItCc0LDQutGB0LjQvCIsImxhc3RuYW1lIjoi0JHQvtC90LTQsNGA0YwiLCJlbWFpbCI6InNhbGVzQHBldHouY29tLnVhIiwidGVsZXBob25lIjoiKzM4MDk3MjI1NTgxNCIsInBhc3N3b3JkIjoiNTYwNmE1ZDEyZDBkMTA2MDMwNTQyZWEzNzM2MmQ5N2Y2MjI3ZDRiNyIsInNhbHQiOiJZaWwzR1NacVciLCJzdGF0dXMiOnRydWV9LCJpYXQiOjE1NzI0NDQ4MzIsImV4cCI6MTU3MjQ0NDg0N30.uDkck2L97g1PSbUaynYP6cwh5EICyov00-wIdKsvQu8
+###
+POST http://localhost:3001/api/customers/token
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiY3VzdG9tZXJfaWQiOjEzMjgsImZpcnN0bmFtZSI6ItCc0LDQutGB0LjQvCIsImxhc3RuYW1lIjoi0JHQvtC90LTQsNGA0YwiLCJlbWFpbCI6InNhbGVzQHBldHouY29tLnVhIiwidGVsZXBob25lIjoiKzM4MDk3MjI1NTgxNCIsInBhc3N3b3JkIjoiNTYwNmE1ZDEyZDBkMTA2MDMwNTQyZWEzNzM2MmQ5N2Y2MjI3ZDRiNyIsInNhbHQiOiJZaWwzR1NacVciLCJzdGF0dXMiOnRydWV9LCJpYXQiOjE1NzI1MTIwMzZ9.sDbdNZ-OqPoow3p2wF1-N-60nOfqJoMES1D4-tTKIZk"
+}
+
 ###

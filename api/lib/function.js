@@ -20,7 +20,7 @@ module.exports = {
                         result_code: 404,
                         err
                     });
-                }else{
+                } else {
                     next();
                 }
             });
@@ -30,6 +30,9 @@ module.exports = {
             res.sendStatus(403);
         }
 
+    },
+    generateAccessToken(user,token) {
+        return jwt.sign(user, token, {expiresIn: '15s'});
     }
 
 };
