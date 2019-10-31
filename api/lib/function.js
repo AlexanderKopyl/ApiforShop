@@ -31,8 +31,11 @@ module.exports = {
         }
 
     },
-    generateAccessToken(user,token) {
-        return jwt.sign(user, token, {expiresIn: '15s'});
+    generateAccessToken(user,token,expire) {
+        return jwt.sign(user, token, {expiresIn: expire});
+    },
+    generateRefreshToken(user,token,expire) {
+        return jwt.sign(user, token, {expiresIn: expire});
     }
 
 };

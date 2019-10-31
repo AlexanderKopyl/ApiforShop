@@ -45,14 +45,14 @@ exports.customer_login = async (req, res, next) => {
     if (result !== null) {
 
         let now = new Date();
-        const accessToken = fun.generateAccessToken({result}, 'secretkey');
-        const refreshToken = jwt.sign({result}, 'refresh_secretkey');
+        const accessToken = fun.generateAccessToken({result}, 'secretkey', "1h");
+        const refreshToken = fun.generateRefreshToken({result}, 'refresh_secretkey', "7d");
 
         res.json([{
             user: result,
             tokens: {
-                access: {token: accessToken, expiredIn: now.setTime(now.getTime() + 600 * 1000)},
-                refresh: {token: refreshToken, expiredIn: now.setTime(now.getTime() + 1200 * 1000)},
+                access: {token: accessToken, expiredIn: now.setTime(now.getTime() + 1 * 3600 * 1000)},
+                refresh: {token: refreshToken, expiredIn: now.setTime(now.getDate() + 7)},
             }
         }]);
 
@@ -73,13 +73,17 @@ exports.customer_login = async (req, res, next) => {
 exports.token = (req, res, next) => {
 
     const refreshToken = req.body.token;
+
     if (refreshToken == null) return res.sendStatus(401);
+
     // if (!refreshTokens.includes(refreshToken)) return res.sendStatus(403);
     jwt.verify(refreshToken, 'refresh_secretkey', (err, user) => {
         if (err) return res.sendStatus(403);
-        const accessToken = fun.generateAccessToken(user);
-        console.log(accessToken);
-        res.json({ accessToken: accessToken })
+        let { result } = user;
+        console.log(result);
+        const accessToken = fun.generateAccessToken(result,'secretkey', "1h");
+
+        res.json({accessToken: accessToken})
     })
 
 };
