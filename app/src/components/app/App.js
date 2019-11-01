@@ -12,6 +12,7 @@ import {
     BalancePage,
     DocumentPage,
     ForgotPage,
+    OrderPageInfo,
     MainPage
 } from "../pages";
 
@@ -28,6 +29,7 @@ export default function App() {
     };
 
 
+
     return (
 
         <Router>
@@ -41,8 +43,11 @@ export default function App() {
                     <Route path="/contact" render={() => (
                         <ContactPage/>
                     )}/>
-                    <Route path="/orders" render={() => (
+                    <Route path="/orders" exact render={() => (
                         <Orders/>
+                    )}/>
+                    <Route path="/orders/:id" render={() => (
+                        <OrderPageInfo />
                     )}/>
                     <Route path="/customer-info" render={() => (
                         <CustomerInfo/>

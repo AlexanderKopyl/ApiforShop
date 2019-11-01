@@ -31,23 +31,23 @@ export default withRouter(class LoginPage extends Component {
                 },
                 body: JSON.stringify(data)
             });
-            console.log(JSON.stringify(data));
             return await fetchItem.json();
         };
 
         fetchItem(this.state.email, this.state.password)
             .then((r) => {
-
                     if (r[0].token !== null) {
                         this.setState({
                             isLoggedIn: true
                         });
 
-                        fun.setItem('auth_token', r[0].token);
-                        fun.setItem('time_token', r[0].expire);
+                        fun.setItem('auth_token', r[0].tokens.access.token);
+                        fun.setItem('time_auth_token', r[0].tokens.access.expiredIn);
+                        fun.setItem('refresh_token', r[0].tokens.refresh.token);
+                        fun.setItem('time_token', r[0].tokens.refresh.expiredIn);
                         fun.setItem('user_id', r[0].user.customer_id);
                     } else {
-                        fun.setItem('auth_token', r[0].token);
+                        fun.setItem('auth_token', null);
 
                     }
                 }

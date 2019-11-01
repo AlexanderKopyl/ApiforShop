@@ -1,42 +1,69 @@
 import React, {useState, useEffect} from 'react';
-import {MDBContainer, MDBDataTable} from 'mdbreact';
-import {Redirect,withRouter} from 'react-router-dom';
+import {MDBBtn,MDBIcon,MDBContainer, MDBDataTable} from 'mdbreact';
+import {Redirect, withRouter,Link} from 'react-router-dom';
 import config from '../../../app.config'
 import fun from '../../../lib/function'
 
 
 const DatatablePage = () => {
 
-    const auth_token = fun.getItem('auth_token');
-    //<Redirect to="/login"/>;
-    // console.log(auth_token);
-
     useEffect(() => {
         fetchItems();
     }, []);
 
     const [items, setItems] = useState([]);
-    const user_id = fun.getItem('user_id');
-    const time_token  = fun.getItem('time_token');
-    const now = new Date().getTime();
 
-    if(now > time_token){
-        fun.removeItem('auth_token');
-        fun.removeItem('time_token');
-        fun.removeItem('user_id');
+    const user_id = fun.getItem('user_id'),
+          time_token = fun.getItem('time_token'),
+          auth_token = fun.getItem('auth_token'),
+          time_auth_token = fun.getItem('time_auth_token'),
+          now = new Date().getTime();
+
+    if (now > time_token) {
+        localStorage.clear();
     }
 
     const fetchItems = async () => {
-        const data = await fetch(`${config.url}orders/customer/${user_id}`,{
+
+        if (now > time_auth_token) {
+            const refresh_token = {
+                token: fun.getItem('refresh_token')
+            };
+            console.log(refresh_token);
+            const data = await fetch(`${config.url}customers/token`, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, cors, *same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(refresh_token),
+            });
+
+            const token = await data.json();
+            fun.setItem('auth_token', token.accessToken);
+        }
+
+        const data = await fetch(`${config.url}orders/customer/${user_id}`, {
             headers: {
                 'Authorization': 'Bearer ' + fun.getItem('auth_token')
             }
         });
-        const items = await data.json();
 
-        // console.log(items.orders_user);
-        setItems(items.result);
+        const items = await data.json(),
+              items_to_table = [];
+
+        items.result.forEach((elem) =>{
+            elem.action = <Link to={`/orders/${elem.order_id}`}>
+            <MDBBtn color="purple" size="sm"><MDBIcon icon="eye" /></MDBBtn>
+            </Link>;
+            items_to_table.push(elem);
+        });
+
+        setItems(items_to_table);
     };
+
+
     const data = {
         columns: [
             // {
@@ -92,13 +119,19 @@ const DatatablePage = () => {
                 field: 'total',
                 sort: 'asc',
                 width: 100
+            },
+            {
+                label: 'Action',
+                field: 'action',
+                sort: 'asc',
+                width: 100
             }
         ],
         rows: items
     };
-    // console.log(items);
 
-    if(auth_token === 'null' || auth_token === null){
+
+    if (auth_token === 'null' || auth_token === null) {
         return (
             <Redirect to="/login"/>
         )

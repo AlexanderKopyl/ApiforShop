@@ -13,6 +13,9 @@ class Header extends Component {
     };
 
 
+    loggOut = () => {
+        localStorage.clear();
+    };
 
     toggleCollapse = () => {
         this.setState({isOpen: !this.state.isOpen});
@@ -53,7 +56,8 @@ class Header extends Component {
                         </MDBNavbarNav>
                         <MDBNavbarNav right>
                             <MDBNavItem>
-                                {isAuth ? <MDBNavLink to="/logout" className="logout-link"><MDBIcon icon="user"/>Выйти</MDBNavLink> :''}                            </MDBNavItem>
+                                {isAuth ? <MDBNavLink to='/' onClick={this.loggOut} className="logout-link"><MDBIcon icon="user"/>Выйти</MDBNavLink> :''}
+                            </MDBNavItem>
                         </MDBNavbarNav>
                     </MDBCollapse>
                 </MDBContainer>
