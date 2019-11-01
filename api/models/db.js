@@ -1,8 +1,11 @@
 const Sequelize = require('sequelize');
 let {config: {prefix,db,user_db,user_password,host,dialect}} = require('../config/server.config');
+
 const CustomerModel = require('./customer/customer');
 const OrderModel = require('./order/order');
 const OrderStatusModel = require('./order/order_status');
+const OrderHistoryModel = require('./order/order_history');
+const OrderProductModel = require('./order/order_product');
 
 // Option 1: Passing parameters separately
 const sequelize = new Sequelize(db, user_db, user_password, {
@@ -20,6 +23,8 @@ const sequelize = new Sequelize(db, user_db, user_password, {
 let Customer = CustomerModel(sequelize, Sequelize);
 let Order = OrderModel(sequelize, Sequelize);
 let OrderStatus = OrderStatusModel(sequelize, Sequelize);
+let OrderHistory = OrderHistoryModel(sequelize, Sequelize);
+let OrderProduct = OrderProductModel(sequelize, Sequelize);
 
 
 
@@ -31,5 +36,7 @@ sequelize.sync({ force: false })
 module.exports = {
     Customer,
     OrderStatus,
+    OrderHistory,
+    OrderProduct,
     Order
 };
