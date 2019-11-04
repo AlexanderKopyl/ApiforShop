@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {MDBBtn,MDBIcon,MDBContainer, MDBDataTable} from 'mdbreact';
 import {Redirect, withRouter,Link} from 'react-router-dom';
-import config from '../../../app.config'
+import {checkAuthTokenTime} from "../../../shared/auth-service";
+import {orders} from "../../../shared/order-service";
 import fun from '../../../lib/function'
 
 
@@ -13,10 +14,8 @@ const DatatablePage = () => {
 
     const [items, setItems] = useState([]);
 
-    const user_id = fun.getItem('user_id'),
-          time_token = fun.getItem('time_token'),
+    const time_token = fun.getItem('time_token'),
           auth_token = fun.getItem('auth_token'),
-          time_auth_token = fun.getItem('time_auth_token'),
           now = new Date().getTime();
 
     if (now > time_token) {
@@ -25,53 +24,32 @@ const DatatablePage = () => {
 
     const fetchItems = async () => {
 
-        if (now > time_auth_token) {
-            const refresh_token = {
-                token: fun.getItem('refresh_token')
-            };
-            console.log(refresh_token);
-            const data = await fetch(`${config.url}customers/token`, {
-                method: 'POST', // *GET, POST, PUT, DELETE, etc.
-                mode: 'cors', // no-cors, cors, *same-origin
-                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(refresh_token),
-            });
-
-            const token = await data.json();
-            fun.setItem('auth_token', token.accessToken);
-        }
-
-        const data = await fetch(`${config.url}orders/customer/${user_id}`, {
-            headers: {
-                'Authorization': 'Bearer ' + fun.getItem('auth_token')
-            }
-        });
-
-        const items = await data.json(),
-              items_to_table = [];
-
+        const validate = await checkAuthTokenTime();
+        const items_to_table = [];
+        const items = await orders();
         items.result.forEach((elem) =>{
-            elem.action = <Link to={`/orders/${elem.order_id}`}>
-            <MDBBtn color="purple" size="sm"><MDBIcon icon="eye" /></MDBBtn>
-            </Link>;
-            items_to_table.push(elem);
+            const {order_id, firstname, lastname, email, date_added, oc_order_status: {name}, telephone, total} = elem;
+            const arrayToTable = {
+                order_id,
+                firstname,
+                lastname,
+                email,
+                date_added,
+                order_status:name,
+                telephone,
+                total,
+                action:<Link to={`/orders/${elem.order_id}`}>
+                    <MDBBtn color="purple" size="sm"><MDBIcon icon="eye" /></MDBBtn>
+                </Link>
+            };
+            items_to_table.push(arrayToTable);
         });
-
         setItems(items_to_table);
     };
 
 
     const data = {
         columns: [
-            // {
-            //     label: 'customer_id',
-            //     field: 'customer_id',
-            //     sort: 'asc',
-            //     width: 100
-            // },
             {
                 label: 'Order_id',
                 field: 'order_id',
@@ -103,8 +81,8 @@ const DatatablePage = () => {
                 width: 150
             },
             {
-                label: 'order_status_id',
-                field: 'order_status_id',
+                label: 'Order_status',
+                field: 'order_status',
                 sort: 'asc',
                 width: 100
             },
