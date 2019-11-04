@@ -5,3 +5,18 @@
 [2019-11-04T14:03:54.590] [ERROR] customer - Customer: 0dont find
 [2019-11-04T14:15:14.215] [ERROR] customer - Customer: 0 dont find
 [2019-11-04T14:34:25.508] [ERROR] db - Error name: SequelizeAccessDeniedError Address: undefined Port: undefined Syscall: undefined
+[2019-11-04T18:41:43.768] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T18:41:45.768] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T18:41:58.450] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T18:42:29.897] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T18:42:45.502] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T18:43:49.134] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T18:44:02.426] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T18:44:35.535] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T18:45:04.197] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T18:46:35.333] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T18:47:41.434] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T19:08:06.232] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T19:08:17.310] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T19:08:53.001] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-04T19:08:55.991] [ERROR] customer - Customer: dont find in function customer_login

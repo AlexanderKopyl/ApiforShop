@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/runtime": "^7.6.3",
     "@csstools/normalize.css": "github:csstools/normalize.css",
     "mdbreact": "^4.21.1",
     "react": "^16.10.2",
