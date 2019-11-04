@@ -1,0 +1,16 @@
+::1 - - [04/Nov/2019:08:30:57 +0000] "GET /api/customers/login HTTP/1.1" 403 9
+::1 - - [04/Nov/2019:08:34:49 +0000] "GET /api/customers/login HTTP/1.1" 403 9
+::1 - - [04/Nov/2019:09:08:50 +0000] "GET /api/customers/login HTTP/1.1" 403 9
+::1 - - [04/Nov/2019:09:08:50 +0000] "GET /favicon.ico HTTP/1.1" 404 3142
+::ffff:127.0.0.1 - - [04/Nov/2019:09:15:46 +0000] "POST /api/customers/login HTTP/1.1" - -
+::1 - - [04/Nov/2019:10:06:46 +0000] "GET /api/customers/login HTTP/1.1" 403 9
+::ffff:127.0.0.1 - - [04/Nov/2019:10:08:34 +0000] "POST /api/customers/login HTTP/1.1" - -
+::ffff:127.0.0.1 - - [04/Nov/2019:11:55:31 +0000] "POST /api/customers/login HTTP/1.1" 200 1201
+::ffff:127.0.0.1 - - [04/Nov/2019:11:56:27 +0000] "GET /api/customers HTTP/1.1" 200 753220
+::ffff:127.0.0.1 - - [04/Nov/2019:11:57:14 +0000] "GET /api/customers/0 HTTP/1.1" 200 54
+::ffff:127.0.0.1 - - [04/Nov/2019:11:58:24 +0000] "GET /api/customers/0 HTTP/1.1" 200 54
+::ffff:127.0.0.1 - - [04/Nov/2019:12:02:08 +0000] "GET /api/customers/0 HTTP/1.1" 200 63
+::ffff:127.0.0.1 - - [04/Nov/2019:12:03:54 +0000] "GET /api/customers/0 HTTP/1.1" 200 62
+::1 - - [04/Nov/2019:12:12:31 +0000] "GET /api/customers/login HTTP/1.1" 403 9
+::1 - - [04/Nov/2019:12:13:04 +0000] "GET /api/customers/login HTTP/1.1" 403 9
+::ffff:127.0.0.1 - - [04/Nov/2019:12:15:14 +0000] "GET /api/customers/0 HTTP/1.1" 200 62

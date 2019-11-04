@@ -1,4 +1,11 @@
 let jwt = require('jsonwebtoken');
+const log4js = require('log4js');
+log4js.configure({
+    appenders: { cheese: { type: 'file', filename: 'error.log' } },
+    categories: { default: { appenders: ['cheese'], level: 'error' } }
+});
+
+const log = log4js.getLogger('validation');
 
 module.exports = {
     verifyToken(req, res, next) {
@@ -15,8 +22,9 @@ module.exports = {
             // Next middleware
             jwt.verify(req.token, 'secretkey', (err, authData) => {
                 if (err) {
+                    log.warn('Error in valid jwt.verify and user ' + authData.result.customer_id);
                     res.json({
-                        message: 'Orders dont find',
+                        message: 'Request not valid',
                         result_code: 404,
                         err
                     });
@@ -27,6 +35,7 @@ module.exports = {
 
         } else {
             // Forbidden
+            log.warn('Error code 403 token not valid ' + req.token);
             res.sendStatus(403);
         }
 
