@@ -13,10 +13,6 @@ log4js.configure({
 
 const log = log4js.getLogger('app');
 
-
-let jwt = require('jsonwebtoken');
-const fun = require('./lib/function');
-
 const cors = require('cors');
 
 let indexRouter = require('./routes/index');
