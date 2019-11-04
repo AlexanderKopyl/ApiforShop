@@ -7,6 +7,14 @@ const OrderStatusModel = require('./order/order_status');
 const OrderHistoryModel = require('./order/order_history');
 const OrderProductModel = require('./order/order_product');
 
+const log4js = require('log4js');
+log4js.configure({
+    appenders: { cheese: { type: 'file', filename: 'error.log' } },
+    categories: { default: { appenders: ['cheese'], level: 'error' } }
+});
+
+const log = log4js.getLogger('db');
+
 // Option 1: Passing parameters separately
 const sequelize = new Sequelize(db, user_db, user_password, {
     host,
@@ -31,7 +39,10 @@ let OrderProduct = OrderProductModel(sequelize, Sequelize);
 sequelize.sync({ force: false })
     .then(() => {
         console.log(`Database & tables created!`)
-    });
+    }).catch(function(reason) {
+    // отказ
+    log.error("Error name: " + reason.name + " Address: " + reason.parent.address + " Port: " + reason.parent.port + " Syscall: " + reason.parent.syscall);
+});
 
 module.exports = {
     Customer,

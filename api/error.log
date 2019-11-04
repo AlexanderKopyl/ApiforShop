@@ -1,0 +1,7 @@
+[2019-11-04T13:47:21.141] [ERROR] db - Error name: SequelizeConnectionRefusedErrorAddress: undefinedPort: undefinedSyscall: undefined
+[2019-11-04T13:48:58.031] [ERROR] db - Error name: SequelizeConnectionRefusedErrorAddress: 127.0.0.1Port: 3306Syscall: connect
+[2019-11-04T13:49:13.907] [ERROR] db - Error name: SequelizeConnectionRefusedErrorAddress: 127.0.0.1Port: 3306Syscall: connect
+[2019-11-04T13:49:38.874] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-04T14:03:54.590] [ERROR] customer - Customer: 0dont find
+[2019-11-04T14:15:14.215] [ERROR] customer - Customer: 0 dont find
+[2019-11-04T14:34:25.508] [ERROR] db - Error name: SequelizeAccessDeniedError Address: undefined Port: undefined Syscall: undefined
