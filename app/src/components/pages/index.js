@@ -1,4 +1,4 @@
-import ContactPage from "./contact-page";
+import ContactPage from "./contact/contact-page";
 import LoginPage from './auth/login-page';
 import Orders from './orders/orders-page';
 import OrderPageInfo from './orders/order-info-page';

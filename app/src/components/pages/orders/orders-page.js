@@ -9,6 +9,30 @@ import fun from '../../../lib/function'
 const DatatablePage = () => {
 
     useEffect(() => {
+        const fetchItems = async () => {
+
+            await checkAuthTokenTime();
+            const items_to_table = [];
+            const items = await orders();
+            items.result.forEach((elem) =>{
+                const {order_id, firstname, lastname, email, date_added, oc_order_status: {name}, telephone, total} = elem;
+                const arrayToTable = {
+                    order_id,
+                    firstname,
+                    lastname,
+                    email,
+                    date_added,
+                    order_status:name,
+                    telephone,
+                    total,
+                    action:<Link to={`/orders/${elem.order_id}`}>
+                        <MDBBtn color="purple" size="sm"><MDBIcon icon="eye" /></MDBBtn>
+                    </Link>
+                };
+                items_to_table.push(arrayToTable);
+            });
+            setItems(items_to_table);
+        };
         fetchItems();
     }, []);
 
@@ -16,30 +40,7 @@ const DatatablePage = () => {
 
     const auth_token = fun.getItem('auth_token');
 
-    const fetchItems = async () => {
 
-        await checkAuthTokenTime();
-        const items_to_table = [];
-        const items = await orders();
-        items.result.forEach((elem) =>{
-            const {order_id, firstname, lastname, email, date_added, oc_order_status: {name}, telephone, total} = elem;
-            const arrayToTable = {
-                order_id,
-                firstname,
-                lastname,
-                email,
-                date_added,
-                order_status:name,
-                telephone,
-                total,
-                action:<Link to={`/orders/${elem.order_id}`}>
-                    <MDBBtn color="purple" size="sm"><MDBIcon icon="eye" /></MDBBtn>
-                </Link>
-            };
-            items_to_table.push(arrayToTable);
-        });
-        setItems(items_to_table);
-    };
 
 
     const data = {
