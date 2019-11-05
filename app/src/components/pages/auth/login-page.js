@@ -39,7 +39,6 @@ export default withRouter(class LoginPage extends Component {
     };
 
     render() {
-
         return (
             <LoginForm isLoggedIn={this.state.isLoggedIn} onLogin={this.onLogin} changeHandler={this.changeHandler}
                        submitHandler={this.submitHandler}/>

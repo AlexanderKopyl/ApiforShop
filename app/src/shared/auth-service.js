@@ -13,25 +13,33 @@ export const signIn = async (body) => {
         },
         body: JSON.stringify(body)
     });
+
     let result_answer = await fetchItem.json();
-    const {tokens,user} = result_answer[0];
-            if (result_answer[0].token !== null) {
-                fun.setItem('auth_token', tokens.access.token);
-                fun.setItem('time_auth_token', tokens.access.expiredIn);
-                fun.setItem('refresh_token', tokens.refresh.token);
-                fun.setItem('time_token', tokens.refresh.expiredIn);
-                fun.setItem('user_id', user.customer_id);
-                return  true;
-            } else {
-                fun.setItem('auth_token', null);
-                return  false;
-            }
+
+    const {tokens, user} = result_answer[0];
+
+    if (result_answer[0].token !== null) {
+        fun.setItem('auth_token', tokens.access.token);
+        fun.setItem('time_auth_token', tokens.access.expiredIn);
+        fun.setItem('refresh_token', tokens.refresh.token);
+        fun.setItem('time_token', tokens.refresh.expiredIn);
+        fun.setItem('user_id', user.customer_id);
+        return true;
+    } else {
+        fun.setItem('auth_token', null);
+        return false;
+    }
 };
 
-export const checkAuthTokenTime = async () =>{
+export const checkAuthTokenTime = async () => {
 
     const time_auth_token = fun.getItem('time_auth_token'),
+          time_token = fun.getItem('time_token'),
           now = new Date().getTime();
+
+    if (now > time_token) {
+        localStorage.clear();
+    }
 
     if (now > time_auth_token) {
         const refresh_token = {

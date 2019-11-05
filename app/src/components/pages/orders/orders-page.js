@@ -14,17 +14,11 @@ const DatatablePage = () => {
 
     const [items, setItems] = useState([]);
 
-    const time_token = fun.getItem('time_token'),
-          auth_token = fun.getItem('auth_token'),
-          now = new Date().getTime();
-
-    if (now > time_token) {
-        localStorage.clear();
-    }
+    const auth_token = fun.getItem('auth_token');
 
     const fetchItems = async () => {
 
-        const validate = await checkAuthTokenTime();
+        await checkAuthTokenTime();
         const items_to_table = [];
         const items = await orders();
         items.result.forEach((elem) =>{
