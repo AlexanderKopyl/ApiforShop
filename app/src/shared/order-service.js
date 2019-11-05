@@ -12,6 +12,15 @@ export const orders = async () => {
     return await data.json();
 };
 
+export const orders_products = async (order_id) => {
+    const data = await fetch(`${config.url}orders/order_products/${order_id}`, {
+        headers: {
+            'Authorization': 'Bearer ' + fun.getItem('auth_token')
+        }
+    });
+    return await data.json();
+};
+
 export const orderInfo = async (match) =>{
 
     const data = await fetch(`${config.url}orders/${match.params.id}`, {

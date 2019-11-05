@@ -40,7 +40,7 @@ exports.order_list = async (req, res, next) => {
 // Показать подробную страницу для данного заказа.
 exports.order_detail = async (req, res, next) => {
     try {
-        result = await Order.findOne({where: {order_id: req.params.id, order_status_id: {[Op.gt]: 0}},include: [OrderStatus,OrderProduct]});
+        result = await Order.findOne({where: {order_id: req.params.id, order_status_id: {[Op.gt]: 0}},include: [OrderStatus]});
 
     }catch (e) {
         log.error("Error: " + e.message);
@@ -48,6 +48,23 @@ exports.order_detail = async (req, res, next) => {
         if(result !== null){
             res.json({
                 message: 'Orders find',
+                result_code: 0,
+                data:[result]
+            })
+        }
+    }
+
+};
+exports.order_detail_product = async (req, res, next) => {
+    try {
+        result = await OrderProduct.findAll({where: {order_id: req.params.id}});
+
+    }catch (e) {
+        log.error("Error: " + e.message);
+    }finally {
+        if(result !== null){
+            res.json({
+                message: 'Orders_product find',
                 result_code: 0,
                 data:[result]
             })
