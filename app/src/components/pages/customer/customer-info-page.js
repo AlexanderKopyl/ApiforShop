@@ -5,7 +5,7 @@ import {checkAuthTokenTime} from "../../../shared/auth-service";
 import {customerInfo} from "../../../shared/customer-service";
 import fun from '../../../lib/function'
 
-function CustomerInfo({toggle,state}) {
+function CustomerInfo({toggle,state,update,changeState}) {
 
     const [items, setItems] = useState([]);
 
@@ -55,7 +55,7 @@ function CustomerInfo({toggle,state}) {
                                 </MDBCard>
                             </MDBTabPane>
                             <MDBTabPane tabId="2" role="tabpanel">
-                                <p className="mt-2">
+                                <p className="mt-2" id="test-panel">
                                     Quisquam aperiam, pariatur. Tempora, placeat ratione porro
                                     voluptate odit minima. Lorem ipsum dolor sit amet,
                                     consectetur adipisicing elit. Nihil odit magnam minima,
@@ -70,19 +70,12 @@ function CustomerInfo({toggle,state}) {
                                     molestias.
                                 </p>
                             </MDBTabPane>
-                            <MDBTabPane tabId="3" role="tabpanel">
-                                <p className="mt-2">
-                                    Quisquam aperiam, pariatur. Tempora, placeat ratione porro
-                                    voluptate odit minima. Lorem ipsum dolor sit amet,
-                                    consectetur adipisicing elit. Nihil odit magnam minima,
-                                    soluta doloribus reiciendis molestiae placeat unde eos
-                                    molestias.
-                                </p>
-                            </MDBTabPane>
                         </MDBTabContent>
                     </MDBCol>
                     <MDBCol md="4">
-                        .col-md-4
+                        <div>
+                            <a><span onClick={update}>Поменять данные</span></a>
+                        </div>
                     </MDBCol>
                 </MDBRow>
             </MDBContainer>
