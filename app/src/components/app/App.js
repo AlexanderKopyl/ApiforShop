@@ -7,7 +7,7 @@ import {
     ContactPage,
     LoginPage,
     Orders,
-    CustomerInfo,
+    CustomerPage,
     BalancePage,
     DocumentPage,
     ForgotPage,
@@ -49,7 +49,7 @@ export default function App() {
                         <OrderPageInfo />
                     )}/>
                     <Route path="/customer-info" render={() => (
-                        <CustomerInfo/>
+                        <CustomerPage/>
                     )}/>
                     <Route path="/balance" render={() => (
                         <BalancePage/>
