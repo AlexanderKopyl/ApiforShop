@@ -9,17 +9,22 @@ import fun from '../../lib/function';
 class Header extends Component {
 
     state = {
-        isOpen: false,
-        auth_token:fun.getItem('auth_token')
+        isOpen: false
     };
 
+
+    loggOut = () => {
+        localStorage.clear();
+    };
 
     toggleCollapse = () => {
         this.setState({isOpen: !this.state.isOpen});
     };
 
     render() {
-        const { auth_token } = this.state;
+        const auth_token  = fun.getItem('auth_token');
+
+
         let isAuth ;
 
         isAuth = !(auth_token === 'null' || auth_token === null);
@@ -51,7 +56,8 @@ class Header extends Component {
                         </MDBNavbarNav>
                         <MDBNavbarNav right>
                             <MDBNavItem>
-                                {isAuth ? <MDBNavLink to="/logout" className="logout-link"><MDBIcon icon="user"/>Выйти</MDBNavLink> :''}                            </MDBNavItem>
+                                {isAuth ? <MDBNavLink to='/' onClick={this.loggOut} className="logout-link"><MDBIcon icon="user"/>Выйти</MDBNavLink> :''}
+                            </MDBNavItem>
                         </MDBNavbarNav>
                     </MDBCollapse>
                 </MDBContainer>

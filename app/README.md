@@ -66,3 +66,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Error with bable `npm add @babel/runtime`
+
+If you have 
+Cannot find module babel-preset-react-app/node_modules/@babel/runtime/helpers/slicedToArray

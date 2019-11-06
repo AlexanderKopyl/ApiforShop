@@ -1,24 +1,13 @@
 let {config: {prefix}} = require('../../config/server.config');
 module.exports = (sequelize, type) => {
-    return sequelize.define(`${prefix}order`, {
+    return sequelize.define(`${prefix}order_status`, {
         // customer_id:type.INTEGER,
-        order_id: {
+        order_status_id: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        firstname: type.STRING,
-        lastname: type.STRING,
-        email: type.STRING,
-        date_added: type.DATE,
-        order_status_id: type.INTEGER,
-        telephone: type.STRING,
-        total: type.INTEGER,
-        payment_zone: type.STRING,
-        payment_method: type.STRING,
-        shipping_method: type.STRING,
-        comment: type.TEXT
-
+        name: type.STRING,
 
     },{
         timestamps: false,
@@ -28,6 +17,6 @@ module.exports = (sequelize, type) => {
         freezeTableName: true,
 
         // define the table's name
-        tableName: `${prefix}order`
+        tableName: `${prefix}order_status`
     })
 };

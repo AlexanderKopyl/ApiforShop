@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Header from '../header';
 import Footer from '../footer';
-import fun from '../../lib/function'
 
 import {
     ContactPage,
@@ -12,6 +11,7 @@ import {
     BalancePage,
     DocumentPage,
     ForgotPage,
+    OrderPageInfo,
     MainPage
 } from "../pages";
 
@@ -19,13 +19,15 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
-import {BrowserRouter as Router, Switch, Route,Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 export default function App() {
 
     const forgotPass = () => {
         console.log('Send new password');
     };
+
+
 
     return (
 
@@ -40,8 +42,11 @@ export default function App() {
                     <Route path="/contact" render={() => (
                         <ContactPage/>
                     )}/>
-                    <Route path="/orders" render={() => (
+                    <Route path="/orders" exact render={() => (
                         <Orders/>
+                    )}/>
+                    <Route path="/orders/:id" render={() => (
+                        <OrderPageInfo />
                     )}/>
                     <Route path="/customer-info" render={() => (
                         <CustomerInfo/>

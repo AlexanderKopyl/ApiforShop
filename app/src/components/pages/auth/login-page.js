@@ -1,43 +1,30 @@
 import React, {Component} from "react";
 import LoginForm from './login-form'
 import {withRouter} from 'react-router-dom';
-import config from '../../../app.config'
+import {signIn} from '../../../shared/auth-service'
 import fun from '../../../lib/function'
 
-export default withRouter(class LoginPage extends Component{
+export default withRouter(class LoginPage extends Component {
 
     state = {
         email: "",
-        password:"",
+        password: "",
         isLoggedIn: false,
-        auth_token:fun.getItem('auth_token')
+        auth_token: fun.getItem('auth_token')
     };
 
 
-
     onLogin = () => {
-        const fetchItem = async (login, password) => {
-            const fetchItem = await fetch(`${config.url}customers/${login}/${password}`);
-            return await fetchItem.json();
-        };
 
-        fetchItem(this.state.email, this.state.password)
-            .then((r) =>
-            {
+        const {email,password} = this.state;
 
-                if (r[0].token !== null){
-                    this.setState({
-                        isLoggedIn: true
-                    });
-
-                    fun.setItem('auth_token',r[0].token);
-                    fun.setItem('user_id',r[0].user.customer_id);
-                }else{
-                    fun.setItem('auth_token',r[0].token);
-
-                }
+        signIn({login:email,password}).then((r)=>{
+            if(r){
+                this.setState({
+                    isLoggedIn: true
+                });
             }
-            );
+        });
 
     };
 
@@ -48,13 +35,13 @@ export default withRouter(class LoginPage extends Component{
     };
 
     changeHandler = event => {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({[event.target.name]: event.target.value});
     };
 
     render() {
-
         return (
-            <LoginForm isLoggedIn={this.state.isLoggedIn} onLogin={this.onLogin} changeHandler={this.changeHandler} submitHandler={this.submitHandler}/>
+            <LoginForm isLoggedIn={this.state.isLoggedIn} onLogin={this.onLogin} changeHandler={this.changeHandler}
+                       submitHandler={this.submitHandler}/>
         );
     }
 
