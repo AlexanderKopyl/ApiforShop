@@ -58,13 +58,7 @@ const OrderPageInfo = ({match}) => {
         fetchItems();
     },[match]);
 
-
-
     const auth_token = fun.getItem('auth_token');
-
-
-
-
 
     if (auth_token === 'null' || auth_token === null) {
         return (

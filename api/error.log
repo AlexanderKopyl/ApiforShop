@@ -1,0 +1,3 @@
+[2019-11-05T17:27:07.900] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-06T09:44:59.248] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-06T09:46:59.983] [ERROR] order - Error: connect ECONNREFUSED 127.0.0.1:3306
