@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import LoginForm from './login-form'
 import {withRouter} from 'react-router-dom';
-import {signIn} from '../../../shared/auth-service'
+import {authService} from '../../../shared/auth-service'
 import fun from '../../../lib/function'
 
 export default withRouter(class LoginPage extends Component {
@@ -18,7 +18,7 @@ export default withRouter(class LoginPage extends Component {
 
         const {email,password} = this.state;
 
-        signIn({login:email,password}).then((r)=>{
+        authService.signIn({login:email,password}).then((r)=>{
             if(r){
                 this.setState({
                     isLoggedIn: true

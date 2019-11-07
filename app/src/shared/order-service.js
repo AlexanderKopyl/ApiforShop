@@ -1,62 +1,58 @@
+import React from "react";
+import {Link} from "react-router-dom";
+import {MDBBtn, MDBIcon} from "mdbreact";
 import config from '../app.config'
 import fun from "../lib/function";
 
-const user_id = fun.getItem('user_id');
-
-export const orders = async () => {
-    const data = await fetch(`${config.url}orders/customer/${user_id}`, {
-        headers: {
-            'Authorization': 'Bearer ' + fun.getItem('auth_token')
-        }
-    });
-    return await data.json();
-};
-
-export const orders_products = async (order_id) => {
-    const data = await fetch(`${config.url}orders/order_products/${order_id}`, {
-        headers: {
-            'Authorization': 'Bearer ' + fun.getItem('auth_token')
-        }
-    });
-    return await data.json();
-};
-
-export const orderInfo = async (match) => {
-
-    const data = await fetch(`${config.url}orders/${match.params.id}`, {
-        headers: {
-            'Authorization': 'Bearer ' + fun.getItem('auth_token')
-        }
-    });
-
-    return await data.json();
-};
-
-
 class OrderService {
-    constructor(url) {
-        this.url = url
+    constructor(url,user_id) {
+        this.url = url;
+        this.user_id = user_id;
     }
 
-    async getAll() {
+    async getAllOrdersForUser() {
         try {
-            const res = await fetch(`${this.url}orders/order_products/${order_id}`, {
-                headers: {'Authorization': 'Bearer ' + fun.getItem('auth_token')}
+            const data = await fetch(`${this.url}orders/customer/${this.user_id}`, {
+                headers: {
+                    'Authorization': 'Bearer ' + fun.getItem('auth_token')
+                }
             });
-            return res.json()
+            let items = await data.json();
+            let items_to_table = [];
+
+            items.result.forEach((elem) =>{
+                const {order_id, firstname, lastname, email, date_added, oc_order_status: {name}, telephone, total} = elem;
+                const arrayToTable = {
+                    order_id,
+                    firstname,
+                    lastname,
+                    email,
+                    date_added,
+                    order_status:name,
+                    telephone,
+                    total,
+                    action:<Link to={`/orders/${elem.order_id}`}>
+                        <MDBBtn color="purple" size="sm"><MDBIcon icon="eye" /></MDBBtn>
+                    </Link>
+                };
+                items_to_table.push(arrayToTable);
+            });
+
+            return items_to_table;
         } catch (e) {
             throw  new Error(e)
         }
     }
 
-    async getId(id) {
+    async getAllProductToOrderById(id) {
         try {
-            const res = await fetch(`${this.url}orders/order_products/${id}`, {
+            const data = await fetch(`${this.url}orders/order_products/${id}`, {
                 headers: {
                     'Authorization': 'Bearer ' + fun.getItem('auth_token')
                 }
             });
-            return res.json();
+
+            return await data.json();
         } catch (e) {
             throw  new Error(e)
         }
@@ -64,22 +60,44 @@ class OrderService {
 
     async getInfo(match) {
         try {
-            const res = await fetch(`${this.url}orders/${match.params.id}`, {
+            const result = await fetch(`${this.url}orders/${match.params.id}`, {
                 headers: {
                     'Authorization': 'Bearer ' + fun.getItem('auth_token')
                 }
             });
 
-            return res.json();
+            let items_to_table = [];
+
+            let {data} = await result.json();
+            let {data:data_products} = await this.getAllProductToOrderById(match.params.id);
+
+            data.forEach((elem) => {
+                const {firstname,comment,payment_zone,shipping_method,payment_method, lastname, email, date_added, oc_order_status: {name}, telephone, total} = elem;
+                let date = new Date(date_added);
+
+                const arrayToTable = {
+                    products:data_products,
+                    payment_zone,
+                    shipping_method,
+                    payment_method,
+                    comment,
+                    firstname,
+                    lastname,
+                    email,
+                    date_added:fun.formatDate(date),
+                    order_status: name,
+                    telephone,
+                    total,
+                };
+                items_to_table.push(arrayToTable);
+            });
+            return items_to_table;
         } catch (e) {
             throw  new Error(e)
         }
     }
 }
 
-import {url} from '../app.config';
 
-export const orderService = new OrderService(url);
-// orderService.getAll().then(res=>console.log(res));
-// orderService.getId(12).then(res=>console.log(res));
-// orderService.getInfo('match').then(res=>console.log(res));
+
+export const orderService = new OrderService(config.url,config.user_id);

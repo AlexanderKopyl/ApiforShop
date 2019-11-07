@@ -1,21 +1,23 @@
 import React, {useEffect} from 'react';
 import {MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn, MDBInput, MDBContainer} from "mdbreact";
 import { Redirect,withRouter } from 'react-router-dom';
-import {checkAuthTokenTime} from "../../../shared/auth-service";
+import {authService} from "../../../shared/auth-service";
 import fun from "../../../lib/function";
 
 const ContactPageForm = ({sendMessage, changeHandler}) => {
 
     useEffect(() => {
+        const user_func = async ()=>{
+            await authService.checkAuthTokenTime();
+        };
+
         user_func();
-    });
+    },[]);
 
     const auth_token = fun.getItem('auth_token');
 
 
-    const user_func = async ()=>{
-        await checkAuthTokenTime();
-    };
+
 
     if(auth_token === 'null' || auth_token === null){
         return (

@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { MDBContainer, MDBRow, MDBCol,MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink,MDBCard, MDBListGroup, MDBListGroupItem } from "mdbreact";
 import {Redirect, withRouter} from 'react-router-dom';
-import {checkAuthTokenTime} from "../../../shared/auth-service";
-import {customerInfo} from "../../../shared/customer-service";
+import {authService} from "../../../shared/auth-service";
+import {customerService} from "../../../shared/customer-service";
 import fun from '../../../lib/function'
 
-function CustomerInfo({toggle,state}) {
+function CustomerInfo({toggle,state,update,changeState}) {
 
     const [items, setItems] = useState([]);
 
@@ -14,9 +14,9 @@ function CustomerInfo({toggle,state}) {
     useEffect(() => {
         const fetchItems = async () => {
 
-            await checkAuthTokenTime();
+            await authService.checkAuthTokenTime();
             const items_to_table = [];
-            const result = await customerInfo();
+            const result = await customerService.getInfo();
             console.log(result);
             setItems(items_to_table);
         };
@@ -55,7 +55,7 @@ function CustomerInfo({toggle,state}) {
                                 </MDBCard>
                             </MDBTabPane>
                             <MDBTabPane tabId="2" role="tabpanel">
-                                <p className="mt-2">
+                                <p className="mt-2" id="test-panel">
                                     Quisquam aperiam, pariatur. Tempora, placeat ratione porro
                                     voluptate odit minima. Lorem ipsum dolor sit amet,
                                     consectetur adipisicing elit. Nihil odit magnam minima,
@@ -70,19 +70,12 @@ function CustomerInfo({toggle,state}) {
                                     molestias.
                                 </p>
                             </MDBTabPane>
-                            <MDBTabPane tabId="3" role="tabpanel">
-                                <p className="mt-2">
-                                    Quisquam aperiam, pariatur. Tempora, placeat ratione porro
-                                    voluptate odit minima. Lorem ipsum dolor sit amet,
-                                    consectetur adipisicing elit. Nihil odit magnam minima,
-                                    soluta doloribus reiciendis molestiae placeat unde eos
-                                    molestias.
-                                </p>
-                            </MDBTabPane>
                         </MDBTabContent>
                     </MDBCol>
                     <MDBCol md="4">
-                        .col-md-4
+                        <div>
+                            <a><span onClick={update}>Поменять данные</span></a>
+                        </div>
                     </MDBCol>
                 </MDBRow>
             </MDBContainer>
