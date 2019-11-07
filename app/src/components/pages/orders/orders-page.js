@@ -1,47 +1,28 @@
 import React, {useState, useEffect} from 'react';
-import {MDBBtn,MDBIcon,MDBContainer, MDBDataTable} from 'mdbreact';
-import {Redirect, withRouter,Link} from 'react-router-dom';
-import {checkAuthTokenTime} from "../../../shared/auth-service";
-import {orders} from "../../../shared/order-service";
+import {MDBContainer, MDBDataTable} from 'mdbreact';
+import {Redirect, withRouter} from 'react-router-dom';
+import {authService} from "../../../shared/auth-service";
+import {orderService} from "../../../shared/order-service";
 import fun from '../../../lib/function'
 
 
 const DatatablePage = () => {
 
+    const [items, setItems] = useState([]);
+
     useEffect(() => {
         const fetchItems = async () => {
 
-            await checkAuthTokenTime();
-            const items_to_table = [];
-            const items = await orders();
-            items.result.forEach((elem) =>{
-                const {order_id, firstname, lastname, email, date_added, oc_order_status: {name}, telephone, total} = elem;
-                const arrayToTable = {
-                    order_id,
-                    firstname,
-                    lastname,
-                    email,
-                    date_added,
-                    order_status:name,
-                    telephone,
-                    total,
-                    action:<Link to={`/orders/${elem.order_id}`}>
-                        <MDBBtn color="purple" size="sm"><MDBIcon icon="eye" /></MDBBtn>
-                    </Link>
-                };
-                items_to_table.push(arrayToTable);
-            });
-            setItems(items_to_table);
+            await authService.checkAuthTokenTime();
+
+            const items = await orderService.getAllOrdersForUser();
+
+            setItems(items);
         };
         fetchItems();
     }, []);
 
-    const [items, setItems] = useState([]);
-
     const auth_token = fun.getItem('auth_token');
-
-
-
 
     const data = {
         columns: [

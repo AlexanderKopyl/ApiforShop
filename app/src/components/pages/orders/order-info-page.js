@@ -14,46 +14,23 @@ import {
 } from "mdbreact";
 import "./order.css";
 import {Redirect, withRouter, Link} from 'react-router-dom';
-import {checkAuthTokenTime} from "../../../shared/auth-service";
-import {orderInfo, orders_products} from "../../../shared/order-service";
+import {authService} from "../../../shared/auth-service";
+import {orderService} from "../../../shared/order-service";
 import fun from '../../../lib/function'
 
 
 const OrderPageInfo = ({match}) => {
-
-
 
     const [items, setItems] = useState([]);
 
     useEffect(() => {
         const fetchItems = async () => {
 
-            await checkAuthTokenTime();
-            const items_to_table = [];
-            const {data} = await orderInfo(match);
-            const {data:data_products} = await orders_products(data[0].order_id);
+            await authService.checkAuthTokenTime();
 
-            data.forEach((elem) => {
-                const {firstname,comment,payment_zone,shipping_method,payment_method, lastname, email, date_added, oc_order_status: {name}, telephone, total} = elem;
-                let date = new Date(date_added);
+            const items = await orderService.getInfo(match);
 
-                const arrayToTable = {
-                    products:data_products,
-                    payment_zone,
-                    shipping_method,
-                    payment_method,
-                    comment,
-                    firstname,
-                    lastname,
-                    email,
-                    date_added:fun.formatDate(date),
-                    order_status: name,
-                    telephone,
-                    total,
-                };
-                items_to_table.push(arrayToTable);
-            });
-            setItems(items_to_table);
+            setItems(items);
         };
         fetchItems();
     },[match]);

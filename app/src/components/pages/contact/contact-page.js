@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import ContactPageForm from './contact-page-form'
 import {withRouter} from 'react-router-dom';
-import {checkAuthTokenTime} from '../../../shared/auth-service'
+import {authService} from '../../../shared/auth-service'
 
 
 export default withRouter(class ContactPage extends Component {
@@ -15,7 +15,7 @@ export default withRouter(class ContactPage extends Component {
 
 
     sendMessage = async () => {
-        await checkAuthTokenTime();
+        await authService.checkAuthTokenTime();
         console.log(this.state);
     };
 

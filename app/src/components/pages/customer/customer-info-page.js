@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { MDBContainer, MDBRow, MDBCol,MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink,MDBCard, MDBListGroup, MDBListGroupItem } from "mdbreact";
 import {Redirect, withRouter} from 'react-router-dom';
-import {checkAuthTokenTime} from "../../../shared/auth-service";
-import {customerInfo} from "../../../shared/customer-service";
+import {authService} from "../../../shared/auth-service";
+import {customerService} from "../../../shared/customer-service";
 import fun from '../../../lib/function'
 
 function CustomerInfo({toggle,state,update,changeState}) {
@@ -14,9 +14,9 @@ function CustomerInfo({toggle,state,update,changeState}) {
     useEffect(() => {
         const fetchItems = async () => {
 
-            await checkAuthTokenTime();
+            await authService.checkAuthTokenTime();
             const items_to_table = [];
-            const result = await customerInfo();
+            const result = await customerService.getInfo();
             console.log(result);
             setItems(items_to_table);
         };
