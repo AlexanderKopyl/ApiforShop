@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {MDBDataTable, MDBContainer} from 'mdbreact';
 import {ExportCSV} from '../buttons/exports';
-import {Redirect,withRouter} from 'react-router-dom';
+import {Redirect, withRouter} from 'react-router-dom';
 import {authService} from '../../shared/auth-service'
 import {customerService} from "../../shared/customer-service";
 import fun from "../../lib/function";
+import Header from "../header";
+import Footer from "../footer";
 
 
 const BalancePage = () => {
@@ -25,12 +27,10 @@ const BalancePage = () => {
     }, []);
 
 
-
     const auth_token = fun.getItem('auth_token');
 
 
-
-    if(auth_token === 'null' || auth_token === null){
+    if (auth_token === 'null' || auth_token === null) {
         return (
             <Redirect to="/login"/>
         )
@@ -61,15 +61,19 @@ const BalancePage = () => {
     };
 
     return (
-        <MDBContainer>
-            <ExportCSV csvData={items} fileName={"balance"}/>
-            <MDBDataTable
-                striped
-                bordered
-                hover
-                data={data}
-            />
-        </MDBContainer>
+        <div className="box-page">
+            <Header/>
+            <MDBContainer>
+                <ExportCSV csvData={items} fileName={"balance"}/>
+                <MDBDataTable
+                    striped
+                    bordered
+                    hover
+                    data={data}
+                />
+            </MDBContainer>
+            <Footer/>
+        </div>
     );
 };
 

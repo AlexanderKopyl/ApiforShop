@@ -4,6 +4,8 @@ import {Redirect, withRouter} from 'react-router-dom';
 import {authService} from "../../../shared/auth-service";
 import {orderService} from "../../../shared/order-service";
 import fun from '../../../lib/function'
+import Header from "../../header";
+import Footer from "../../footer";
 
 
 const DatatablePage = () => {
@@ -93,15 +95,18 @@ const DatatablePage = () => {
 
 
     return (
-
-        <MDBContainer>
-            <MDBDataTable
-                striped
-                bordered
-                hover
-                data={data}
-            />
-        </MDBContainer>
+        <div className="box-page">
+            <Header/>
+            <MDBContainer>
+                <MDBDataTable
+                    striped
+                    bordered
+                    hover
+                    data={data}
+                />
+            </MDBContainer>
+            <Footer/>
+        </div>
     );
 };
 

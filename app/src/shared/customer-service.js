@@ -16,8 +16,8 @@ class CustomerService {
                     'Authorization': 'Bearer ' + fun.getItem('auth_token')
                 }
             });
-
-            return await data.json();
+            let {result} = await data.json();
+            return [result] ;
         } catch (e) {
             throw  new Error(e)
         }

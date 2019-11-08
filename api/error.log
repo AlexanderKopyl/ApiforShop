@@ -1,9 +1,14 @@
 [2019-11-05T17:27:07.900] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
 [2019-11-06T09:44:59.248] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
 [2019-11-06T09:46:59.983] [ERROR] order - Error: connect ECONNREFUSED 127.0.0.1:3306
+<<<<<<< HEAD
 [2019-11-06T11:27:17.032] [ERROR] customer - Customer: dont find in function customer_login
 [2019-11-06T11:27:25.143] [ERROR] customer - refreshToken is null status code 401
 [2019-11-06T11:27:26.029] [ERROR] customer - refreshToken is null status code 401
 [2019-11-06T11:27:26.667] [ERROR] customer - refreshToken is null status code 401
 [2019-11-06T11:27:27.434] [ERROR] customer - refreshToken is null status code 401
 [2019-11-06T11:27:28.284] [ERROR] customer - refreshToken is null status code 401
+=======
+[2019-11-07T14:01:03.791] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-07T14:01:26.613] [ERROR] order - Error: connect ECONNREFUSED 127.0.0.1:3306
+>>>>>>> Do customer-info page

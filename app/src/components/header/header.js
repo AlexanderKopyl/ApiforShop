@@ -9,11 +9,12 @@ import fun from '../../lib/function';
 class Header extends Component {
 
     state = {
+        isAuth:fun.getItem('auth_token'),
         isOpen: false
     };
 
-
     loggOut = () => {
+        this.setState({isAuth: false});
         localStorage.clear();
     };
 
@@ -28,7 +29,6 @@ class Header extends Component {
         let isAuth ;
 
         isAuth = !(auth_token === 'null' || auth_token === null);
-
         return (
             <MDBNavbar color="default-color" dark expand="md" className="mb-5">
                 <MDBContainer>

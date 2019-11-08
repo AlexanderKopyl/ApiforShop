@@ -1,8 +1,5 @@
 import React from 'react';
 import './App.css';
-import Header from '../header';
-import Footer from '../footer';
-
 import {
     ContactPage,
     LoginPage,
@@ -34,7 +31,6 @@ export default function App() {
         <Router>
 
             <div className="App">
-                <Header/>
                 <Switch>
                     <Route path='/' exact render={() => (
                         <MainPage/>
@@ -60,11 +56,9 @@ export default function App() {
                     <Route path="/forgot" render={() => (
                         <ForgotPage forgotPass={forgotPass}/>
                     )}/>
-
                     <Route path="/login" component={LoginPage}/>
                     <Route render={() => <h2>Page not found</h2>}/>
                 </Switch>
-                <Footer/>
             </div>
         </Router>
 
