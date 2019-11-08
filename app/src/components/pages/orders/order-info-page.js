@@ -17,6 +17,8 @@ import {Redirect, withRouter, Link} from 'react-router-dom';
 import {authService} from "../../../shared/auth-service";
 import {orderService} from "../../../shared/order-service";
 import fun from '../../../lib/function'
+import Footer from "../../footer";
+import Header from "../../header";
 
 
 const OrderPageInfo = ({match}) => {
@@ -44,6 +46,8 @@ const OrderPageInfo = ({match}) => {
     }
 
     return (
+        <div className="box-page">
+            <Header/>
         <MDBContainer>
             <MDBRow>
                 <MDBCol md="12"  sm="12" lg="4" >
@@ -119,6 +123,8 @@ const OrderPageInfo = ({match}) => {
                 </MDBBtn>
             </Link>
         </MDBContainer>
+            <Footer/>
+        </div>
     );
 };
 
