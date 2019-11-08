@@ -16,3 +16,12 @@
 =======
 [2019-11-08T12:38:57.740] [ERROR] customer - refreshToken is null status code 401
 >>>>>>> Do customer-info page
+[2019-11-08T15:37:37.155] [ERROR] app - Not Found
+[2019-11-08T15:37:38.334] [ERROR] app - Not Found
+[2019-11-08T15:41:44.058] [ERROR] app - ENOENT: no such file or directory, stat 'C:\Рабочая Папка\OpenServer\OSPanel\domains\ApiforShop\api\build\index.html'
+[2019-11-08T15:42:05.913] [ERROR] app - ENOENT: no such file or directory, stat 'C:\Рабочая Папка\OpenServer\OSPanel\domains\ApiforShop\api\build\index.html'
+[2019-11-08T15:51:22.697] [ERROR] customer - refreshToken is null status code 401
+[2019-11-08T15:53:58.195] [ERROR] customer - Customer: null dont find in function customer_detail
+[2019-11-08T15:54:32.118] [ERROR] customer - Customer: null dont find in function customer_detail
+[2019-11-08T15:54:44.439] [ERROR] customer - Customer: null dont find in function customer_detail
+[2019-11-08T15:54:46.127] [ERROR] customer - Customer: null dont find in function customer_detail
