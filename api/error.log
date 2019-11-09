@@ -1,27 +1,17 @@
-[2019-11-05T17:27:07.900] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
-[2019-11-06T09:44:59.248] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
-[2019-11-06T09:46:59.983] [ERROR] order - Error: connect ECONNREFUSED 127.0.0.1:3306
-<<<<<<< HEAD
-[2019-11-06T11:27:17.032] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-06T11:27:25.143] [ERROR] customer - refreshToken is null status code 401
-[2019-11-06T11:27:26.029] [ERROR] customer - refreshToken is null status code 401
-[2019-11-06T11:27:26.667] [ERROR] customer - refreshToken is null status code 401
-[2019-11-06T11:27:27.434] [ERROR] customer - refreshToken is null status code 401
-[2019-11-06T11:27:28.284] [ERROR] customer - refreshToken is null status code 401
-=======
-[2019-11-07T14:01:03.791] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
-[2019-11-07T14:01:26.613] [ERROR] order - Error: connect ECONNREFUSED 127.0.0.1:3306
-<<<<<<< HEAD
->>>>>>> Do customer-info page
-=======
-[2019-11-08T12:38:57.740] [ERROR] customer - refreshToken is null status code 401
->>>>>>> Do customer-info page
-[2019-11-08T15:37:37.155] [ERROR] app - Not Found
-[2019-11-08T15:37:38.334] [ERROR] app - Not Found
-[2019-11-08T15:41:44.058] [ERROR] app - ENOENT: no such file or directory, stat 'C:\Рабочая Папка\OpenServer\OSPanel\domains\ApiforShop\api\build\index.html'
-[2019-11-08T15:42:05.913] [ERROR] app - ENOENT: no such file or directory, stat 'C:\Рабочая Папка\OpenServer\OSPanel\domains\ApiforShop\api\build\index.html'
-[2019-11-08T15:51:22.697] [ERROR] customer - refreshToken is null status code 401
-[2019-11-08T15:53:58.195] [ERROR] customer - Customer: null dont find in function customer_detail
-[2019-11-08T15:54:32.118] [ERROR] customer - Customer: null dont find in function customer_detail
-[2019-11-08T15:54:44.439] [ERROR] customer - Customer: null dont find in function customer_detail
-[2019-11-08T15:54:46.127] [ERROR] customer - Customer: null dont find in function customer_detail
+[2019-11-09T14:53:31.557] [ERROR] app - Not Found
+[2019-11-09T14:54:58.719] [ERROR] app - Cannot read property 'result' of undefined
+[2019-11-09T15:04:59.551] [ERROR] customer - Error: undefined is not a function
+[2019-11-09T15:07:25.984] [ERROR] customer - Error: result.then is not a function
+[2019-11-09T15:10:50.202] [ERROR] app - undefined is not a function
+[2019-11-09T15:12:39.370] [ERROR] app - undefined is not a function
+[2019-11-09T15:15:41.932] [ERROR] app - undefined is not a function
+[2019-11-09T15:27:49.927] [ERROR] app - Cannot read property 'result' of undefined
+[2019-11-09T15:29:57.331] [ERROR] app - Cannot read property 'result' of undefined
+[2019-11-09T15:31:09.175] [ERROR] app - Cannot read property 'result' of undefined
+[2019-11-09T15:35:53.062] [ERROR] app - Cannot read property 'result' of undefined
+[2019-11-09T15:36:59.029] [ERROR] app - Cannot read property 'result' of undefined
+[2019-11-09T15:41:17.940] [ERROR] app - Cannot read property 'result' of undefined
+[2019-11-09T15:41:35.229] [ERROR] app - Cannot read property 'result' of undefined
+[2019-11-09T15:42:24.644] [ERROR] app - Cannot read property 'result' of undefined
+[2019-11-09T15:44:47.703] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-09T15:53:12.441] [ERROR] customer - Customer: 0 dont find in function update_customer

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import CustomerInfo from './customer-info-page'
+import {customerService} from "../../../shared/customer-service";
 import Header from "../../header";
 import Footer from "../../footer";
 
@@ -30,9 +31,17 @@ export default class CustomerPage extends Component {
     };
 
     updateInfo = () => {
-        let elem = document.getElementById('test-panel');
+        let {firstname,lastname,email,telephone} = this.state;
 
-        elem.innerText = 'Work';
+        customerService.updateCutomer({firstname,lastname,email,telephone})
+            .then((r) =>
+                {
+                    if (!r[1]){
+                        window.location.reload();
+                    }
+                }
+
+            )
     };
 
     changeState = event => {

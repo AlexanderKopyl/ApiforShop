@@ -22,7 +22,7 @@ module.exports = {
             // Next middleware
             jwt.verify(req.token, 'secretkey', (err, authData) => {
                 if (err) {
-                    log.warn('Error in valid jwt.verify and user ' + authData.result.customer_id);
+                    // log.warn('Error in valid jwt.verify and user ' + authData.result.customer_id);
                     res.json({
                         message: 'Request not valid',
                         result_code: 404,
