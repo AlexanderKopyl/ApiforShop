@@ -4,7 +4,7 @@ POST http://localhost:3001/api/customers/login
 Content-Type: application/json
 
 {
-  "login": "alexsander11115@gmail.com" ,
+  "login": "sales@petz.com.ua" ,
   "password": "123456"
 }
 
