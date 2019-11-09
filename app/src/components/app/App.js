@@ -1,14 +1,10 @@
 import React from 'react';
 import './App.css';
-import Header from '../header';
-import Footer from '../footer';
-import fun from '../../lib/function'
-
 import {
     ContactPage,
     LoginPage,
     Orders,
-    CustomerInfo,
+    CustomerPage,
     BalancePage,
     DocumentPage,
     ForgotPage,
@@ -20,7 +16,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 
-import {BrowserRouter as Router, Switch, Route,Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 export default function App() {
 
@@ -35,7 +31,6 @@ export default function App() {
         <Router>
 
             <div className="App">
-                <Header/>
                 <Switch>
                     <Route path='/' exact render={() => (
                         <MainPage/>
@@ -50,7 +45,7 @@ export default function App() {
                         <OrderPageInfo />
                     )}/>
                     <Route path="/customer-info" render={() => (
-                        <CustomerInfo/>
+                        <CustomerPage/>
                     )}/>
                     <Route path="/balance" render={() => (
                         <BalancePage/>
@@ -61,11 +56,9 @@ export default function App() {
                     <Route path="/forgot" render={() => (
                         <ForgotPage forgotPass={forgotPass}/>
                     )}/>
-
                     <Route path="/login" component={LoginPage}/>
                     <Route render={() => <h2>Page not found</h2>}/>
                 </Switch>
-                <Footer/>
             </div>
         </Router>
 

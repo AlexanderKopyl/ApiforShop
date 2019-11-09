@@ -1,5 +1,5 @@
 const {Op, fn, col} = require('sequelize');
-const {Customer} = require('../models/db');
+const {Customer,CustomerReward} = require('../models/db');
 let md5 = require('js-md5');
 let jwt = require('jsonwebtoken');
 const fun = require('../lib/function');
@@ -24,7 +24,7 @@ exports.customer_list = async (req, res, next) => {
     });
 };
 
-// Показать подробную страницу для данного клиента.
+
 exports.customer_detail = async (req, res, next) => {
     try{
         result = await Customer.findOne({where: {customer_id: req.params.id}});
@@ -51,7 +51,33 @@ exports.customer_detail = async (req, res, next) => {
 
 };
 
-// Авторизация клиента.
+
+exports.customer_reward_detail = async (req, res, next) => {
+    try{
+        result = await CustomerReward.findAll({where: {customer_id: req.params.id}});
+    }catch (e) {
+        log.error('Error: '+e.message);
+    }
+    finally {
+        if (result !== null) {
+            res.json({
+                message: 'Customer reward find',
+                result_code: 0,
+                result
+            });
+        }else {
+            log.error("Customer: " + req.params.id + " dont find in function customer_detail");
+            res.json([{
+                message: 'Customer reward dont find',
+                result_code: 404,
+                result
+            }]);
+        }
+
+    }
+
+};
+
 exports.customer_login = async (req, res, next) => {
 
     try {
@@ -96,7 +122,7 @@ exports.customer_login = async (req, res, next) => {
     }
 
 };
-
+//hello
 exports.token = (req, res, next) => {
 
     const refreshToken = req.body.token;

@@ -1,22 +1,27 @@
-[2019-11-04T13:47:21.141] [ERROR] db - Error name: SequelizeConnectionRefusedErrorAddress: undefinedPort: undefinedSyscall: undefined
-[2019-11-04T13:48:58.031] [ERROR] db - Error name: SequelizeConnectionRefusedErrorAddress: 127.0.0.1Port: 3306Syscall: connect
-[2019-11-04T13:49:13.907] [ERROR] db - Error name: SequelizeConnectionRefusedErrorAddress: 127.0.0.1Port: 3306Syscall: connect
-[2019-11-04T13:49:38.874] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
-[2019-11-04T14:03:54.590] [ERROR] customer - Customer: 0dont find
-[2019-11-04T14:15:14.215] [ERROR] customer - Customer: 0 dont find
-[2019-11-04T14:34:25.508] [ERROR] db - Error name: SequelizeAccessDeniedError Address: undefined Port: undefined Syscall: undefined
-[2019-11-04T18:41:43.768] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T18:41:45.768] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T18:41:58.450] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T18:42:29.897] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T18:42:45.502] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T18:43:49.134] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T18:44:02.426] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T18:44:35.535] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T18:45:04.197] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T18:46:35.333] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T18:47:41.434] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T19:08:06.232] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T19:08:17.310] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T19:08:53.001] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-04T19:08:55.991] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-05T17:27:07.900] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-06T09:44:59.248] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-06T09:46:59.983] [ERROR] order - Error: connect ECONNREFUSED 127.0.0.1:3306
+<<<<<<< HEAD
+[2019-11-06T11:27:17.032] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-06T11:27:25.143] [ERROR] customer - refreshToken is null status code 401
+[2019-11-06T11:27:26.029] [ERROR] customer - refreshToken is null status code 401
+[2019-11-06T11:27:26.667] [ERROR] customer - refreshToken is null status code 401
+[2019-11-06T11:27:27.434] [ERROR] customer - refreshToken is null status code 401
+[2019-11-06T11:27:28.284] [ERROR] customer - refreshToken is null status code 401
+=======
+[2019-11-07T14:01:03.791] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-07T14:01:26.613] [ERROR] order - Error: connect ECONNREFUSED 127.0.0.1:3306
+<<<<<<< HEAD
+>>>>>>> Do customer-info page
+=======
+[2019-11-08T12:38:57.740] [ERROR] customer - refreshToken is null status code 401
+>>>>>>> Do customer-info page
+[2019-11-08T15:37:37.155] [ERROR] app - Not Found
+[2019-11-08T15:37:38.334] [ERROR] app - Not Found
+[2019-11-08T15:41:44.058] [ERROR] app - ENOENT: no such file or directory, stat 'C:\Рабочая Папка\OpenServer\OSPanel\domains\ApiforShop\api\build\index.html'
+[2019-11-08T15:42:05.913] [ERROR] app - ENOENT: no such file or directory, stat 'C:\Рабочая Папка\OpenServer\OSPanel\domains\ApiforShop\api\build\index.html'
+[2019-11-08T15:51:22.697] [ERROR] customer - refreshToken is null status code 401
+[2019-11-08T15:53:58.195] [ERROR] customer - Customer: null dont find in function customer_detail
+[2019-11-08T15:54:32.118] [ERROR] customer - Customer: null dont find in function customer_detail
+[2019-11-08T15:54:44.439] [ERROR] customer - Customer: null dont find in function customer_detail
+[2019-11-08T15:54:46.127] [ERROR] customer - Customer: null dont find in function customer_detail

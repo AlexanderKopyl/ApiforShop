@@ -1,23 +1,28 @@
-import React from "react";
+import React, {useEffect} from 'react';
 import {MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn, MDBInput, MDBContainer} from "mdbreact";
 import { Redirect,withRouter } from 'react-router-dom';
-import fun from "../../lib/function";
+import {authService} from "../../../shared/auth-service";
+import fun from "../../../lib/function";
 
-const ContactPage = () => {
+const ContactPageForm = ({sendMessage, changeHandler}) => {
+
+    useEffect(() => {
+        const user_func = async ()=>{
+            await authService.checkAuthTokenTime();
+        };
+
+        user_func();
+    },[]);
 
     const auth_token = fun.getItem('auth_token');
-    const time_token  = fun.getItem('time_token');
-    const now = new Date().getTime();
+
+
+
 
     if(auth_token === 'null' || auth_token === null){
         return (
             <Redirect to="/login"/>
         )
-    }
-    if(now > time_token){
-        fun.removeItem('auth_token');
-        fun.removeItem('time_token');
-        fun.removeItem('user_id');
     }
 
     return (
@@ -45,8 +50,9 @@ const ContactPage = () => {
                                 </p>
                                 <div className="md-form">
                                     <MDBInput
-                                        icon="user"
                                         label="Your name"
+                                        onChange={changeHandler}
+                                        name="name"
                                         iconClass="grey-text"
                                         type="text"
                                         id="form-name"
@@ -54,8 +60,9 @@ const ContactPage = () => {
                                 </div>
                                 <div className="md-form">
                                     <MDBInput
-                                        icon="envelope"
                                         label="Your email"
+                                        onChange={changeHandler}
+                                        name="email"
                                         iconClass="grey-text"
                                         type="text"
                                         id="form-email"
@@ -63,8 +70,9 @@ const ContactPage = () => {
                                 </div>
                                 <div className="md-form">
                                     <MDBInput
-                                        icon="tag"
                                         label="Subject"
+                                        onChange={changeHandler}
+                                        name="subject"
                                         iconClass="grey-text"
                                         type="text"
                                         id="form-subject"
@@ -72,15 +80,16 @@ const ContactPage = () => {
                                 </div>
                                 <div className="md-form">
                                     <MDBInput
-                                        icon="pencil-alt"
-                                        label="Icon Prefix"
+                                        label="Text"
+                                        onChange={changeHandler}
+                                        name="text"
                                         iconClass="grey-text"
                                         type="textarea"
                                         id="form-text"
                                     />
                                 </div>
                                 <div className="text-center">
-                                    <MDBBtn color="light-blue">Submit</MDBBtn>
+                                    <MDBBtn color="light-blue" onClick={sendMessage}>Submit</MDBBtn>
                                 </div>
                             </MDBCardBody>
                         </MDBCard>
@@ -131,4 +140,4 @@ const ContactPage = () => {
     );
 };
 
-export default withRouter(ContactPage);
+export default withRouter(ContactPageForm);

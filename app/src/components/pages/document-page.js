@@ -1,19 +1,22 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {MDBIcon, MDBContainer, MDBRow, MDBCol} from 'mdbreact';
 import {Redirect,withRouter} from 'react-router-dom';
+import {authService} from '../../shared/auth-service'
 import fun from "../../lib/function";
+import Header from "../header";
+import Footer from "../footer";
 
 const DocumentPage = () => {
 
     const auth_token = fun.getItem('auth_token');
-    const time_token  = fun.getItem('time_token');
-    const now = new Date().getTime();
 
-    if(now > time_token){
-        fun.removeItem('auth_token');
-        fun.removeItem('time_token');
-        fun.removeItem('user_id');
-    }
+    useEffect(() => {
+        const user_func = async ()=>{
+            await authService.checkAuthTokenTime();
+        };
+
+        user_func();
+    },[]);
 
     if(auth_token === 'null' || auth_token === null){
         return (
@@ -22,6 +25,8 @@ const DocumentPage = () => {
     }
 
     return (
+        <div className="box-page">
+            <Header/>
         <MDBContainer>
             <MDBRow>
                 <MDBCol md="3" className="mb-3 mt-3">
@@ -37,6 +42,8 @@ const DocumentPage = () => {
             </MDBRow>
 
         </MDBContainer>
+            <Footer/>
+        </div>
     );
 };
 

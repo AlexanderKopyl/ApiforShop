@@ -1,52 +1,30 @@
 import React, {useState, useEffect} from 'react';
-import {MDBBtn,MDBIcon,MDBContainer, MDBDataTable} from 'mdbreact';
-import {Redirect, withRouter,Link} from 'react-router-dom';
-import {checkAuthTokenTime} from "../../../shared/auth-service";
-import {orders} from "../../../shared/order-service";
+import {MDBContainer, MDBDataTable} from 'mdbreact';
+import {Redirect, withRouter} from 'react-router-dom';
+import {authService} from "../../../shared/auth-service";
+import {orderService} from "../../../shared/order-service";
 import fun from '../../../lib/function'
+import Header from "../../header";
+import Footer from "../../footer";
 
 
 const DatatablePage = () => {
 
+    const [items, setItems] = useState([]);
+
     useEffect(() => {
+        const fetchItems = async () => {
+
+            await authService.checkAuthTokenTime();
+
+            const items = await orderService.getAllOrdersForUser();
+
+            setItems(items);
+        };
         fetchItems();
     }, []);
 
-    const [items, setItems] = useState([]);
-
-    const time_token = fun.getItem('time_token'),
-          auth_token = fun.getItem('auth_token'),
-          now = new Date().getTime();
-
-    if (now > time_token) {
-        localStorage.clear();
-    }
-
-    const fetchItems = async () => {
-
-        const validate = await checkAuthTokenTime();
-        const items_to_table = [];
-        const items = await orders();
-        items.result.forEach((elem) =>{
-            const {order_id, firstname, lastname, email, date_added, oc_order_status: {name}, telephone, total} = elem;
-            const arrayToTable = {
-                order_id,
-                firstname,
-                lastname,
-                email,
-                date_added,
-                order_status:name,
-                telephone,
-                total,
-                action:<Link to={`/orders/${elem.order_id}`}>
-                    <MDBBtn color="purple" size="sm"><MDBIcon icon="eye" /></MDBBtn>
-                </Link>
-            };
-            items_to_table.push(arrayToTable);
-        });
-        setItems(items_to_table);
-    };
-
+    const auth_token = fun.getItem('auth_token');
 
     const data = {
         columns: [
@@ -117,15 +95,18 @@ const DatatablePage = () => {
 
 
     return (
-
-        <MDBContainer>
-            <MDBDataTable
-                striped
-                bordered
-                hover
-                data={data}
-            />
-        </MDBContainer>
+        <div className="box-page">
+            <Header/>
+            <MDBContainer>
+                <MDBDataTable
+                    striped
+                    bordered
+                    hover
+                    data={data}
+                />
+            </MDBContainer>
+            <Footer/>
+        </div>
     );
 };
 
