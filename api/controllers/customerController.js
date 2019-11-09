@@ -1,8 +1,10 @@
 const {Op, fn, col} = require('sequelize');
 const {Customer,CustomerReward} = require('../models/db');
+let {config: {service_mail,user_mail}} = require('../config/server.config');
 let md5 = require('js-md5');
 let jwt = require('jsonwebtoken');
 const fun = require('../lib/function');
+
 
 const log4js = require('log4js');
 log4js.configure({
@@ -14,7 +16,6 @@ const log = log4js.getLogger('customer');
 
 let result = null;
 
-// Показать список всех клиентов.
 exports.customer_list = async (req, res, next) => {
     result = await Customer.findAll();
     res.json({
@@ -165,7 +166,16 @@ exports.update_customer = async (req, res, next) => {
     }
 
 };
-
+// exports.sendMessage = async (req, res, next) =>{
+//     // fun.sendMail(
+//     //     'gmail',
+//     //     "test",
+//     //     "testText"
+//     //     );
+//
+//     res.json({message: 'All work',});
+//
+// };
 exports.token = (req, res, next) => {
 
     const refreshToken = req.body.token;
