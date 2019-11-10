@@ -7,7 +7,6 @@ import Header from "../../header";
 import Footer from "../../footer";
 
 export default withRouter(class ContactPage extends Component {
-
     state = {
         name: "",
         email: "",
@@ -15,10 +14,25 @@ export default withRouter(class ContactPage extends Component {
         text: ""
     };
 
+    reset() {
+        this.setState({
+            name: "",
+            email: "",
+            subject: "",
+            text: ""
+        });
+    }
 
     sendMessage = async () => {
         await authService.checkAuthTokenTime();
         let answer = await mailService.send(this.state);
+        if (answer.code === 200){
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.flash('Your message send', 'success');
+            this.reset();
+        }else{
+            window.flash('record has been created successfully!', 'error');
+        }
         console.log(answer);
     };
 
@@ -30,8 +44,11 @@ export default withRouter(class ContactPage extends Component {
         return (
             <div className="box-page">
                 <Header/>
-                <ContactPageForm sendMessage={this.sendMessage} changeHandler={this.changeHandler}
-                                 submitHandler={this.submitHandler}/>
+                <ContactPageForm
+                    state={this.state}
+                    sendMessage={this.sendMessage}
+                    changeHandler={this.changeHandler}
+                    submitHandler={this.submitHandler}/>
                 <Footer/>
             </div>
         );
