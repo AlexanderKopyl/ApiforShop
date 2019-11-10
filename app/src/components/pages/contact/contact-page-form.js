@@ -4,7 +4,7 @@ import { Redirect,withRouter } from 'react-router-dom';
 import {authService} from "../../../shared/auth-service";
 import fun from "../../../lib/function";
 
-const ContactPageForm = ({sendMessage, changeHandler}) => {
+const ContactPageForm = ({sendMessage, changeHandler,state}) => {
 
     useEffect(() => {
         const user_func = async ()=>{
@@ -52,6 +52,7 @@ const ContactPageForm = ({sendMessage, changeHandler}) => {
                                     <MDBInput
                                         label="Your name"
                                         onChange={changeHandler}
+                                        value={state.name}
                                         name="name"
                                         iconClass="grey-text"
                                         type="text"
@@ -62,6 +63,7 @@ const ContactPageForm = ({sendMessage, changeHandler}) => {
                                     <MDBInput
                                         label="Your email"
                                         onChange={changeHandler}
+                                        value={state.email}
                                         name="email"
                                         iconClass="grey-text"
                                         type="text"
@@ -72,6 +74,7 @@ const ContactPageForm = ({sendMessage, changeHandler}) => {
                                     <MDBInput
                                         label="Subject"
                                         onChange={changeHandler}
+                                        value={state.subject}
                                         name="subject"
                                         iconClass="grey-text"
                                         type="text"
@@ -82,6 +85,7 @@ const ContactPageForm = ({sendMessage, changeHandler}) => {
                                     <MDBInput
                                         label="Text"
                                         onChange={changeHandler}
+                                        value={state.text}
                                         name="text"
                                         iconClass="grey-text"
                                         type="textarea"

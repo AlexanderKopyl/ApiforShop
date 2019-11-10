@@ -1,8 +1,10 @@
 const {Op, fn, col} = require('sequelize');
 const {Customer,CustomerReward} = require('../models/db');
+let {config: {service_mail,admin_mail,user_email_password}} = require('../config/server.config');
 let md5 = require('js-md5');
 let jwt = require('jsonwebtoken');
 const fun = require('../lib/function');
+
 
 const log4js = require('log4js');
 log4js.configure({
@@ -14,7 +16,6 @@ const log = log4js.getLogger('customer');
 
 let result = null;
 
-// Показать список всех клиентов.
 exports.customer_list = async (req, res, next) => {
     result = await Customer.findAll();
     res.json({
@@ -122,7 +123,65 @@ exports.customer_login = async (req, res, next) => {
     }
 
 };
-//hello
+exports.update_customer = async (req, res, next) => {
+
+    try {
+        const [numberOfAffectedRows, affectedRows] = await Customer.update(
+            {
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                email: req.body.email,
+                telephone: req.body.telephone,
+
+            },
+            {
+                where: { customer_id: req.params.id},
+                returning: true, // needed for affectedRows to be populated
+                plain: true,
+        }
+        );
+        result = await Customer.findOne({where: {customer_id: req.params.id}});
+
+    }catch (e) {
+        log.error('Error: '+e.message);
+        res.send(e)
+    }
+
+    finally {
+        if (result !== null) {
+            res.json({
+                message: 'Customer updated',
+                result_code: 0,
+                result
+            });
+        }else {
+            log.error("Customer: " + req.params.id + " dont find in function update_customer");
+            res.json([{
+                message: 'Customer dont updated',
+                result_code: 404,
+                result
+            }]);
+        }
+
+    }
+
+};
+exports.sendMessage = async (req, res, next) =>{
+
+    result = await fun.sendMail(
+        res,
+        service_mail,
+        req.body.email,
+        user_email_password,
+        admin_mail,
+        req.body.subject,
+        `<h1>Имя: ${req.body.name}</h1>
+            <p>Сообщение: ${req.body.text}</p>
+        `
+        );
+    // res.json({answer: result});
+
+};
 exports.token = (req, res, next) => {
 
     const refreshToken = req.body.token;
