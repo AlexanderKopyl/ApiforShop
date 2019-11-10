@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 exports.config = {
   "prefix" : "oc_",
   "db":"apiforshop",
@@ -6,6 +8,6 @@ exports.config = {
   "host": 'localhost',
   "dialect":'mysql',
   "service_mail": 'gmail',
-  "user_mail":"alexsander11115@gmail.com",
-  "user_mail_password":"test_password"
+  "admin_mail":"alexsander11115@gmail.com",
+  "user_email_password": process.env.PASSWORD_EMAIL
 };

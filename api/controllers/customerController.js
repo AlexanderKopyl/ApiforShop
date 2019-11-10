@@ -1,6 +1,6 @@
 const {Op, fn, col} = require('sequelize');
 const {Customer,CustomerReward} = require('../models/db');
-let {config: {service_mail,user_mail}} = require('../config/server.config');
+let {config: {service_mail,admin_mail,user_email_password}} = require('../config/server.config');
 let md5 = require('js-md5');
 let jwt = require('jsonwebtoken');
 const fun = require('../lib/function');
@@ -166,16 +166,22 @@ exports.update_customer = async (req, res, next) => {
     }
 
 };
-// exports.sendMessage = async (req, res, next) =>{
-//     // fun.sendMail(
-//     //     'gmail',
-//     //     "test",
-//     //     "testText"
-//     //     );
-//
-//     res.json({message: 'All work',});
-//
-// };
+exports.sendMessage = async (req, res, next) =>{
+
+    result = await fun.sendMail(
+        res,
+        service_mail,
+        req.body.email,
+        user_email_password,
+        admin_mail,
+        req.body.subject,
+        `<h1>Имя: ${req.body.name}</h1>
+            <p>Сообщение: ${req.body.text}</p>
+        `
+        );
+    // res.json({answer: result});
+
+};
 exports.token = (req, res, next) => {
 
     const refreshToken = req.body.token;

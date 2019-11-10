@@ -4,7 +4,6 @@ let router = express.Router();
 const fun = require('../../lib/function');
 let {sendMessage} = require('../../controllers/customerController');
 
-// router.get('/mail', fun.verifyToken,sendMessage);
-router.get('/', sendMessage);
+router.post('/',fun.verifyToken,sendMessage);
 
 module.exports = router;

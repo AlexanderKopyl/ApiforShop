@@ -47,10 +47,13 @@ module.exports = {
     generateRefreshToken(user,token,expire) {
         return jwt.sign(user, token, {expiresIn: expire});
     },
-    sendMail(service,user,pass,to,subject,text){
+    async sendMail(res,service,user,pass,to,subject,html){
+
         let transporter = nodemailer.createTransport({
             service,
             host: "smtp.gmail.com",
+            port: 587,
+            secure: false,
             auth: {
                 user,
                 pass
@@ -60,14 +63,16 @@ module.exports = {
             from: user,
             to,
             subject,
-            text
+            html
         };
 
-        transporter.sendMail(mailOptions, function(error, info){
+        transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
-                console.log(error);
+                log.error('Error from send mail' + error);
+                res.json({code:404,data:error});
             } else {
-                console.log('Email sent: ' + info.response);
+                // console.log(info);
+                res.json({code:200,data:info});
             }
         });
     }

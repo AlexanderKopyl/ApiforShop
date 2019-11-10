@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import ContactPageForm from './contact-page-form'
 import {withRouter} from 'react-router-dom';
 import {authService} from '../../../shared/auth-service'
+import {mailService} from '../../../shared/mail-service'
 import Header from "../../header";
 import Footer from "../../footer";
 
@@ -17,7 +18,8 @@ export default withRouter(class ContactPage extends Component {
 
     sendMessage = async () => {
         await authService.checkAuthTokenTime();
-        console.log(this.state);
+        let answer = await mailService.send(this.state);
+        console.log(answer);
     };
 
     changeHandler = event => {
