@@ -12,7 +12,7 @@ import {
     MDBListGroup,
     MDBListGroupItem,
     MDBBtn,
-    MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBInputGroup
+    MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBInputGroup, MDBInput
 } from "mdbreact";
 import {Redirect, withRouter} from 'react-router-dom';
 import {authService} from "../../../shared/auth-service";
@@ -47,18 +47,79 @@ function CustomerInfo({toggle, state, update, changeState, setStateFromSevice, m
             <MDBModal isOpen={state.modal} toggle={modal}>
                 <MDBModalHeader toggle={modal}>MDBModal title</MDBModalHeader>
                 <MDBModalBody>
-                    {items.map((r) => (
                         <div key="modal-user">
-                            <MDBInputGroup containerClassName="mb-3" value={r.firstname} prepend="Firstname" size="sm"/>
-                            <MDBInputGroup containerClassName="mb-3" value={r.lastname} prepend="Lastname" size="sm"/>
-                            <MDBInputGroup containerClassName="mb-3" value={r.email} prepend="Email" size="sm"/>
-                            <MDBInputGroup containerClassName="mb-3" value={r.telephone} prepend="Telephone" size="sm"/>
+                            <div key="modal-user">
+                                <MDBInputGroup
+                                    containerClassName="mb-3"
+                                    inputs={
+                                        <>
+                                            <MDBInput
+                                            noTag
+                                                name="firstname"
+                                                onChange={changeState}
+                                                value={state.firstname}
+                                            id="firstname"
+                                            />
+                                        </>
+                                    }
+                                    prepend="FirstName"
+                                    size="sm"
+                                />
+                                <MDBInputGroup
+                                    containerClassName="mb-3"
+                                    inputs={
+                                        <>
+                                            <MDBInput
+                                                noTag
+                                                onChange={changeState}
+                                                name="lastname"
+                                                value={state.lastname}
+                                                id="lastname"
+                                            />
+                                        </>
+                                    }
+
+                                    prepend="LastName"
+
+                                    size="sm"/>
+                                <MDBInputGroup
+                                    containerClassName="mb-3"
+                                    inputs={
+                                        <>
+                                            <MDBInput
+                                                noTag
+                                                onChange={changeState}
+                                                name="email"
+                                                value={state.email}
+                                                id="email"
+                                            />
+                                        </>
+                                    }
+
+                                    prepend="Email"
+                                    size="sm"/>
+                                <MDBInputGroup
+                                    containerClassName="mb-3"
+                                    inputs={
+                                        <>
+                                            <MDBInput
+                                                noTag
+                                                onChange={changeState}
+                                                name="telephone"
+                                                value={state.telephone}
+                                                id="telephone"
+                                            />
+                                        </>
+                                    }
+
+                                    prepend="Telephone"
+                                    size="sm"/>
+                            </div>
                         </div>
-                    ))}
                 </MDBModalBody>
                 <MDBModalFooter>
                     <MDBBtn color="secondary" onClick={modal}>Close</MDBBtn>
-                    <MDBBtn color="primary">Save changes</MDBBtn>
+                    <MDBBtn color="primary" onClick={update}>Save changes</MDBBtn>
                 </MDBModalFooter>
             </MDBModal>
             <MDBRow>

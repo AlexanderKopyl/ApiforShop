@@ -18,6 +18,7 @@ const cors = require('cors');
 let indexRouter = require('./routes/index');
 let orderRouter = require('./routes/order/order');
 let customerRouter = require('./routes/customer/customer');
+let mailRouter = require('./routes/mail/mail');
 
 
 
@@ -65,6 +66,7 @@ app.use(cors());
 
 app.use('/api/orders', orderRouter);
 app.use('/api/customers', customerRouter);
+app.use('/api/mail', mailRouter);
 
 app.get('*', (req,res) =>{
   res.sendFile(path.join(__dirname+'/public/build/index.html'));

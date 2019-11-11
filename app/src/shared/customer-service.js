@@ -22,7 +22,22 @@ class CustomerService {
             throw  new Error(e)
         }
     }
-
+    async updateCutomer(body) {
+        try {
+            const data = await fetch(`${this.url}customers/${this.user_id}`, {
+                method:"PUT",
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                    'Authorization': 'Bearer ' + fun.getItem('auth_token')
+                },
+                body:JSON.stringify(body)
+            });
+            let {result,result_code} = await data.json();
+            return [result,result_code] ;
+        } catch (e) {
+            throw  new Error(e)
+        }
+    }
     async getReward ()  {
         const data = await fetch(`${this.url}customers/reward/${this.user_id}`, {
             headers: {
