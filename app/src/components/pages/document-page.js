@@ -4,7 +4,6 @@ import {Redirect,withRouter} from 'react-router-dom';
 import {authService} from '../../shared/auth-service'
 import fun from "../../lib/function";
 import Header from "../header";
-import Footer from "../footer";
 
 const DocumentPage = () => {
 
@@ -42,7 +41,6 @@ const DocumentPage = () => {
             </MDBRow>
 
         </MDBContainer>
-            <Footer/>
         </div>
     );
 };

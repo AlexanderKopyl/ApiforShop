@@ -6,7 +6,6 @@ import {authService} from '../../shared/auth-service'
 import {customerService} from "../../shared/customer-service";
 import fun from "../../lib/function";
 import Header from "../header";
-import Footer from "../footer";
 
 
 const BalancePage = () => {
@@ -72,7 +71,6 @@ const BalancePage = () => {
                     data={data}
                 />
             </MDBContainer>
-            <Footer/>
         </div>
     );
 };

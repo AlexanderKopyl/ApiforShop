@@ -32,8 +32,9 @@ class CustomerService {
                 },
                 body:JSON.stringify(body)
             });
-            let {result,result_code} = await data.json();
-            return [result,result_code] ;
+            // let {result,result_code} = await data.json();
+            let {error,result_code} = await data.json();
+            return [error,result_code];
         } catch (e) {
             throw  new Error(e)
         }

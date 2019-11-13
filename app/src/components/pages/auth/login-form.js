@@ -2,7 +2,6 @@ import React from "react";
 import {
     MDBRow, MDBCol, MDBBtn, MDBContainer, MDBInput, MDBCard,
     MDBCardBody,
-    MDBModalFooter,
     MDBIcon,
     MDBCardHeader
 } from "mdbreact";
@@ -78,12 +77,6 @@ const LoginForm = ({isLoggedIn, onLogin, changeHandler, submitHandler}) => {
                                         </MDBBtn>
                                     </div>
                                 </form>
-                                <MDBModalFooter>
-                                    <div className="font-weight-light">
-                                        <p>Not a member? Sign Up</p>
-                                        <p>Forgot Password?</p>
-                                    </div>
-                                </MDBModalFooter>
                             </MDBCardBody>
                         </MDBCard>
                     </MDBCol>

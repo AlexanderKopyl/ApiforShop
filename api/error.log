@@ -1,19 +1,17 @@
-[2019-11-09T14:53:31.557] [ERROR] app - Not Found
-[2019-11-09T14:54:58.719] [ERROR] app - Cannot read property 'result' of undefined
-[2019-11-09T15:04:59.551] [ERROR] customer - Error: undefined is not a function
-[2019-11-09T15:07:25.984] [ERROR] customer - Error: result.then is not a function
-[2019-11-09T15:10:50.202] [ERROR] app - undefined is not a function
-[2019-11-09T15:12:39.370] [ERROR] app - undefined is not a function
-[2019-11-09T15:15:41.932] [ERROR] app - undefined is not a function
-[2019-11-09T15:27:49.927] [ERROR] app - Cannot read property 'result' of undefined
-[2019-11-09T15:29:57.331] [ERROR] app - Cannot read property 'result' of undefined
-[2019-11-09T15:31:09.175] [ERROR] app - Cannot read property 'result' of undefined
-[2019-11-09T15:35:53.062] [ERROR] app - Cannot read property 'result' of undefined
-[2019-11-09T15:36:59.029] [ERROR] app - Cannot read property 'result' of undefined
-[2019-11-09T15:41:17.940] [ERROR] app - Cannot read property 'result' of undefined
-[2019-11-09T15:41:35.229] [ERROR] app - Cannot read property 'result' of undefined
-[2019-11-09T15:42:24.644] [ERROR] app - Cannot read property 'result' of undefined
-[2019-11-09T15:44:47.703] [ERROR] customer - Customer: dont find in function customer_login
-[2019-11-09T15:53:12.441] [ERROR] customer - Customer: 0 dont find in function update_customer
-[2019-11-10T11:45:21.501] [ERROR] validation - Error from send mailError: Missing credentials for "PLAIN"
-[2019-11-10T11:55:16.898] [ERROR] validation - Error from send mailError: Missing credentials for "PLAIN"
+
+[2019-11-13T15:34:23.861] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:42:30.351] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:43:31.948] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:43:47.570] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:50:08.613] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:51:08.952] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:54:07.229] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:55:14.192] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:55:20.533] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:55:27.931] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:55:52.261] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:55:55.399] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:56:43.040] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:57:01.087] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:57:05.831] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:57:58.770] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error

@@ -5,7 +5,6 @@ import {authService} from "../../../shared/auth-service";
 import {orderService} from "../../../shared/order-service";
 import fun from '../../../lib/function'
 import Header from "../../header";
-import Footer from "../../footer";
 
 
 const DatatablePage = () => {
@@ -105,7 +104,6 @@ const DatatablePage = () => {
                     data={data}
                 />
             </MDBContainer>
-            <Footer/>
         </div>
     );
 };
