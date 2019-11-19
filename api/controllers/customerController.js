@@ -78,7 +78,59 @@ exports.customer_reward_detail = async (req, res, next) => {
     }
 
 };
+exports.customer_reward_total = async (req,res,nex) =>{
+    try{
+        result = await CustomerReward.findAndCountAll({where: {customer_id: req.params.id}});
+    }catch (e) {
+        log.error('Error: '+e.message);
+    }
+    finally {
+        if (result !== null) {
+            res.json({
+                message: 'Customer reward total not found',
+                result_code: 0,
+                result
+            });
+        }else {
+            log.error("Customer: " + req.params.id + " dont find in function customer_detail");
+            res.json([{
+                message: 'Customer reward total not find',
+                result_code: 404,
+                result
+            }]);
+        }
 
+    }
+};
+exports.customer_reward_total_point = async (req,res,nex) =>{
+    try{
+        result = await CustomerReward.findOne(
+            {
+                attributes: [[fn('sum', col('points')), 'total']],
+                group : ['customer_id'],
+            where: {customer_id: req.params.id}
+            });
+    }catch (e) {
+        log.error('Error: '+e.message);
+    }
+    finally {
+        if (result !== null) {
+            res.json({
+                message: 'Customer reward total not found',
+                result_code: 0,
+                result
+            });
+        }else {
+            log.error("Customer: " + req.params.id + " dont find in function customer_detail");
+            res.json([{
+                message: 'Customer reward total not find',
+                result_code: 404,
+                result
+            }]);
+        }
+
+    }
+};
 exports.customer_login = async (req, res, next) => {
 
     try {

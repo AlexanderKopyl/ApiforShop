@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import CustomerInfo from './customer-info-page'
 import {customerService} from "../../../shared/customer-service";
 import Header from "../../header";
+import fun from "../../../lib/function";
 
 
 export default class CustomerPage extends Component {
@@ -32,8 +33,9 @@ export default class CustomerPage extends Component {
 
     updateInfo = () => {
         let {firstname, lastname, email, telephone} = this.state;
+        const user_id = fun.getItem('user_id');
 
-        customerService.updateCutomer({firstname, lastname, email, telephone})
+        customerService.updateCutomer({firstname, lastname, email, telephone},user_id)
             .then((r) => {
                     if (!r[1]) {
                         window.location.reload();

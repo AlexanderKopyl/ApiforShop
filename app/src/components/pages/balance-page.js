@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {MDBDataTable, MDBContainer} from 'mdbreact';
+import {MDBDataTable, MDBContainer, MDBBtn, MDBIcon} from 'mdbreact';
 import {ExportCSV} from '../buttons/exports';
 import {Redirect, withRouter} from 'react-router-dom';
 import {authService} from '../../shared/auth-service'
@@ -11,15 +11,18 @@ import Header from "../header";
 const BalancePage = () => {
 
     const [items, setItems] = useState([]);
+    const user_id = fun.getItem('user_id');
 
     useEffect(() => {
         const fetchItems = async () => {
 
             await authService.checkAuthTokenTime();
 
-            const items = await customerService.getReward();
-
-            setItems(items);
+            const items = await customerService.getReward(user_id);
+            const {result:{count}} = await customerService.getRewardTotal(user_id);
+            const {result:{total}} = await customerService.getRewardSum(user_id);
+            const arrayTostate = {items,count,total};
+            setItems(arrayTostate);
         };
 
         fetchItems();
@@ -56,14 +59,25 @@ const BalancePage = () => {
                 width: 150
             }
         ],
-        rows: items
+        rows: items.items
     };
 
     return (
         <div className="box-page">
             <Header/>
             <MDBContainer>
-                <ExportCSV csvData={items} fileName={"balance"}/>
+
+
+                <span className="total-block btn btn-sm btn-slack">
+                    Сумма
+                    <span className="counter-sum">{items.total}</span>
+                </span>
+                <span className="count-block btn btn-sm btn-slack">
+                    Всего заказов
+                     <span className="counter-count">{items.count}</span>
+                </span>
+
+                <ExportCSV csvData={items.items} fileName={"balance"}/>
                 <MDBDataTable
                     striped
                     bordered

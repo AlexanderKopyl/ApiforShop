@@ -24,19 +24,21 @@ function CustomerInfo({toggle, state, update, changeState, setStateFromSevice, m
     const [items, setItems] = useState([]);
 
     const auth_token = fun.getItem('auth_token');
+    const user_id = fun.getItem('user_id');
+
     const {firstname, lastname, email, telephone} = state.error;
     useEffect(() => {
         const fetchItems = async () => {
-
             await authService.checkAuthTokenTime();
-            const result = await customerService.getInfo();
+            const result = await customerService.getInfo(user_id);
             setStateFromSevice(result);
             setItems(result);
         };
         fetchItems();
-    }, [setStateFromSevice]);
+    }, []);
 
-    if (auth_token === 'null' || auth_token === null) {
+
+    if (auth_token === 'null' || auth_token === null ) {
         return (
             <Redirect to="/login"/>
         )

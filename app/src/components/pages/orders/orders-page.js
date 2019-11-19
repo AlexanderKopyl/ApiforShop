@@ -10,13 +10,14 @@ import Header from "../../header";
 const DatatablePage = () => {
 
     const [items, setItems] = useState([]);
+    const user_id = fun.getItem('user_id');
 
     useEffect(() => {
         const fetchItems = async () => {
 
             await authService.checkAuthTokenTime();
 
-            const items = await orderService.getAllOrdersForUser();
+            const items = await orderService.getAllOrdersForUser(user_id);
 
             setItems(items);
         };

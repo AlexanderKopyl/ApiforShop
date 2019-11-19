@@ -15,3 +15,19 @@
 [2019-11-13T15:57:01.087] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
 [2019-11-13T15:57:05.831] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
 [2019-11-13T15:57:58.770] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-14T09:35:06.560] [ERROR] customer - refreshToken is null status code 401
+[2019-11-14T09:36:26.146] [ERROR] customer - Customer: null dont find in function customer_detail
+[2019-11-14T09:37:32.270] [ERROR] customer - Customer: null dont find in function customer_detail
+[2019-11-14T09:38:07.048] [ERROR] customer - Customer: null dont find in function customer_detail
+[2019-11-14T14:56:18.598] [ERROR] app - ENOENT: no such file or directory, stat 'C:\Рабочая Папка\OpenServer\OSPanel\domains\ApiforShop\api\public\build\index.html'
+[2019-11-14T14:56:19.599] [ERROR] app - ENOENT: no such file or directory, stat 'C:\Рабочая Папка\OpenServer\OSPanel\domains\ApiforShop\api\public\build\index.html'
+[2019-11-14T14:59:12.751] [ERROR] app - ENOENT: no such file or directory, stat 'C:\Рабочая Папка\OpenServer\OSPanel\domains\ApiforShop\api\public\build\index.html'
+[2019-11-14T15:00:24.039] [ERROR] app - Not Found
+[2019-11-15T10:46:42.635] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-15T10:47:34.442] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-15T10:48:23.190] [ERROR] app - Not Found
+[2019-11-15T10:52:57.450] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-15T10:57:55.630] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-15T16:44:34.842] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-18T14:40:49.371] [ERROR] app - Not Found
+[2019-11-18T14:40:50.499] [ERROR] app - Not Found
