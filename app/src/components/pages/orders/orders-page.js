@@ -22,7 +22,7 @@ const DatatablePage = () => {
             setItems(items);
         };
         fetchItems();
-    }, []);
+    }, [user_id]);
 
     const auth_token = fun.getItem('auth_token');
 

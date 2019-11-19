@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {MDBDataTable, MDBContainer, MDBBtn, MDBIcon} from 'mdbreact';
+import {MDBDataTable, MDBContainer} from 'mdbreact';
 import {ExportCSV} from '../buttons/exports';
 import {Redirect, withRouter} from 'react-router-dom';
 import {authService} from '../../shared/auth-service'
@@ -26,7 +26,7 @@ const BalancePage = () => {
         };
 
         fetchItems();
-    }, []);
+    }, [user_id]);
 
 
     const auth_token = fun.getItem('auth_token');

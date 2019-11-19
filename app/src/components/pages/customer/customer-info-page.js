@@ -35,7 +35,7 @@ function CustomerInfo({toggle, state, update, changeState, setStateFromSevice, m
             setItems(result);
         };
         fetchItems();
-    }, []);
+    }, [user_id,setStateFromSevice]);
 
 
     if (auth_token === 'null' || auth_token === null ) {
