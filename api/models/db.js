@@ -1,14 +1,38 @@
 const Sequelize = require('sequelize');
 let {config: {prefix,db,user_db,user_password,host,dialect}} = require('../config/server.config');
 
-const CustomerModel = require('./customer/customer');
-const CustomerRewardModel = require('./customer/customer_reward');
-const OrderModel = require('./order/order');
-const OrderStatusModel = require('./order/order_status');
-const OrderHistoryModel = require('./order/order_history');
-const OrderProductModel = require('./order/order_product');
+const {
+    OrderModel,
+    OrderStatusModel,
+    OrderHistoryModel,
+    OrderProductModel,
+    OrderTotalModel
+} = require('./order');
+
+const {
+    CustomerRewardModel,
+    CustomerModel
+} = require('./customer');
+
+const {
+    ManufacturerModel,
+    ManufacturerDescriptionModel
+} = require('./manufacturer');
+const {
+    CategoryModel,
+    CategoryDescriptionModel
+} = require('./category');
+const {
+    InformationModel,
+    InformationDescriptionModel
+} = require('./information');
+const {
+    LanguageModel
+} = require('./language');
+
 
 const log4js = require('log4js');
+
 log4js.configure({
     appenders: { cheese: { type: 'file', filename: 'error.log' } },
     categories: { default: { appenders: ['cheese'], level: 'error' } }
@@ -35,6 +59,7 @@ let Order = OrderModel(sequelize, Sequelize);
 let OrderStatus = OrderStatusModel(sequelize, Sequelize);
 let OrderHistory = OrderHistoryModel(sequelize, Sequelize);
 let OrderProduct = OrderProductModel(sequelize, Sequelize);
+let OrderTotal = OrderTotalModel(sequelize, Sequelize);
 
 
 
@@ -48,9 +73,10 @@ sequelize.sync({ force: false })
 
 module.exports = {
     Customer,
+    CustomerReward,
+    Order,
     OrderStatus,
     OrderHistory,
-    CustomerReward,
     OrderProduct,
-    Order
+    OrderTotal,
 };
