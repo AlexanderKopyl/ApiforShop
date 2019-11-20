@@ -1,10 +1,21 @@
 const {Op, fn, col} = require('sequelize');
-const {Customer,CustomerReward} = require('../models/db');
-let {config: {service_mail,admin_mail,user_email_password}} = require('../config/server.config');
-let md5 = require('js-md5');
-let jwt = require('jsonwebtoken');
-const fun = require('../lib/function');
 
+const {
+    Product,
+    ProductAttribute,
+    ProductDescription,
+    ProductDiscount,
+    ProductImage,
+    ProductSpecial,
+    ProductToCategory
+} = require('../models/db');
+
+const {
+    OrderProduct,
+    Order
+} = require('../models/db');
+
+const fun = require('../lib/function');
 
 const log4js = require('log4js');
 log4js.configure({
@@ -17,11 +28,25 @@ const log = log4js.getLogger('product');
 let result = null;
 
 
-exports.customer_list = async (req, res, next) => {
-    result = await Customer.findAll();
-    res.json({
-        message: 'Users find',
-        result_code: 0,
-        result
-    });
+exports.products = async (req, res, next) => {
+};
+exports.product = async (req, res, next) => {
+};
+exports.product_specials = async (req, res, next) => {
+};
+exports.popular_products = async (req, res, next) => {
+};
+exports.best_seller_products = async (req, res, next) => {
+};
+exports.product_attributes = async (req, res, next) => {
+};
+exports.product_discounts = async (req, res, next) => {
+};
+exports.product_images = async (req, res, next) => {
+};
+exports.categories = async (req, res, next) => {
+};
+exports.total_products = async (req, res, next) => {
+};
+exports.total_product_specials = async (req, res, next) => {
 };

@@ -28,6 +28,7 @@ module.exports = (sequelize, type) => {
         height: type.DECIMAL(15,8),
         minimum: type.INTEGER,
         status: type.BOOLEAN,
+        viewed: type.INTEGER(5),
     },{
         timestamps: false,
         // disable the modification of tablenames; By default, sequelize will automatically
