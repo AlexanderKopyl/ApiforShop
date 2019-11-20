@@ -58,7 +58,6 @@ log4js.configure({
 
 const log = log4js.getLogger('db');
 
-// Option 1: Passing parameters separately
 const sequelize = new Sequelize(db, user_db, user_password, {
     host,
     dialect, /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
@@ -71,39 +70,39 @@ const sequelize = new Sequelize(db, user_db, user_password, {
 });
 
 
-let Customer = CustomerModel(sequelize, Sequelize);
-let CustomerReward = CustomerRewardModel(sequelize, Sequelize);
+const Customer       = CustomerModel(sequelize, Sequelize),
+      CustomerReward = CustomerRewardModel(sequelize, Sequelize);
 
-let Order = OrderModel(sequelize, Sequelize);
-let OrderStatus = OrderStatusModel(sequelize, Sequelize);
-let OrderHistory = OrderHistoryModel(sequelize, Sequelize);
-let OrderProduct = OrderProductModel(sequelize, Sequelize);
-let OrderTotal = OrderTotalModel(sequelize, Sequelize);
+const Order        = OrderModel(sequelize, Sequelize),
+      OrderStatus  = OrderStatusModel(sequelize, Sequelize),
+      OrderHistory = OrderHistoryModel(sequelize, Sequelize),
+      OrderProduct = OrderProductModel(sequelize, Sequelize),
+      OrderTotal   = OrderTotalModel(sequelize, Sequelize);
 
-let Manufacturer = ManufacturerModel(sequelize, Sequelize);
-let ManufacturerDescription = ManufacturerDescriptionModel(sequelize, Sequelize);
+const Manufacturer            = ManufacturerModel(sequelize, Sequelize),
+      ManufacturerDescription = ManufacturerDescriptionModel(sequelize, Sequelize);
 
-let Category = CategoryModel(sequelize, Sequelize);
-let CategoryDescription = CategoryDescriptionModel(sequelize, Sequelize);
+const Category            = CategoryModel(sequelize, Sequelize),
+      CategoryDescription = CategoryDescriptionModel(sequelize, Sequelize);
 
-let Information = InformationModel(sequelize, Sequelize);
-let InformationDescription = InformationDescriptionModel(sequelize, Sequelize);
+const Information            = InformationModel(sequelize, Sequelize),
+      InformationDescription = InformationDescriptionModel(sequelize, Sequelize);
 
-let Language = LanguageModel(sequelize, Sequelize);
+const Language = LanguageModel(sequelize, Sequelize);
 
-let Product = ProductModel(sequelize, Sequelize);
-let ProductAttribute = ProductAttributeModel(sequelize, Sequelize);
-let ProductDescription = ProductDescriptionModel(sequelize, Sequelize);
-let ProductDiscount = ProductDiscountModel(sequelize, Sequelize);
-let ProductImage = ProductImageModel(sequelize, Sequelize);
-let ProductSpecial = ProductSpecialModel(sequelize, Sequelize);
-let ProductToCategory = ProductToCategoryModel(sequelize, Sequelize);
+const Product            = ProductModel(sequelize, Sequelize),
+      ProductAttribute   = ProductAttributeModel(sequelize, Sequelize),
+      ProductDescription = ProductDescriptionModel(sequelize, Sequelize),
+      ProductDiscount    = ProductDiscountModel(sequelize, Sequelize),
+      ProductImage       = ProductImageModel(sequelize, Sequelize),
+      ProductSpecial     = ProductSpecialModel(sequelize, Sequelize),
+      ProductToCategory  = ProductToCategoryModel(sequelize, Sequelize);
 
-let AttributeGroupDescription = AttributeGroupDescriptionModel(sequelize, Sequelize);
-let AttributeDescription = AttributeDescriptionModel(sequelize, Sequelize);
-let Attribute = AttributeModel(sequelize, Sequelize);
+let AttributeGroupDescription = AttributeGroupDescriptionModel(sequelize, Sequelize),
+    AttributeDescription      = AttributeDescriptionModel(sequelize, Sequelize),
+    Attribute                 = AttributeModel(sequelize, Sequelize);
 
-let Article = ArticleModel(sequelize, Sequelize),
+let Article            = ArticleModel(sequelize, Sequelize),
     ArticleDescription = ArticleDescriptionModel(sequelize, Sequelize);
 
 
