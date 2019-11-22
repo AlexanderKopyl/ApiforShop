@@ -4,7 +4,7 @@ exports.config = {
   "prefix" : "oc_",
   "db":"apiforshop",
   "user_db":"root",
-  "user_password": '19901810',
+  "user_password": '',
   "host": 'localhost',
   "dialect":'mysql',
   "service_mail": 'gmail',

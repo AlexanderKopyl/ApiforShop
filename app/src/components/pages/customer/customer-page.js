@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import CustomerInfo from './customer-info-page'
 import {customerService} from "../../../shared/customer-service";
 import Header from "../../header";
-import Footer from "../../footer";
+import fun from "../../../lib/function";
 
 
 export default class CustomerPage extends Component {
@@ -13,6 +13,7 @@ export default class CustomerPage extends Component {
         lastname: "",
         telephone: "",
         activeItem: "1",
+        error: [],
         modal: false
     };
 
@@ -31,16 +32,20 @@ export default class CustomerPage extends Component {
     };
 
     updateInfo = () => {
-        let {firstname,lastname,email,telephone} = this.state;
+        let {firstname, lastname, email, telephone} = this.state;
+        const user_id = fun.getItem('user_id');
 
-        customerService.updateCutomer({firstname,lastname,email,telephone})
-            .then((r) =>
-                {
-                    if (!r[1]){
+        customerService.updateCutomer({firstname, lastname, email, telephone},user_id)
+            .then((r) => {
+                    if (!r[1]) {
                         window.location.reload();
+                    } else {
+                        this.setState({
+                                error: r[0]
+                            }
+                        )
                     }
                 }
-
             )
     };
 
@@ -49,7 +54,7 @@ export default class CustomerPage extends Component {
     };
 
     setStateFromService = (arr) => {
-        arr.map((r) =>{
+        arr.map((r) => {
             this.setState({
                 firstname: r.firstname,
                 lastname: r.lastname,
@@ -71,7 +76,6 @@ export default class CustomerPage extends Component {
                               changeState={this.changeState}
                               setStateFromSevice={this.setStateFromService}
                               update={this.updateInfo}/>
-                <Footer/>
             </div>
         )
     }

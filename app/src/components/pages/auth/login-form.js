@@ -1,19 +1,27 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {
     MDBRow, MDBCol, MDBBtn, MDBContainer, MDBInput, MDBCard,
     MDBCardBody,
-    MDBModalFooter,
     MDBIcon,
     MDBCardHeader
 } from "mdbreact";
 import {Redirect,withRouter} from 'react-router-dom';
+import {authService} from "../../../shared/auth-service";
 import fun from "../../../lib/function";
+
 
 const LoginForm = ({isLoggedIn, onLogin, changeHandler, submitHandler}) => {
 
     const auth_token = fun.getItem('auth_token');
-    const time_token  = fun.getItem('time_token');
-    const now = new Date().getTime();
+
+
+    useEffect(() => {
+        const check = async () => {
+
+            await authService.checkAuthTokenTime();
+        };
+        check();
+    }, []);
 
     let isAuth ;
 
@@ -23,13 +31,6 @@ const LoginForm = ({isLoggedIn, onLogin, changeHandler, submitHandler}) => {
         return <Redirect to="/"/>;
     }
 
-
-
-    if(now > time_token){
-        fun.removeItem('auth_token');
-        fun.removeItem('time_token');
-        fun.removeItem('user_id');
-    }
 
     return (
         <MDBContainer>
@@ -78,12 +79,6 @@ const LoginForm = ({isLoggedIn, onLogin, changeHandler, submitHandler}) => {
                                         </MDBBtn>
                                     </div>
                                 </form>
-                                <MDBModalFooter>
-                                    <div className="font-weight-light">
-                                        <p>Not a member? Sign Up</p>
-                                        <p>Forgot Password?</p>
-                                    </div>
-                                </MDBModalFooter>
                             </MDBCardBody>
                         </MDBCard>
                     </MDBCol>

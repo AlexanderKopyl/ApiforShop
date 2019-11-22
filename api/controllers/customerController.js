@@ -78,7 +78,59 @@ exports.customer_reward_detail = async (req, res, next) => {
     }
 
 };
+exports.customer_reward_total = async (req,res,nex) =>{
+    try{
+        result = await CustomerReward.findAndCountAll({where: {customer_id: req.params.id}});
+    }catch (e) {
+        log.error('Error: '+e.message);
+    }
+    finally {
+        if (result !== null) {
+            res.json({
+                message: 'Customer reward total not found',
+                result_code: 0,
+                result
+            });
+        }else {
+            log.error("Customer: " + req.params.id + " dont find in function customer_detail");
+            res.json([{
+                message: 'Customer reward total not find',
+                result_code: 404,
+                result
+            }]);
+        }
 
+    }
+};
+exports.customer_reward_total_point = async (req,res,nex) =>{
+    try{
+        result = await CustomerReward.findOne(
+            {
+                attributes: [[fn('sum', col('points')), 'total']],
+                group : ['customer_id'],
+            where: {customer_id: req.params.id}
+            });
+    }catch (e) {
+        log.error('Error: '+e.message);
+    }
+    finally {
+        if (result !== null) {
+            res.json({
+                message: 'Customer reward total not found',
+                result_code: 0,
+                result
+            });
+        }else {
+            log.error("Customer: " + req.params.id + " dont find in function customer_detail");
+            res.json([{
+                message: 'Customer reward total not find',
+                result_code: 404,
+                result
+            }]);
+        }
+
+    }
+};
 exports.customer_login = async (req, res, next) => {
 
     try {
@@ -115,7 +167,7 @@ exports.customer_login = async (req, res, next) => {
             }]);
         } else {
             log.error("Customer: dont find in function customer_login");
-
+            res.sendStatus(404);
             res.json([{
                 token: result
             }]);
@@ -125,22 +177,46 @@ exports.customer_login = async (req, res, next) => {
 };
 exports.update_customer = async (req, res, next) => {
 
-    try {
-        const [numberOfAffectedRows, affectedRows] = await Customer.update(
-            {
-                firstname: req.body.firstname,
-                lastname: req.body.lastname,
-                email: req.body.email,
-                telephone: req.body.telephone,
+    let error = {},
+        patternNameaAndLastName = /^[А-ЯЁ][а-яё]+$/,
+        patternEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        patternPhone = /^\+380\d{3}\d{2}\d{2}\d{2}$/;
 
-            },
-            {
-                where: { customer_id: req.params.id},
-                returning: true, // needed for affectedRows to be populated
-                plain: true,
+    try {
+
+        if (!patternNameaAndLastName.test(`${req.body.firstname}`)){
+            error['firstname'] = 'Имя введено не правильно.. Имя пишется на кирилице'
         }
-        );
+        if (!patternNameaAndLastName.test(`${req.body.lastname}`)){
+            error['lastname'] = 'Фамилия введена не правильно.. Фамилия пишется на кирилице'
+        }
+        if (!patternEmail.test(`${req.body.email}`)){
+            error['email'] = 'Email введен не коректно'
+        }
+        if (!patternPhone.test(`${req.body.telephone}`)){
+            error['telephone'] = 'Телефон введен не коректно'
+        }
+
+        if (fun.isEmptyObject(error)){
+            const [numberOfAffectedRows, affectedRows] = await Customer.update(
+                {
+                    firstname: req.body.firstname,
+                    lastname: req.body.lastname,
+                    email: req.body.email,
+                    telephone: req.body.telephone,
+
+                },
+                {
+                    where: { customer_id: req.params.id},
+                    returning: true, // needed for affectedRows to be populated
+                    plain: true,
+                }
+            );
+        }
+
+
         result = await Customer.findOne({where: {customer_id: req.params.id}});
+
 
     }catch (e) {
         log.error('Error: '+e.message);
@@ -148,19 +224,22 @@ exports.update_customer = async (req, res, next) => {
     }
 
     finally {
-        if (result !== null) {
+        if (result !== null && fun.isEmptyObject(error)) {
             res.json({
                 message: 'Customer updated',
                 result_code: 0,
                 result
             });
         }else {
-            log.error("Customer: " + req.params.id + " dont find in function update_customer");
-            res.json([{
+            log.error("Customer: " + req.params.id + " dont find in function update_customer or have error");
+            res.json({
                 message: 'Customer dont updated',
                 result_code: 404,
-                result
-            }]);
+                result,
+                error
+            });
+
+
         }
 
     }

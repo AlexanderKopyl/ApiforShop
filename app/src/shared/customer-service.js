@@ -4,14 +4,13 @@ import fun from "../lib/function";
 
 class CustomerService {
 
-    constructor(url,user_id) {
+    constructor(url) {
         this.url = url;
-        this.user_id = user_id;
     }
 
-    async getInfo() {
+    async getInfo(user_id) {
         try {
-            const data = await fetch(`${this.url}customers/${this.user_id}`, {
+            const data = await fetch(`${this.url}customers/${user_id}`, {
                 headers: {
                     'Authorization': 'Bearer ' + fun.getItem('auth_token')
                 }
@@ -22,9 +21,9 @@ class CustomerService {
             throw  new Error(e)
         }
     }
-    async updateCutomer(body) {
+    async updateCutomer(body,user_id) {
         try {
-            const data = await fetch(`${this.url}customers/${this.user_id}`, {
+            const data = await fetch(`${this.url}customers/${user_id}`, {
                 method:"PUT",
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',
@@ -32,14 +31,15 @@ class CustomerService {
                 },
                 body:JSON.stringify(body)
             });
-            let {result,result_code} = await data.json();
-            return [result,result_code] ;
+            // let {result,result_code} = await data.json();
+            let {error,result_code} = await data.json();
+            return [error,result_code];
         } catch (e) {
             throw  new Error(e)
         }
     }
-    async getReward ()  {
-        const data = await fetch(`${this.url}customers/reward/${this.user_id}`, {
+    async getReward (user_id)  {
+        const data = await fetch(`${this.url}customers/reward/${user_id}`, {
             headers: {
                 'Authorization': 'Bearer ' + fun.getItem('auth_token')
             }
@@ -61,6 +61,23 @@ class CustomerService {
 
         return items_to_table;
     }
+
+    async getRewardTotal (user_id)  {
+        const data = await fetch(`${this.url}customers/totalReward/${user_id}`, {
+            headers: {
+                'Authorization': 'Bearer ' + fun.getItem('auth_token')
+            }
+        });
+        return await data.json();
+    }
+    async getRewardSum (user_id)  {
+        const data = await fetch(`${this.url}customers/totalSum/${user_id}`, {
+            headers: {
+                'Authorization': 'Bearer ' + fun.getItem('auth_token')
+            }
+        });
+        return await data.json();
+    }
 }
 
-export const customerService = new CustomerService(config.url,config.user_id);
+export const customerService = new CustomerService(config.url);

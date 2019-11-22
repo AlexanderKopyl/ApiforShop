@@ -8,7 +8,6 @@ import {
     CustomerPage,
     BalancePage,
     DocumentPage,
-    ForgotPage,
     OrderPageInfo,
     MainPage
 } from "../pages";
@@ -20,10 +19,6 @@ import 'mdbreact/dist/css/mdb.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 export default function App() {
-
-    const forgotPass = () => {
-        console.log('Send new password');
-    };
 
 
     window.flash = (message, type = "success") => Bus.emit ('flash', ({message, type}));
@@ -54,9 +49,6 @@ export default function App() {
                     )}/>
                     <Route path="/document" render={() => (
                         <DocumentPage/>
-                    )}/>
-                    <Route path="/forgot" render={() => (
-                        <ForgotPage forgotPass={forgotPass}/>
                     )}/>
                     <Route path="/login" component={LoginPage}/>
                     <Route render={() => <h2>Page not found</h2>}/>

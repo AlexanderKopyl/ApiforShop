@@ -75,6 +75,14 @@ module.exports = {
                 res.json({code:200,data:info});
             }
         });
+    },
+    isEmptyObject(obj) {
+        for (let i in obj) {
+            if (obj.hasOwnProperty(i)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 };

@@ -119,22 +119,22 @@ const ContactPageForm = ({sendMessage, changeHandler,state}) => {
                                 <MDBBtn tag="a" floating color="blue" className="accent-1">
                                     <MDBIcon icon="map-marker-alt"/>
                                 </MDBBtn>
-                                <p>New York, 94126</p>
-                                <p className="mb-md-0">United States</p>
+                                <p>Троицкая, 21а</p>
+                                <p className="mb-md-0">Украина, Днепр</p>
                             </MDBCol>
                             <MDBCol md="4">
                                 <MDBBtn tag="a" floating color="blue" className="accent-1">
                                     <MDBIcon icon="phone"/>
                                 </MDBBtn>
-                                <p>+ 01 234 567 89</p>
-                                <p className="mb-md-0">Mon - Fri, 8:00-22:00</p>
+                                <p>+38 (050) 421-54-94</p>
+                                <p className="mb-md-0">Пн - Сб, 9:00-20:00</p>
                             </MDBCol>
                             <MDBCol md="4">
                                 <MDBBtn tag="a" floating color="blue" className="accent-1">
                                     <MDBIcon icon="envelope"/>
                                 </MDBBtn>
                                 <p>info@gmail.com</p>
-                                <p className="mb-md-0">sale@gmail.com</p>
+                                <p className="mb-md-0">admin@zoocomplex.com.ua</p>
                             </MDBCol>
                         </MDBRow>
                     </MDBCol>

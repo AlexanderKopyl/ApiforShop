@@ -4,7 +4,6 @@ import {withRouter} from 'react-router-dom';
 import {authService} from '../../../shared/auth-service'
 import {mailService} from '../../../shared/mail-service'
 import Header from "../../header";
-import Footer from "../../footer";
 
 export default withRouter(class ContactPage extends Component {
     state = {
@@ -49,7 +48,6 @@ export default withRouter(class ContactPage extends Component {
                     sendMessage={this.sendMessage}
                     changeHandler={this.changeHandler}
                     submitHandler={this.submitHandler}/>
-                <Footer/>
             </div>
         );
     }

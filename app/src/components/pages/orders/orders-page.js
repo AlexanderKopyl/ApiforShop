@@ -5,24 +5,24 @@ import {authService} from "../../../shared/auth-service";
 import {orderService} from "../../../shared/order-service";
 import fun from '../../../lib/function'
 import Header from "../../header";
-import Footer from "../../footer";
 
 
 const DatatablePage = () => {
 
     const [items, setItems] = useState([]);
+    const user_id = fun.getItem('user_id');
 
     useEffect(() => {
         const fetchItems = async () => {
 
             await authService.checkAuthTokenTime();
 
-            const items = await orderService.getAllOrdersForUser();
+            const items = await orderService.getAllOrdersForUser(user_id);
 
             setItems(items);
         };
         fetchItems();
-    }, []);
+    }, [user_id]);
 
     const auth_token = fun.getItem('auth_token');
 
@@ -105,7 +105,6 @@ const DatatablePage = () => {
                     data={data}
                 />
             </MDBContainer>
-            <Footer/>
         </div>
     );
 };
