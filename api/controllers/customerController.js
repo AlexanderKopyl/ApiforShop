@@ -167,7 +167,7 @@ exports.customer_login = async (req, res, next) => {
             }]);
         } else {
             log.error("Customer: dont find in function customer_login");
-
+            res.sendStatus(404);
             res.json([{
                 token: result
             }]);

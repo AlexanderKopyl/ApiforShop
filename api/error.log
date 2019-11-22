@@ -134,3 +134,12 @@
 [2019-11-20T14:45:18.690] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
 [2019-11-20T14:45:36.437] [ERROR] customer - Error: connect ECONNREFUSED 127.0.0.1:3306
 [2019-11-20T14:45:36.438] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-21T14:34:37.020] [ERROR] app - Not Found
+[2019-11-21T14:34:39.010] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-21T14:35:39.611] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-22T11:00:34.435] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-22T11:08:41.116] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-22T11:09:06.215] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-22T11:14:39.984] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-22T11:15:04.454] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-22T11:17:47.840] [ERROR] customer - Customer: dont find in function customer_login

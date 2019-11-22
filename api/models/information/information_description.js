@@ -11,7 +11,7 @@ module.exports = (sequelize, type) => {
             primaryKey: true,
         },
         title: type.STRING,
-        description: type.MEDIUMTEXT,
+        description: type.TEXT,
         meta_title: type.STRING,
         meta_description: type.STRING,
         meta_keyword: type.STRING,
