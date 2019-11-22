@@ -3,6 +3,7 @@ import {MDBIcon, MDBContainer, MDBRow, MDBCol} from 'mdbreact';
 import {Redirect,withRouter} from 'react-router-dom';
 import {authService} from '../../shared/auth-service'
 import fun from "../../lib/function";
+import Header from "../header";
 
 const DocumentPage = () => {
 
@@ -23,6 +24,8 @@ const DocumentPage = () => {
     }
 
     return (
+        <div className="box-page">
+            <Header/>
         <MDBContainer>
             <MDBRow>
                 <MDBCol md="3" className="mb-3 mt-3">
@@ -38,6 +41,7 @@ const DocumentPage = () => {
             </MDBRow>
 
         </MDBContainer>
+        </div>
     );
 };
 

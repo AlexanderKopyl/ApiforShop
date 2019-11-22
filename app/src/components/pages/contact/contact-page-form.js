@@ -4,7 +4,7 @@ import { Redirect,withRouter } from 'react-router-dom';
 import {authService} from "../../../shared/auth-service";
 import fun from "../../../lib/function";
 
-const ContactPageForm = ({sendMessage, changeHandler}) => {
+const ContactPageForm = ({sendMessage, changeHandler,state}) => {
 
     useEffect(() => {
         const user_func = async ()=>{
@@ -52,6 +52,7 @@ const ContactPageForm = ({sendMessage, changeHandler}) => {
                                     <MDBInput
                                         label="Your name"
                                         onChange={changeHandler}
+                                        value={state.name}
                                         name="name"
                                         iconClass="grey-text"
                                         type="text"
@@ -62,6 +63,7 @@ const ContactPageForm = ({sendMessage, changeHandler}) => {
                                     <MDBInput
                                         label="Your email"
                                         onChange={changeHandler}
+                                        value={state.email}
                                         name="email"
                                         iconClass="grey-text"
                                         type="text"
@@ -72,6 +74,7 @@ const ContactPageForm = ({sendMessage, changeHandler}) => {
                                     <MDBInput
                                         label="Subject"
                                         onChange={changeHandler}
+                                        value={state.subject}
                                         name="subject"
                                         iconClass="grey-text"
                                         type="text"
@@ -82,6 +85,7 @@ const ContactPageForm = ({sendMessage, changeHandler}) => {
                                     <MDBInput
                                         label="Text"
                                         onChange={changeHandler}
+                                        value={state.text}
                                         name="text"
                                         iconClass="grey-text"
                                         type="textarea"
@@ -115,22 +119,22 @@ const ContactPageForm = ({sendMessage, changeHandler}) => {
                                 <MDBBtn tag="a" floating color="blue" className="accent-1">
                                     <MDBIcon icon="map-marker-alt"/>
                                 </MDBBtn>
-                                <p>New York, 94126</p>
-                                <p className="mb-md-0">United States</p>
+                                <p>Троицкая, 21а</p>
+                                <p className="mb-md-0">Украина, Днепр</p>
                             </MDBCol>
                             <MDBCol md="4">
                                 <MDBBtn tag="a" floating color="blue" className="accent-1">
                                     <MDBIcon icon="phone"/>
                                 </MDBBtn>
-                                <p>+ 01 234 567 89</p>
-                                <p className="mb-md-0">Mon - Fri, 8:00-22:00</p>
+                                <p>+38 (050) 421-54-94</p>
+                                <p className="mb-md-0">Пн - Сб, 9:00-20:00</p>
                             </MDBCol>
                             <MDBCol md="4">
                                 <MDBBtn tag="a" floating color="blue" className="accent-1">
                                     <MDBIcon icon="envelope"/>
                                 </MDBBtn>
                                 <p>info@gmail.com</p>
-                                <p className="mb-md-0">sale@gmail.com</p>
+                                <p className="mb-md-0">admin@zoocomplex.com.ua</p>
                             </MDBCol>
                         </MDBRow>
                     </MDBCol>

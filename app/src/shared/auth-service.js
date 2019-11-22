@@ -48,9 +48,11 @@ class AuthService {
         }
 
         if (now > time_auth_token) {
+
             const refresh_token = {
                 token: fun.getItem('refresh_token')
             };
+            console.log();
             const data = await fetch(`${this.url}customers/token`, {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
                 mode: 'cors', // no-cors, cors, *same-origin

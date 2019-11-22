@@ -4,15 +4,15 @@ import {MDBBtn, MDBIcon} from "mdbreact";
 import config from '../app.config'
 import fun from "../lib/function";
 
+
 class OrderService {
-    constructor(url,user_id) {
+    constructor(url) {
         this.url = url;
-        this.user_id = user_id;
     }
 
-    async getAllOrdersForUser() {
+    async getAllOrdersForUser(user_id) {
         try {
-            const data = await fetch(`${this.url}orders/customer/${this.user_id}`, {
+            const data = await fetch(`${this.url}orders/customer/${user_id}`, {
                 headers: {
                     'Authorization': 'Bearer ' + fun.getItem('auth_token')
                 }
@@ -100,4 +100,4 @@ class OrderService {
 
 
 
-export const orderService = new OrderService(config.url,config.user_id);
+export const orderService = new OrderService(config.url);

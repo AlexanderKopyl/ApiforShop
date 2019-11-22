@@ -18,6 +18,7 @@ const cors = require('cors');
 let indexRouter = require('./routes/index');
 let orderRouter = require('./routes/order/order');
 let customerRouter = require('./routes/customer/customer');
+let mailRouter = require('./routes/mail/mail');
 
 
 
@@ -57,11 +58,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use(cors());
 
+// app.use('/', indexRouter);
+// Handles any requests that don't match the ones above
 app.use('/', indexRouter);
 app.use('/api/orders', orderRouter);
 app.use('/api/customers', customerRouter);
+app.use('/api/mail', mailRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
