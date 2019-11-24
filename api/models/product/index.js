@@ -7,11 +7,11 @@ const ProductSpecialModel = require('./product_special');
 const ProductToCategoryModel = require('./product_to_category');
 
 module.exports = {
-    ProductModel,
-    ProductAttributeModel,
-    ProductDescriptionModel,
-    ProductDiscountModel,
-    ProductImageModel,
-    ProductSpecialModel,
-    ProductToCategoryModel,
+  ProductModel,
+  ProductAttributeModel,
+  ProductDescriptionModel,
+  ProductDiscountModel,
+  ProductImageModel,
+  ProductSpecialModel,
+  ProductToCategoryModel,
 };

@@ -3,6 +3,6 @@ const CustomerRewardModel = require('./customer_reward');
 
 
 module.exports = {
-    CustomerRewardModel,
-    CustomerModel
+  CustomerRewardModel,
+  CustomerModel,
 };

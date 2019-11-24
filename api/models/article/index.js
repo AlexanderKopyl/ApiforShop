@@ -3,6 +3,6 @@ const ArticleDescriptionModel = require('./article_description');
 
 
 module.exports = {
-    ArticleModel,
-    ArticleDescriptionModel
+  ArticleModel,
+  ArticleDescriptionModel,
 };

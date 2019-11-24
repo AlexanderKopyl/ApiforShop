@@ -5,9 +5,9 @@ const OrderProductModel = require('./order_product');
 const OrderTotalModel = require('./order_total');
 
 module.exports = {
-    OrderModel,
-    OrderStatusModel,
-    OrderHistoryModel,
-    OrderProductModel,
-    OrderTotalModel,
+  OrderModel,
+  OrderStatusModel,
+  OrderHistoryModel,
+  OrderProductModel,
+  OrderTotalModel,
 };

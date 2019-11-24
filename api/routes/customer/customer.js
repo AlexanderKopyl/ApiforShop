@@ -1,14 +1,14 @@
-let express = require('express');
-let router = express.Router();
-let {
-    customer_list,
-    customer_detail,
-    customer_login,
-    token,
-    customer_reward_detail,
-    update_customer,
-    customer_reward_total,
-    customer_reward_total_point
+const express = require('express');
+const router = express.Router();
+const {
+  customer_list,
+  customer_detail,
+  customer_login,
+  token,
+  customer_reward_detail,
+  update_customer,
+  customer_reward_total,
+  customer_reward_total_point,
 } = require('../../controllers/customerController');
 const fun = require('../../lib/function');
 

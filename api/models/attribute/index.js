@@ -4,7 +4,7 @@ const AttributeGroupDescriptionModel = require('./attribute_group_description');
 
 
 module.exports = {
-    AttributeGroupDescriptionModel,
-    AttributeDescriptionModel,
-    AttributeModel
+  AttributeGroupDescriptionModel,
+  AttributeDescriptionModel,
+  AttributeModel,
 };

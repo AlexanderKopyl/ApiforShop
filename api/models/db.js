@@ -1,153 +1,152 @@
 const Sequelize = require('sequelize');
-let {config: {prefix,db,user_db,user_password,host,dialect}} = require('../config/server.config');
+const {config: {prefix, db, user_db, user_password, host, dialect}} = require('../config/server.config');
 
 const {
-    ProductModel,
-    ProductAttributeModel,
-    ProductDescriptionModel,
-    ProductDiscountModel,
-    ProductImageModel,
-    ProductSpecialModel,
-    ProductToCategoryModel,
+  ProductModel,
+  ProductAttributeModel,
+  ProductDescriptionModel,
+  ProductDiscountModel,
+  ProductImageModel,
+  ProductSpecialModel,
+  ProductToCategoryModel,
 } = require('./product');
 const {
-    OrderModel,
-    OrderStatusModel,
-    OrderHistoryModel,
-    OrderProductModel,
-    OrderTotalModel
+  OrderModel,
+  OrderStatusModel,
+  OrderHistoryModel,
+  OrderProductModel,
+  OrderTotalModel,
 } = require('./order');
 
 const {
-    CustomerRewardModel,
-    CustomerModel
+  CustomerRewardModel,
+  CustomerModel,
 } = require('./customer');
 const {
-    ArticleModel,
-    ArticleDescriptionModel
+  ArticleModel,
+  ArticleDescriptionModel,
 } = require('./article');
 
 const {
-    ManufacturerModel,
-    ManufacturerDescriptionModel
+  ManufacturerModel,
+  ManufacturerDescriptionModel,
 } = require('./manufacturer');
 const {
-    AttributeGroupDescriptionModel,
-    AttributeDescriptionModel,
-    AttributeModel
+  AttributeGroupDescriptionModel,
+  AttributeDescriptionModel,
+  AttributeModel,
 } = require('./attribute');
 const {
-    CategoryModel,
-    CategoryDescriptionModel
+  CategoryModel,
+  CategoryDescriptionModel,
 } = require('./category');
 const {
-    InformationModel,
-    InformationDescriptionModel
+  InformationModel,
+  InformationDescriptionModel,
 } = require('./information');
 const {
-    LanguageModel
+  LanguageModel,
 } = require('./language');
 
 
 const log4js = require('log4js');
 
 log4js.configure({
-    appenders: { cheese: { type: 'file', filename: 'error.log' } },
-    categories: { default: { appenders: ['cheese'], level: 'error' } }
+  appenders: {cheese: {type: 'file', filename: 'error.log'}},
+  categories: {default: {appenders: ['cheese'], level: 'error'}},
 });
 
 const log = log4js.getLogger('db');
 
 const sequelize = new Sequelize(db, user_db, user_password, {
-    host,
-    dialect, /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
-    pool: {
-        max: 10,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    }
+  host,
+  dialect, /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */
+  pool: {
+    max: 10,
+    min: 0,
+    acquire: 30000,
+    idle: 10000,
+  },
 });
 
 
-const Customer       = CustomerModel(sequelize, Sequelize),
-      CustomerReward = CustomerRewardModel(sequelize, Sequelize);
+const Customer = CustomerModel(sequelize, Sequelize);
+const CustomerReward = CustomerRewardModel(sequelize, Sequelize);
 
-const Order        = OrderModel(sequelize, Sequelize),
-      OrderStatus  = OrderStatusModel(sequelize, Sequelize),
-      OrderHistory = OrderHistoryModel(sequelize, Sequelize),
-      OrderProduct = OrderProductModel(sequelize, Sequelize),
-      OrderTotal   = OrderTotalModel(sequelize, Sequelize);
+const Order = OrderModel(sequelize, Sequelize);
+const OrderStatus = OrderStatusModel(sequelize, Sequelize);
+const OrderHistory = OrderHistoryModel(sequelize, Sequelize);
+const OrderProduct = OrderProductModel(sequelize, Sequelize);
+const OrderTotal = OrderTotalModel(sequelize, Sequelize);
 
-const Manufacturer            = ManufacturerModel(sequelize, Sequelize),
-      ManufacturerDescription = ManufacturerDescriptionModel(sequelize, Sequelize);
+const Manufacturer = ManufacturerModel(sequelize, Sequelize);
+const ManufacturerDescription = ManufacturerDescriptionModel(sequelize, Sequelize);
 
-const Category            = CategoryModel(sequelize, Sequelize),
-      CategoryDescription = CategoryDescriptionModel(sequelize, Sequelize);
+const Category = CategoryModel(sequelize, Sequelize);
+const CategoryDescription = CategoryDescriptionModel(sequelize, Sequelize);
 
-const Information            = InformationModel(sequelize, Sequelize),
-      InformationDescription = InformationDescriptionModel(sequelize, Sequelize);
+const Information = InformationModel(sequelize, Sequelize);
+const InformationDescription = InformationDescriptionModel(sequelize, Sequelize);
 
 const Language = LanguageModel(sequelize, Sequelize);
 
-const Product            = ProductModel(sequelize, Sequelize),
-      ProductAttribute   = ProductAttributeModel(sequelize, Sequelize),
-      ProductDescription = ProductDescriptionModel(sequelize, Sequelize),
-      ProductDiscount    = ProductDiscountModel(sequelize, Sequelize),
-      ProductImage       = ProductImageModel(sequelize, Sequelize),
-      ProductSpecial     = ProductSpecialModel(sequelize, Sequelize),
-      ProductToCategory  = ProductToCategoryModel(sequelize, Sequelize);
+const Product = ProductModel(sequelize, Sequelize);
+const ProductAttribute = ProductAttributeModel(sequelize, Sequelize);
+const ProductDescription = ProductDescriptionModel(sequelize, Sequelize);
+const ProductDiscount = ProductDiscountModel(sequelize, Sequelize);
+const ProductImage = ProductImageModel(sequelize, Sequelize);
+const ProductSpecial = ProductSpecialModel(sequelize, Sequelize);
+const ProductToCategory = ProductToCategoryModel(sequelize, Sequelize);
 
-let AttributeGroupDescription = AttributeGroupDescriptionModel(sequelize, Sequelize),
-    AttributeDescription      = AttributeDescriptionModel(sequelize, Sequelize),
-    Attribute                 = AttributeModel(sequelize, Sequelize);
+const AttributeGroupDescription = AttributeGroupDescriptionModel(sequelize, Sequelize);
+const AttributeDescription = AttributeDescriptionModel(sequelize, Sequelize);
+const Attribute = AttributeModel(sequelize, Sequelize);
 
-let Article            = ArticleModel(sequelize, Sequelize),
-    ArticleDescription = ArticleDescriptionModel(sequelize, Sequelize);
+const Article = ArticleModel(sequelize, Sequelize);
+const ArticleDescription = ArticleDescriptionModel(sequelize, Sequelize);
 
 
-
-sequelize.sync({ force: false })
+sequelize.sync({force: false})
     .then(() => {
-        console.log(`Database & tables created!`)
+      console.log(`Database & tables created!`);
     }).catch(function(reason) {
     // отказ
-    log.error("Error name: " + reason.name + " Address: " + reason.parent.address + " Port: " + reason.parent.port + " Syscall: " + reason.parent.syscall);
-});
+      log.error('Error name: ' + reason.name + ' Address: ' + reason.parent.address + ' Port: ' + reason.parent.port + ' Syscall: ' + reason.parent.syscall);
+    });
 
 module.exports = {
-    Customer,
-    CustomerReward,
+  Customer,
+  CustomerReward,
 
-    Order,
-    OrderStatus,
-    OrderHistory,
-    OrderProduct,
-    OrderTotal,
+  Order,
+  OrderStatus,
+  OrderHistory,
+  OrderProduct,
+  OrderTotal,
 
-    Manufacturer,
-    ManufacturerDescription,
+  Manufacturer,
+  ManufacturerDescription,
 
-    Category,
-    CategoryDescription,
+  Category,
+  CategoryDescription,
 
-    Information,
-    InformationDescription,
+  Information,
+  InformationDescription,
 
-    Language,
+  Language,
 
-    Product,
-    ProductAttribute,
-    ProductDescription,
-    ProductDiscount,
-    ProductImage,
-    ProductSpecial,
-    ProductToCategory,
+  Product,
+  ProductAttribute,
+  ProductDescription,
+  ProductDiscount,
+  ProductImage,
+  ProductSpecial,
+  ProductToCategory,
 
-    AttributeGroupDescription,
-    AttributeDescription,
-    Attribute,
+  AttributeGroupDescription,
+  AttributeDescription,
+  Attribute,
 
-    Article,
-    ArticleDescription
+  Article,
+  ArticleDescription,
 };

@@ -3,6 +3,6 @@ const ManufacturerDescriptionModel = require('./manufacturer_description');
 
 
 module.exports = {
-    ManufacturerModel,
-    ManufacturerDescriptionModel
+  ManufacturerModel,
+  ManufacturerDescriptionModel,
 };

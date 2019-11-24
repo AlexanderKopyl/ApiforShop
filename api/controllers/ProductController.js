@@ -1,31 +1,31 @@
 const {Op, fn, col} = require('sequelize');
 
 const {
-    Product,
-    ProductAttribute,
-    ProductDescription,
-    ProductDiscount,
-    ProductImage,
-    ProductSpecial,
-    ProductToCategory
+  Product,
+  ProductAttribute,
+  ProductDescription,
+  ProductDiscount,
+  ProductImage,
+  ProductSpecial,
+  ProductToCategory,
 } = require('../models/db');
 
 const {
-    OrderProduct,
-    Order
+  OrderProduct,
+  Order,
 } = require('../models/db');
 
 const fun = require('../lib/function');
 
 const log4js = require('log4js');
 log4js.configure({
-    appenders: { cheese: { type: 'file', filename: 'error.log' } },
-    categories: { default: { appenders: ['cheese'], level: 'error' } }
+  appenders: {cheese: {type: 'file', filename: 'error.log'}},
+  categories: {default: {appenders: ['cheese'], level: 'error'}},
 });
 
 const log = log4js.getLogger('product');
 
-let result = null;
+const result = null;
 
 
 exports.products = async (req, res, next) => {
