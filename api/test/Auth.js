@@ -3,7 +3,7 @@
 // Подключаем dev-dependencies
 const supertest = require('supertest');
 const app = require('../app');
-// const {expect} = require('chai');
+const {expect} = require('chai');
 require('dotenv').config();
 
 describe('Spec test', () => {
