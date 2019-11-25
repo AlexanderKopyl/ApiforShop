@@ -4,10 +4,10 @@ const fun = require("../../lib/function");
 let {languages} = require("../../controllers/LanguageController");
 
 /* GET users listing. */
-// router.get("/", fun.verifyToken,languages);
+router.get("/", fun.verifyToken,languages);
 
-router.get("/",languages);
-// router.get("/:id",information);
+// router.get("/",languages);
+
 
 
 module.exports = router;
