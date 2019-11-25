@@ -156,3 +156,7 @@
 [2019-11-25T12:43:07.005] [ERROR] manufacturer - Error: Unknown column 'oc_manufacturer.ocManufacturerDescriptionId' in 'field list'
 [2019-11-25T12:43:36.590] [ERROR] manufacturer - Error: Unknown column 'oc_manufacturer.ocManufacturerDescriptionId' in 'field list'
 [2019-11-25T13:04:41.539] [ERROR] product - Error: Unknown column 'oc_product.article_id' in 'where clause'
+[2019-11-25T14:27:52.398] [ERROR] product - Error: Unknown column 'oc_product.language_id' in 'where clause'
+[2019-11-25T14:34:02.288] [ERROR] product - Error: Unknown column 'oc_product.language_id' in 'where clause'
+[2019-11-25T14:34:28.912] [ERROR] product - Error: Unknown column 'oc_product.language_id' in 'where clause'
+[2019-11-25T14:44:47.332] [ERROR] product - Error: Include unexpected. Element has to be either a Model, an Association or an object.
