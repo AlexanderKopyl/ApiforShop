@@ -1,5 +1,5 @@
-const ArticleModel = require('./article');
-const ArticleDescriptionModel = require('./article_description');
+const ArticleModel = require("./article");
+const ArticleDescriptionModel = require("./article_description");
 
 
 module.exports = {

@@ -1,4 +1,4 @@
-const {Op, fn, col} = require('sequelize');
+const {Op, fn, col} = require("sequelize");
 
 const {
     Product,
@@ -7,23 +7,23 @@ const {
     ProductDiscount,
     ProductImage,
     ProductSpecial,
-    ProductToCategory
-} = require('../models/db');
+    ProductToCategory,
+} = require("../models/db");
 
 const {
     OrderProduct,
-    Order
-} = require('../models/db');
+    Order,
+} = require("../models/db");
 
-const fun = require('../lib/function');
+const fun = require("../lib/function");
 
-const log4js = require('log4js');
+const log4js = require("log4js");
 log4js.configure({
-    appenders: { cheese: { type: 'file', filename: 'error.log' } },
-    categories: { default: { appenders: ['cheese'], level: 'error' } }
-});
+    appenders: { cheese: { type: "file", filename: "error.log"}},
+    categories: { default: { appenders: ["cheese",], level: "error"}},
+},);
 
-const log = log4js.getLogger('product');
+const log = log4js.getLogger("product");
 
 let result = null;
 

@@ -1,28 +1,28 @@
-const {Op, fn, col} = require('sequelize');
-const {Customer,CustomerReward} = require('../models/db');
-let {config: {service_mail,admin_mail,user_email_password}} = require('../config/server.config');
-let md5 = require('js-md5');
-let jwt = require('jsonwebtoken');
-const fun = require('../lib/function');
+const {Op, fn, col} = require("sequelize");
+const {Customer,CustomerReward,} = require("../models/db");
+let {config: {service_mail,admin_mail,user_email_password}} = require("../config/server.config");
+let md5 = require("js-md5");
+let jwt = require("jsonwebtoken");
+const fun = require("../lib/function");
 
 
-const log4js = require('log4js');
+const log4js = require("log4js");
 log4js.configure({
-    appenders: { cheese: { type: 'file', filename: 'error.log' } },
-    categories: { default: { appenders: ['cheese'], level: 'error' } }
-});
+    appenders: { cheese: { type: "file", filename: "error.log" } },
+    categories: { default: { appenders: ["cheese"], level: "error" } },
+},);
 
-const log = log4js.getLogger('customer');
+const log = log4js.getLogger("customer",);
 
 let result = null;
 
 exports.customer_list = async (req, res, next) => {
     result = await Customer.findAll();
     res.json({
-        message: 'Users find',
+        message: "Users find",
         result_code: 0,
-        result
-    });
+        result,
+    },);
 };
 
 
@@ -30,22 +30,22 @@ exports.customer_detail = async (req, res, next) => {
     try{
         result = await Customer.findOne({where: {customer_id: req.params.id}});
     }catch (e) {
-        log.error('Error: '+e.message);
+        log.error("Error: "+e.message,);
     }
     finally {
         if (result !== null) {
             res.json({
-                message: 'Users find',
+                message: "Users find",
                 result_code: 0,
-                result
-            });
+                result,
+            },);
         }else {
-            log.error("Customer: " + req.params.id + " dont find in function customer_detail");
+            log.error("Customer: " + req.params.id + " dont find in function customer_detail",);
             res.json([{
-                message: 'User dont find',
+                message: "User dont find",
                 result_code: 404,
-                result
-            }]);
+                result,
+            },],);
         }
 
     }
@@ -57,76 +57,76 @@ exports.customer_reward_detail = async (req, res, next) => {
     try{
         result = await CustomerReward.findAll({where: {customer_id: req.params.id}});
     }catch (e) {
-        log.error('Error: '+e.message);
+        log.error("Error: "+e.message);
     }
     finally {
         if (result !== null) {
             res.json({
-                message: 'Customer reward find',
+                message: "Customer reward find",
                 result_code: 0,
-                result
-            });
+                result,
+            },);
         }else {
-            log.error("Customer: " + req.params.id + " dont find in function customer_detail");
+            log.error("Customer: " + req.params.id + " dont find in function customer_detail",);
             res.json([{
-                message: 'Customer reward dont find',
+                message: "Customer reward dont find",
                 result_code: 404,
-                result
-            }]);
+                result,
+            },],);
         }
 
     }
 
 };
-exports.customer_reward_total = async (req,res,nex) =>{
+exports.customer_reward_total = async (req,res,next) =>{
     try{
         result = await CustomerReward.findAndCountAll({where: {customer_id: req.params.id}});
     }catch (e) {
-        log.error('Error: '+e.message);
+        log.error("Error: "+e.message);
     }
     finally {
         if (result !== null) {
             res.json({
-                message: 'Customer reward total not found',
+                message: "Customer reward total not found",
                 result_code: 0,
-                result
-            });
+                result,
+            },);
         }else {
-            log.error("Customer: " + req.params.id + " dont find in function customer_detail");
+            log.error("Customer: " + req.params.id + " dont find in function customer_detail",);
             res.json([{
-                message: 'Customer reward total not find',
+                message: "Customer reward total not find",
                 result_code: 404,
-                result
-            }]);
+                result,
+            },],);
         }
 
     }
 };
-exports.customer_reward_total_point = async (req,res,nex) =>{
+exports.customer_reward_total_point = async (req,res,next) =>{
     try{
         result = await CustomerReward.findOne(
             {
-                attributes: [[fn('sum', col('points')), 'total']],
-                group : ['customer_id'],
-            where: {customer_id: req.params.id}
-            });
+                attributes: [[fn("sum", col("points")), "total"]],
+                group : ["customer_id"],
+                where: {customer_id: req.params.id},
+            },);
     }catch (e) {
-        log.error('Error: '+e.message);
+        log.error("Error: "+e.message);
     }
     finally {
         if (result !== null) {
             res.json({
-                message: 'Customer reward total not found',
+                message: "Customer reward total not found",
                 result_code: 0,
-                result
-            });
+                result,
+            },);
         }else {
-            log.error("Customer: " + req.params.id + " dont find in function customer_detail");
+            log.error("Customer: " + req.params.id + " dont find in function customer_detail",);
             res.json([{
-                message: 'Customer reward total not find',
+                message: "Customer reward total not find",
                 result_code: 404,
-                result
-            }]);
+                result,
+            },],);
         }
 
     }
@@ -139,38 +139,38 @@ exports.customer_login = async (req, res, next) => {
             where: {
                 [Op.and]: [
                     {
-                        [Op.or]: [{email: {[Op.like]: '%' + req.body.login + '%'}}, {telephone: {[Op.like]: '%' + req.body.login}}]
+                        [Op.or]: [{email: {[Op.like]: "%" + req.body.login + "%",},}, {telephone: {[Op.like]: "%" + req.body.login}}],
                     },
                     {
-                        [Op.or]: [{password: fn('sha1', fn('concat', col('salt'), fn('sha1', fn('concat', col('salt'), fn('sha1', req.body.password)))))}, {password: md5(req.body.password)}]
-                    }
-                ]
-            }
-        });
+                        [Op.or]: [{password: fn("sha1", fn("concat", col("salt"), fn("sha1", fn("concat", col("salt"), fn("sha1", req.body.password),),),),),}, {password: md5(req.body.password)}],
+                    },
+                ],
+            },
+        },);
     }catch (e) {
-        log.error('Error: '+e.message);
+        log.error("Error: "+e.message);
     }
 
     finally {
         if (result !== null) {
 
             let now = new Date();
-            const accessToken = fun.generateAccessToken({result}, 'secretkey', "1800s");
-            const refreshToken = fun.generateRefreshToken({result}, 'refresh_secretkey', "7d");
+            const accessToken = fun.generateAccessToken({result,}, "secretkey", "1800s");
+            const refreshToken = fun.generateRefreshToken({result,}, "refresh_secretkey", "7d");
 
             res.json([{
                 user: result,
                 tokens: {
                     access: {token: accessToken, expiredIn: now.setTime(now.getTime() + 1800 * 1000)},
                     refresh: {token: refreshToken, expiredIn: now.setTime(now.getTime() + (7 * 24 * 60 * 60 * 1000))},
-                }
+                },
             }]);
         } else {
             log.error("Customer: dont find in function customer_login");
-            res.sendStatus(404);
+            res.sendStatus(404,);
             res.json([{
-                token: result
-            }]);
+                token: result,
+            },],);
         }
     }
 
@@ -185,20 +185,21 @@ exports.update_customer = async (req, res, next) => {
     try {
 
         if (!patternNameaAndLastName.test(`${req.body.firstname}`)){
-            error['firstname'] = 'Имя введено не правильно.. Имя пишется на кирилице'
+            error["firstname"] = "Имя введено не правильно.. Имя пишется на кирилице";
         }
         if (!patternNameaAndLastName.test(`${req.body.lastname}`)){
-            error['lastname'] = 'Фамилия введена не правильно.. Фамилия пишется на кирилице'
+            error["lastname"] = "Фамилия введена не правильно.. Фамилия пишется на кирилице";
         }
         if (!patternEmail.test(`${req.body.email}`)){
-            error['email'] = 'Email введен не коректно'
+            error["email"] = "Email введен не коректно";
         }
         if (!patternPhone.test(`${req.body.telephone}`)){
-            error['telephone'] = 'Телефон введен не коректно'
+            error["telephone"] = "Телефон введен не коректно";
         }
 
         if (fun.isEmptyObject(error)){
-            const [numberOfAffectedRows, affectedRows] = await Customer.update(
+            // eslint-disable-next-line no-unused-vars
+            const update = await Customer.update(
                 {
                     firstname: req.body.firstname,
                     lastname: req.body.lastname,
@@ -210,7 +211,7 @@ exports.update_customer = async (req, res, next) => {
                     where: { customer_id: req.params.id},
                     returning: true, // needed for affectedRows to be populated
                     plain: true,
-                }
+                },
             );
         }
 
@@ -219,25 +220,25 @@ exports.update_customer = async (req, res, next) => {
 
 
     }catch (e) {
-        log.error('Error: '+e.message);
-        res.send(e)
+        log.error("Error: "+e.message);
+        res.send(e,);
     }
 
     finally {
         if (result !== null && fun.isEmptyObject(error)) {
             res.json({
-                message: 'Customer updated',
+                message: "Customer updated",
                 result_code: 0,
-                result
-            });
+                result,
+            },);
         }else {
-            log.error("Customer: " + req.params.id + " dont find in function update_customer or have error");
+            log.error("Customer: " + req.params.id + " dont find in function update_customer or have error",);
             res.json({
-                message: 'Customer dont updated',
+                message: "Customer dont updated",
                 result_code: 404,
                 result,
-                error
-            });
+                error,
+            },);
 
 
         }
@@ -256,8 +257,8 @@ exports.sendMessage = async (req, res, next) =>{
         req.body.subject,
         `<h1>Имя: ${req.body.name}</h1>
             <p>Сообщение: ${req.body.text}</p>
-        `
-        );
+        `,
+    );
     // res.json({answer: result});
 
 };
@@ -270,12 +271,12 @@ exports.token = (req, res, next) => {
         return res.sendStatus(401);
     }
 
-    jwt.verify(refreshToken, 'refresh_secretkey', (err, user) => {
+    jwt.verify(refreshToken, "refresh_secretkey", (err, user) => {
         if (err) return res.sendStatus(403);
         let { result } = user;
-        const accessToken = fun.generateAccessToken(result,'secretkey', "1800s");
+        const accessToken = fun.generateAccessToken(result,"secretkey", "1800s");
 
-        res.json({accessToken: accessToken})
-    })
+        res.json({accessToken: accessToken});
+    },);
 
 };
