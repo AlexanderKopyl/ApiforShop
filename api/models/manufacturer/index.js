@@ -1,5 +1,5 @@
-const ManufacturerModel = require('./manufacturer');
-const ManufacturerDescriptionModel = require('./manufacturer_description');
+const ManufacturerModel = require("./manufacturer");
+const ManufacturerDescriptionModel = require("./manufacturer_description");
 
 
 module.exports = {

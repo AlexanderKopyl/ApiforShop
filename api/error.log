@@ -148,3 +148,11 @@
 [2019-11-25T10:14:11.184] [ERROR] customer - refreshToken is null status code 401
 [2019-11-25T11:09:30.405] [ERROR] app - Not Found
 [2019-11-25T11:09:31.359] [ERROR] app - Not Found
+[2019-11-25T11:45:34.865] [ERROR] category - Error: Unknown column 'oc_category.article_id' in 'where clause'
+[2019-11-25T11:46:32.433] [ERROR] category - Error: Unknown column 'oc_category.article_id' in 'where clause'
+[2019-11-25T12:25:54.721] [ERROR] manufacturer - Error: Unknown column 'oc_manufacturer_description.id' in 'field list'
+[2019-11-25T12:31:46.489] [ERROR] manufacturer - Error: Unknown column 'oc_manufacturer_description.id' in 'field list'
+[2019-11-25T12:39:49.268] [ERROR] manufacturer - Error: Unknown column 'oc_manufacturer_description.id' in 'field list'
+[2019-11-25T12:43:07.005] [ERROR] manufacturer - Error: Unknown column 'oc_manufacturer.ocManufacturerDescriptionId' in 'field list'
+[2019-11-25T12:43:36.590] [ERROR] manufacturer - Error: Unknown column 'oc_manufacturer.ocManufacturerDescriptionId' in 'field list'
+[2019-11-25T13:04:41.539] [ERROR] product - Error: Unknown column 'oc_product.article_id' in 'where clause'

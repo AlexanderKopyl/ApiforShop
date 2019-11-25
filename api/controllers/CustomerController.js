@@ -12,11 +12,11 @@ log4js.configure({
     categories: { default: { appenders: ["cheese"], level: "error" } },
 },);
 
-const log = log4js.getLogger("customer",);
+const log = log4js.getLogger("customer");
 
 let result = null;
 
-exports.customer_list = async (req, res, next) => {
+exports.customer_list = async (req, res) => {
     result = await Customer.findAll();
     res.json({
         message: "Users find",
@@ -26,7 +26,7 @@ exports.customer_list = async (req, res, next) => {
 };
 
 
-exports.customer_detail = async (req, res, next) => {
+exports.customer_detail = async (req, res) => {
     try{
         result = await Customer.findOne({where: {customer_id: req.params.id}});
     }catch (e) {
@@ -53,7 +53,7 @@ exports.customer_detail = async (req, res, next) => {
 };
 
 
-exports.customer_reward_detail = async (req, res, next) => {
+exports.customer_reward_detail = async (req, res) => {
     try{
         result = await CustomerReward.findAll({where: {customer_id: req.params.id}});
     }catch (e) {
@@ -78,7 +78,7 @@ exports.customer_reward_detail = async (req, res, next) => {
     }
 
 };
-exports.customer_reward_total = async (req,res,next) =>{
+exports.customer_reward_total = async (req,res) =>{
     try{
         result = await CustomerReward.findAndCountAll({where: {customer_id: req.params.id}});
     }catch (e) {
@@ -102,7 +102,7 @@ exports.customer_reward_total = async (req,res,next) =>{
 
     }
 };
-exports.customer_reward_total_point = async (req,res,next) =>{
+exports.customer_reward_total_point = async (req,res) =>{
     try{
         result = await CustomerReward.findOne(
             {
@@ -131,7 +131,7 @@ exports.customer_reward_total_point = async (req,res,next) =>{
 
     }
 };
-exports.customer_login = async (req, res, next) => {
+exports.customer_login = async (req, res) => {
 
     try {
         // Mock user
@@ -175,7 +175,7 @@ exports.customer_login = async (req, res, next) => {
     }
 
 };
-exports.update_customer = async (req, res, next) => {
+exports.update_customer = async (req, res) => {
 
     let error = {},
         patternNameaAndLastName = /^[А-ЯЁ][а-яё]+$/,
@@ -246,7 +246,7 @@ exports.update_customer = async (req, res, next) => {
     }
 
 };
-exports.sendMessage = async (req, res, next) =>{
+exports.sendMessage = async (req, res) =>{
 
     result = await fun.sendMail(
         res,
@@ -262,7 +262,7 @@ exports.sendMessage = async (req, res, next) =>{
     // res.json({answer: result});
 
 };
-exports.token = (req, res, next) => {
+exports.token = (req, res) => {
 
     const refreshToken = req.body.token;
 

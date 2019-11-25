@@ -1,4 +1,4 @@
-let {config: {prefix}} = require('../../config/server.config');
+let {config: {prefix}} = require("../../config/server.config");
 module.exports = (sequelize, type) => {
     return sequelize.define(`${prefix}information`, {
         // customer_id:type.INTEGER,
@@ -17,5 +17,5 @@ module.exports = (sequelize, type) => {
 
         // define the table's name
         tableName: `${prefix}information`
-    })
+    });
 };

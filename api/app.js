@@ -20,6 +20,11 @@ let orderRouter = require("./routes/order/order");
 let customerRouter = require("./routes/customer/customer");
 let mailRouter = require("./routes/mail/mail");
 let articleRouter = require("./routes/article/article");
+let categoryRouter = require("./routes/category/category");
+let informationRouter = require("./routes/information");
+let languageRouter = require("./routes/language");
+let manufacturerRouter = require("./routes/manufacturer");
+let productRouter = require("./routes/product");
 
 
 
@@ -69,6 +74,11 @@ app.use("/api/orders", orderRouter);
 app.use("/api/customers", customerRouter);
 app.use("/api/mail", mailRouter);
 app.use("/api/article", articleRouter);
+app.use("/api/category", categoryRouter);
+app.use("/api/information", informationRouter);
+app.use("/api/language", languageRouter);
+app.use("/api/manufacturer", manufacturerRouter);
+app.use("/api/product", productRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

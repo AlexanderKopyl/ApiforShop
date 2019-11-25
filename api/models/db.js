@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize');
-let {config: {prefix,db,user_db,user_password,host,dialect}} = require('../config/server.config');
+const Sequelize = require("sequelize");
+let {config: {prefix,db,user_db,user_password,host,dialect}} = require("../config/server.config");
 
 const {
     ProductModel,
@@ -9,54 +9,54 @@ const {
     ProductImageModel,
     ProductSpecialModel,
     ProductToCategoryModel,
-} = require('./product');
+} = require("./product");
 const {
     OrderModel,
     OrderStatusModel,
     OrderHistoryModel,
     OrderProductModel,
     OrderTotalModel
-} = require('./order');
+} = require("./order");
 
 const {
     CustomerRewardModel,
     CustomerModel
-} = require('./customer');
+} = require("./customer");
 const {
     ArticleModel,
     ArticleDescriptionModel
-} = require('./article');
+} = require("./article");
 
 const {
     ManufacturerModel,
     ManufacturerDescriptionModel
-} = require('./manufacturer');
+} = require("./manufacturer");
 const {
     AttributeGroupDescriptionModel,
     AttributeDescriptionModel,
     AttributeModel
-} = require('./attribute');
+} = require("./attribute");
 const {
     CategoryModel,
     CategoryDescriptionModel
-} = require('./category');
+} = require("./category");
 const {
     InformationModel,
     InformationDescriptionModel
-} = require('./information');
+} = require("./information");
 const {
     LanguageModel
-} = require('./language');
+} = require("./language");
 
 
-const log4js = require('log4js');
+const log4js = require("log4js");
 
 log4js.configure({
-    appenders: { cheese: { type: 'file', filename: 'error.log' } },
-    categories: { default: { appenders: ['cheese'], level: 'error' } }
+    appenders: { cheese: { type: "file", filename: "error.log" } },
+    categories: { default: { appenders: ["cheese"], level: "error" } }
 });
 
-const log = log4js.getLogger('db');
+const log = log4js.getLogger("db");
 
 const sequelize = new Sequelize(db, user_db, user_password, {
     host,
@@ -109,8 +109,8 @@ let Article            = ArticleModel(sequelize, Sequelize),
 
 sequelize.sync({ force: false })
     .then(() => {
-        console.log(`Database & tables created!`)
-    }).catch(function(reason) {
+        console.log("Database & tables created!");
+    }).catch(function (reason) {
     // отказ
     log.error("Error name: " + reason.name + " Address: " + reason.parent.address + " Port: " + reason.parent.port + " Syscall: " + reason.parent.syscall);
 });

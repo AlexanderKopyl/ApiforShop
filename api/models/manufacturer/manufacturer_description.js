@@ -1,8 +1,11 @@
-let {config: {prefix}} = require('../../config/server.config');
+let {config: {prefix}} = require("../../config/server.config");
 module.exports = (sequelize, type) => {
     return sequelize.define(`${prefix}manufacturer_description`, {
         // customer_id:type.INTEGER,
-        manufacturer_id: type.INTEGER,
+        manufacturer_id: {
+            type: type.INTEGER,
+            primaryKey: true,
+        },
         language_id: type.INTEGER,
 
         description: type.STRING,
@@ -20,5 +23,5 @@ module.exports = (sequelize, type) => {
 
         // define the table's name
         tableName: `${prefix}manufacturer_description`
-    })
+    });
 };

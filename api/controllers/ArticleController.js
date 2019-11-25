@@ -2,6 +2,9 @@ const {
     Article,
     ArticleDescription,
 } = require("../models/db");
+
+const {Op} = require("sequelize");
+
 const log4js = require("log4js");
 let result = null;
 
@@ -18,7 +21,7 @@ Article.belongsTo(ArticleDescription, {foreignKey: "article_id",targetKey: "arti
 
 exports.latest_artticles = async (req, res) => {
     try{
-        result = await Article.findAll({include: [ArticleDescription]});
+        result = await Article.findAll({where: {status: {[Op.gt]: 0}},include: [ArticleDescription]});
     }catch (e) {
         log.error("Error: " + e.message,);
     }
