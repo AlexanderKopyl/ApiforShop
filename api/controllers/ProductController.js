@@ -106,7 +106,7 @@ exports.product_attributes = async (req, res, next) => {
             include: [
                 {
                     model: AttributeDescription,
-                    attributes: ["name"],
+                    attributes: ["name","attribute_id"],
                     where: {language_id: 1},
                 }
             ]
