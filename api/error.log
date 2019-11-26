@@ -160,3 +160,48 @@
 [2019-11-25T14:34:02.288] [ERROR] product - Error: Unknown column 'oc_product.language_id' in 'where clause'
 [2019-11-25T14:34:28.912] [ERROR] product - Error: Unknown column 'oc_product.language_id' in 'where clause'
 [2019-11-25T14:44:47.332] [ERROR] product - Error: Include unexpected. Element has to be either a Model, an Association or an object.
+[2019-11-26T10:41:15.562] [ERROR] product - Error: oc_product_attribute is not associated to oc_product!
+[2019-11-26T10:41:27.194] [ERROR] product - Error: oc_product_attribute is not associated to oc_product!
+[2019-11-26T10:54:03.834] [ERROR] app - Not Found
+[2019-11-26T10:54:04.500] [ERROR] product - Error: Unknown column 'oc_product_attribute.language' in 'where clause'
+[2019-11-26T10:54:04.797] [ERROR] app - Not Found
+[2019-11-26T10:54:21.792] [ERROR] product - Error: Unknown column 'oc_product_attribute.language' in 'where clause'
+[2019-11-26T10:55:23.316] [ERROR] product - Error: Unknown column 'oc_product_attribute.language' in 'where clause'
+[2019-11-26T11:04:35.048] [ERROR] product - Error: Invalid value { model: oc_attribute_description, where: { language_id: 1 } }
+[2019-11-26T11:07:16.567] [ERROR] product - Error: Invalid value { model: oc_attribute_description, where: { language_id: 1 } }
+[2019-11-26T11:09:25.586] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:10:11.929] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:11:47.774] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:14:04.739] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:14:28.789] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:14:36.441] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:15:33.576] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:15:33.576] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:15:40.884] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:16:29.388] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:16:47.377] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:17:32.480] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:21:24.236] [ERROR] product - Error: Invalid value { model: oc_attribute_description, where: { language_id: 1 } }
+[2019-11-26T11:22:31.162] [ERROR] product - Error: Invalid value { model: oc_attribute_description, where: { language_id: 1 } }
+[2019-11-26T11:42:49.091] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
+[2019-11-26T11:44:35.179] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
+[2019-11-26T11:44:59.198] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
+[2019-11-26T11:48:14.168] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T11:48:26.643] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T11:50:20.489] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T11:50:47.886] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T11:52:01.174] [ERROR] product - Error: oc_attribute_description is not associated to oc_product_attribute!
+[2019-11-26T11:54:02.993] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T11:54:51.409] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T11:58:49.965] [ERROR] product - Error: oc_attribute_description is not associated to oc_product_attribute!
+[2019-11-26T11:58:59.482] [ERROR] product - Error: oc_attribute_description is not associated to oc_product_attribute!
+[2019-11-26T11:59:15.809] [ERROR] product - Error: oc_attribute_description is not associated to oc_product_attribute!
+[2019-11-26T12:35:50.131] [ERROR] db - Error name: SequelizeDatabaseError Address: undefined Port: undefined Syscall: undefined
+[2019-11-26T12:36:54.128] [ERROR] product - Error: Unknown column 'oc_product_attribute.ocAttributeDescriptionAttributeId' in 'field list'
+[2019-11-26T12:37:59.187] [ERROR] product - Error: Unknown column 'oc_product_attribute.ocAttributeDescriptionAttributeId' in 'field list'
+[2019-11-26T12:39:34.655] [ERROR] db - Error name: SequelizeDatabaseError Address: undefined Port: undefined Syscall: undefined
+[2019-11-26T12:46:54.601] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T12:49:29.292] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T12:55:55.014] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
+[2019-11-26T12:57:04.145] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
+[2019-11-26T12:58:16.206] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'

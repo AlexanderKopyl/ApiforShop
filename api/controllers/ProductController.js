@@ -15,6 +15,11 @@ const {
     Order,
 } = require("../models/db");
 
+const {
+    Attribute,
+    AttributeDescription,
+} = require("../models/db");
+
 const fun = require("../lib/function");
 
 const log4js = require("log4js");
@@ -28,7 +33,13 @@ const log = log4js.getLogger("product");
 let result = null;
 
 ProductDescription.hasMany(Product, {foreignKey: "product_id"});
+ProductAttribute.hasMany(Product, {foreignKey: "product_id"});
+
+ProductAttribute.belongsTo(AttributeDescription, { foreignKey: "attribute_id"});
+
+
 Product.belongsTo(ProductDescription, {foreignKey: "product_id", targetKey: "product_id"});
+Product.belongsTo(ProductAttribute, {foreignKey: "product_id", targetKey: "product_id"});
 
 exports.products = async (req, res, next) => {
     try {
@@ -85,14 +96,42 @@ exports.product = async (req, res, next) => {
         }
     }
 };
+exports.product_attributes = async (req, res, next) => {
+    try {
+        result = await ProductAttribute.findAll({
+            attributes: ["text"],
+            where: {
+                [Op.and]: [{product_id: req.params.id}, {language_id: 1}]
+            },
+            include: [
+                {
+                    model: AttributeDescription,
+                    attributes: ["name"],
+                    where: {language_id: 1},
+                }
+            ]
+        });
+    } catch (e) {
+        log.error("Error: " + e.message,);
+    } finally {
+        if (result !== null) {
+            res.json({
+                message: "Attrs find",
+                result_code: 0,
+                result,
+            },);
+        } else {
+            res.sendStatus(404);
+        }
+    }
+};
 exports.product_specials = async (req, res, next) => {
 };
 exports.popular_products = async (req, res, next) => {
 };
 exports.best_seller_products = async (req, res, next) => {
 };
-exports.product_attributes = async (req, res, next) => {
-};
+
 exports.product_discounts = async (req, res, next) => {
 };
 exports.product_images = async (req, res, next) => {
