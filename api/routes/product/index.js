@@ -6,7 +6,7 @@ let {product,products,product_attributes} = require("../../controllers/ProductCo
 /* GET users listing. */
 router.get("/", fun.verifyToken,products);
 router.get("/:id",fun.verifyToken, product);
-router.get("/attr/:id",product_attributes);
+router.get("/attr/:id",fun.verifyToken,product_attributes);
 
 // router.get("/",products);
 // router.get("/:id",product);
