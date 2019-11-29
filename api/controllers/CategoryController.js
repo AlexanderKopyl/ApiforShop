@@ -19,7 +19,15 @@ Category.belongsTo(CategoryDescription, {foreignKey: "category_id",targetKey: "c
 
 exports.category = async (req, res) => {
     try{
-        result = await Category.findOne({where: {category_id: req.params.id},include: [CategoryDescription]});
+        result = await Category.findOne({
+            where: {category_id: req.params.id},
+            include: [
+                {
+                    model:CategoryDescription,
+                    where:{language_id:1}
+                }
+            ]
+        });
     }catch (e) {
         log.error("Error: " + e.message,);
     }
@@ -37,7 +45,50 @@ exports.category = async (req, res) => {
 };
 exports.categories = async (req, res) => {
     try{
-        result = await Category.findAll({where: {status: {[Op.gt]: 0}},include: [CategoryDescription]});
+        result = await Category.findAll({
+            where: {status: {[Op.gt]: 0}},
+            attributes: ["category_id","image","parent_id"],
+            include: [
+                {
+                    model:CategoryDescription,
+                    where:{
+                        language_id:1
+
+                    }
+                }
+            ]
+        });
+    }catch (e) {
+        log.error("Error: " + e.message,);
+    }
+    finally {
+        if(result !== null){
+            res.json({
+                message: "Category find",
+                result_code: 0,
+                result,
+            },);
+        }else{
+            res.sendStatus(404);
+        }
+    }
+};
+exports.categories_parent = async (req, res) => {
+
+    try{
+        result = await Category.findAll({
+            where: {[Op.and]: [{parent_id: req.params.id}, {status: {[Op.gt]: 0}}]},
+            attributes: ["category_id","image","parent_id"],
+            include: [
+                {
+                    model:CategoryDescription,
+                    where:{
+                        language_id:1
+
+                    }
+                }
+            ]
+        });
     }catch (e) {
         log.error("Error: " + e.message,);
     }

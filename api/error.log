@@ -205,3 +205,7 @@
 [2019-11-26T12:55:55.014] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
 [2019-11-26T12:57:04.145] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
 [2019-11-26T12:58:16.206] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
+[2019-11-29T11:26:57.473] [ERROR] category - Error: Unknown column 'oc_category_description.status' in 'on clause'
+[2019-11-29T11:28:19.545] [ERROR] category - Error: Unknown column 'oc_category_description.status' in 'on clause'
+[2019-11-29T11:28:30.717] [ERROR] category - Error: Unknown column 'oc_category_description.status' in 'on clause'
+[2019-11-29T11:36:30.299] [ERROR] category - Error: Unknown column 'oc_category_description.parent_id' in 'field list'
