@@ -36,7 +36,8 @@ ProductDescription.hasMany(Product, {foreignKey: "product_id"});
 ProductAttribute.hasMany(Product, {foreignKey: "product_id"});
 
 ProductAttribute.belongsTo(AttributeDescription, { foreignKey: "attribute_id"});
-
+ProductToCategory.hasMany(Product,{foreignKey: "product_id"});
+ProductToCategory.hasMany(ProductDescription,{foreignKey: "product_id"});
 
 Product.belongsTo(ProductDescription, {foreignKey: "product_id", targetKey: "product_id"});
 Product.belongsTo(ProductAttribute, {foreignKey: "product_id", targetKey: "product_id"});
@@ -125,6 +126,40 @@ exports.product_attributes = async (req, res, next) => {
         }
     }
 };
+exports.product_to_categories = async (req, res, next) => {
+    try {
+        result = await ProductToCategory.findAll(
+            {
+                where: {category_id: req.params.id},
+                include: [
+                    {
+                        model: ProductDescription,
+                        attributes: ["name", "description"],
+                        where: {language_id: 1},
+                    },
+                    {
+                        model: Product,
+                        attributes: ["product_id", "model", "image", "manufacturer_id", "price", "weight","quantity","viewed"],
+                        where: {status: {[Op.gt]: 0}},
+
+                    }
+                ]
+            }
+        );
+    } catch (e) {
+        log.error("Error: " + e.message,);
+    } finally {
+        if (result !== null) {
+            res.json({
+                message: "Product find",
+                result_code: 0,
+                result,
+            },);
+        } else {
+            res.sendStatus(404);
+        }
+    }
+};
 exports.product_specials = async (req, res, next) => {
 };
 exports.popular_products = async (req, res, next) => {
@@ -136,8 +171,7 @@ exports.product_discounts = async (req, res, next) => {
 };
 exports.product_images = async (req, res, next) => {
 };
-exports.categories = async (req, res, next) => {
-};
+
 exports.total_products = async (req, res, next) => {
 };
 exports.total_product_specials = async (req, res, next) => {
