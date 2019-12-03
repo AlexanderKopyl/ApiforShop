@@ -219,3 +219,5 @@
 [2019-12-02T12:06:20.103] [ERROR] app - Not Found
 [2019-12-02T13:28:47.252] [ERROR] product - Error: Unknown column 'oc_product_to_category.model' in 'field list'
 [2019-12-02T13:29:04.467] [ERROR] product - Error: Unknown column 'oc_product_to_category.model' in 'field list'
+[2019-12-02T13:37:51.499] [ERROR] app - Not Found
+[2019-12-02T13:38:18.199] [ERROR] app - Not Found

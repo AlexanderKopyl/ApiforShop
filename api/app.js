@@ -66,6 +66,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 app.use(cors());
+//app.use(cors({
+//   origin: 'https://api.zoocomplex.com.ua/'
+// }));
 
 // app.use('/', indexRouter);
 // Handles any requests that don't match the ones above
