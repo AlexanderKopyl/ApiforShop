@@ -221,3 +221,4 @@
 [2019-12-02T13:29:04.467] [ERROR] product - Error: Unknown column 'oc_product_to_category.model' in 'field list'
 [2019-12-02T13:37:51.499] [ERROR] app - Not Found
 [2019-12-02T13:38:18.199] [ERROR] app - Not Found
+[2019-12-03T10:12:10.385] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
