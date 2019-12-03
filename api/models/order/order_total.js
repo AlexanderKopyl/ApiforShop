@@ -1,23 +1,17 @@
-let {config: {prefix}} = require("../../config/server.config");
+let {config: {prefix}} = require('../../config/server.config');
 module.exports = (sequelize, type) => {
     return sequelize.define(`${prefix}order`, {
         // customer_id:type.INTEGER,
-        order_id: {
+        order_total_id: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        firstname: type.STRING,
-        lastname: type.STRING,
-        email: type.STRING,
-        date_added: type.DATE,
-        order_status_id: type.INTEGER,
-        telephone: type.STRING,
-        total: type.INTEGER,
-        payment_zone: type.STRING,
-        payment_method: type.STRING,
-        shipping_method: type.STRING,
-        comment: type.TEXT
+        order_id: type.INTEGER,
+        code: type.STRING,
+        title: type.STRING,
+        value: type.DECIMAL(15,4),
+
 
 
     },{
@@ -29,5 +23,5 @@ module.exports = (sequelize, type) => {
 
         // define the table's name
         tableName: `${prefix}order`
-    });
+    })
 };
