@@ -8,7 +8,7 @@ router.get("/", fun.verifyToken,products);
 router.get("/:id",fun.verifyToken, product);
 router.get("/attr/:id",fun.verifyToken,product_attributes);
 // router.get("/cat/:id",fun.verifyToken,product_to_categories);
-router.get("/cat/:id",product_to_categories);
+router.get("/cat/:id",fun.verifyToken,product_to_categories);
 
 // router.get("/",products);
 // router.get("/:id",product);
