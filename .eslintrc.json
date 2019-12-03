@@ -1,0 +1,78 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended"
+  ],
+  "parserOptions": {
+    // Only ESLint 6.2.0 and later support ES2020.
+    "ecmaVersion": 2019
+  },
+  "rules": {
+    // enable additional rules
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "double"],
+    "semi": ["error", "always"],
+
+    // override default options for rules from base configurations
+//    "comma-dangle": ["error", "always"],
+    "no-cond-assign": ["error", "always"],
+
+    // disable rules from base configurations
+    "prefer-destructuring": 0,
+    "object-curly-newline": 0,
+    "no-plusplus": 0,
+    "no-mixed-operators": 0,
+    "no-param-reassign": 0,
+    "no-restricted-properties": 0,
+    "updateSMSTimings": 0,
+    "import/no-dynamic-require": 0,
+    "global-require": 0,
+    "no-restricted-syntax": 0,
+    "no-bitwise": 0,
+    "one-var": 0,
+    "no-else-return": 0,
+    "no-console": 0,
+    "arrow-parens": 0,
+    "no-case-declarations": 0,
+    "no-continue": 0,
+    "prefer-promise-reject-errors": 0,
+    "guard-for-in": 0,
+    "max-len": 0,
+    "indent": [
+      0,
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "space-before-function-paren": [
+      2,
+      {
+        "anonymous": "always",
+        "named": "never"
+      }
+    ],
+    "no-use-before-define": [
+      2,
+      "nofunc"
+    ],
+    "comma-dangle": [
+      0
+    ],
+    "radix": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "no-underscore-dangle": [
+      0
+    ],
+    "prefer-arrow-callback": [
+      0
+    ],
+    "import/order": 0
+
+  }
+}

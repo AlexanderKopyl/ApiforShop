@@ -1,0 +1,228 @@
+
+[2019-11-13T15:34:23.861] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:42:30.351] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:43:31.948] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:43:47.570] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:50:08.613] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:51:08.952] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:54:07.229] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:55:14.192] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:55:20.533] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:55:27.931] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:55:52.261] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:55:55.399] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:56:43.040] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:57:01.087] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:57:05.831] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-13T15:57:58.770] [ERROR] customer - Customer: 1328 dont find in function update_customer or have error
+[2019-11-14T09:35:06.560] [ERROR] customer - refreshToken is null status code 401
+[2019-11-14T09:36:26.146] [ERROR] customer - Customer: null dont find in function customer_detail
+[2019-11-14T09:37:32.270] [ERROR] customer - Customer: null dont find in function customer_detail
+[2019-11-14T09:38:07.048] [ERROR] customer - Customer: null dont find in function customer_detail
+[2019-11-14T14:56:18.598] [ERROR] app - ENOENT: no such file or directory, stat 'C:\Рабочая Папка\OpenServer\OSPanel\domains\ApiforShop\api\public\build\index.html'
+[2019-11-14T14:56:19.599] [ERROR] app - ENOENT: no such file or directory, stat 'C:\Рабочая Папка\OpenServer\OSPanel\domains\ApiforShop\api\public\build\index.html'
+[2019-11-14T14:59:12.751] [ERROR] app - ENOENT: no such file or directory, stat 'C:\Рабочая Папка\OpenServer\OSPanel\domains\ApiforShop\api\public\build\index.html'
+[2019-11-14T15:00:24.039] [ERROR] app - Not Found
+[2019-11-15T10:46:42.635] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-15T10:47:34.442] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-15T10:48:23.190] [ERROR] app - Not Found
+[2019-11-15T10:52:57.450] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-15T10:57:55.630] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-15T16:44:34.842] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-18T14:40:49.371] [ERROR] app - Not Found
+[2019-11-18T14:40:50.499] [ERROR] app - Not Found
+[2019-11-20T12:04:19.460] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:06:36.637] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:06:57.905] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:07:07.004] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:07:14.382] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:07:18.100] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:08:02.618] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:08:39.946] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:08:45.821] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:09:23.270] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:09:29.224] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:09:37.392] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:09:43.727] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:09:51.116] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:09:56.383] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:10:00.822] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T12:10:06.592] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:24:51.886] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:25:00.820] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:25:07.954] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:25:12.509] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:25:26.046] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:25:46.031] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:26:05.442] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:28:13.301] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:28:21.037] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:28:33.315] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:28:46.621] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:28:53.179] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:29:15.449] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:29:56.779] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:30:36.041] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:30:47.178] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:31:04.035] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:31:10.612] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:31:33.040] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:31:47.788] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:34:03.302] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:34:12.500] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:34:45.123] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:34:56.973] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:35:35.995] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:59:31.208] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:59:40.661] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:59:44.697] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T13:59:50.536] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:00:01.871] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:00:22.146] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:00:39.372] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:00:48.626] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:01:00.612] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:01:14.786] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:01:45.580] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:01:53.816] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:02:04.516] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:02:16.395] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:02:20.050] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:02:29.577] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:02:39.696] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:02:43.996] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:02:47.764] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:02:51.054] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:03:01.005] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:05:28.091] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:05:39.845] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:06:00.462] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:06:10.098] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:06:22.462] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:06:44.859] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:06:50.400] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:07:01.568] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:07:30.014] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:08:35.395] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:08:41.013] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:09:55.486] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:10:10.701] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:10:14.889] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:10:18.151] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:10:22.885] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:12:17.589] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:12:28.478] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:12:36.320] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:12:40.970] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:12:45.560] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:12:49.181] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:12:52.759] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:12:57.742] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:13:10.561] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:13:22.856] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:14:21.086] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:14:32.076] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:14:48.971] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:14:53.884] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:14:58.267] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:15:02.981] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:15:14.965] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:15:32.329] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:36:22.414] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:37:21.141] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:39:33.518] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:45:18.690] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-20T14:45:36.437] [ERROR] customer - Error: connect ECONNREFUSED 127.0.0.1:3306
+[2019-11-20T14:45:36.438] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-21T14:34:37.020] [ERROR] app - Not Found
+[2019-11-21T14:34:39.010] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-21T14:35:39.611] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-22T11:00:34.435] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
+[2019-11-22T11:08:41.116] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-22T11:09:06.215] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-22T11:14:39.984] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-22T11:15:04.454] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-22T11:17:47.840] [ERROR] customer - Customer: dont find in function customer_login
+[2019-11-25T10:14:00.848] [ERROR] customer - refreshToken is null status code 401
+[2019-11-25T10:14:11.172] [ERROR] customer - refreshToken is null status code 401
+[2019-11-25T10:14:11.184] [ERROR] customer - refreshToken is null status code 401
+[2019-11-25T11:09:30.405] [ERROR] app - Not Found
+[2019-11-25T11:09:31.359] [ERROR] app - Not Found
+[2019-11-25T11:45:34.865] [ERROR] category - Error: Unknown column 'oc_category.article_id' in 'where clause'
+[2019-11-25T11:46:32.433] [ERROR] category - Error: Unknown column 'oc_category.article_id' in 'where clause'
+[2019-11-25T12:25:54.721] [ERROR] manufacturer - Error: Unknown column 'oc_manufacturer_description.id' in 'field list'
+[2019-11-25T12:31:46.489] [ERROR] manufacturer - Error: Unknown column 'oc_manufacturer_description.id' in 'field list'
+[2019-11-25T12:39:49.268] [ERROR] manufacturer - Error: Unknown column 'oc_manufacturer_description.id' in 'field list'
+[2019-11-25T12:43:07.005] [ERROR] manufacturer - Error: Unknown column 'oc_manufacturer.ocManufacturerDescriptionId' in 'field list'
+[2019-11-25T12:43:36.590] [ERROR] manufacturer - Error: Unknown column 'oc_manufacturer.ocManufacturerDescriptionId' in 'field list'
+[2019-11-25T13:04:41.539] [ERROR] product - Error: Unknown column 'oc_product.article_id' in 'where clause'
+[2019-11-25T14:27:52.398] [ERROR] product - Error: Unknown column 'oc_product.language_id' in 'where clause'
+[2019-11-25T14:34:02.288] [ERROR] product - Error: Unknown column 'oc_product.language_id' in 'where clause'
+[2019-11-25T14:34:28.912] [ERROR] product - Error: Unknown column 'oc_product.language_id' in 'where clause'
+[2019-11-25T14:44:47.332] [ERROR] product - Error: Include unexpected. Element has to be either a Model, an Association or an object.
+[2019-11-26T10:41:15.562] [ERROR] product - Error: oc_product_attribute is not associated to oc_product!
+[2019-11-26T10:41:27.194] [ERROR] product - Error: oc_product_attribute is not associated to oc_product!
+[2019-11-26T10:54:03.834] [ERROR] app - Not Found
+[2019-11-26T10:54:04.500] [ERROR] product - Error: Unknown column 'oc_product_attribute.language' in 'where clause'
+[2019-11-26T10:54:04.797] [ERROR] app - Not Found
+[2019-11-26T10:54:21.792] [ERROR] product - Error: Unknown column 'oc_product_attribute.language' in 'where clause'
+[2019-11-26T10:55:23.316] [ERROR] product - Error: Unknown column 'oc_product_attribute.language' in 'where clause'
+[2019-11-26T11:04:35.048] [ERROR] product - Error: Invalid value { model: oc_attribute_description, where: { language_id: 1 } }
+[2019-11-26T11:07:16.567] [ERROR] product - Error: Invalid value { model: oc_attribute_description, where: { language_id: 1 } }
+[2019-11-26T11:09:25.586] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:10:11.929] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:11:47.774] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:14:04.739] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:14:28.789] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:14:36.441] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:15:33.576] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:15:33.576] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:15:40.884] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:16:29.388] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:16:47.377] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:17:32.480] [ERROR] product - Error: Invalid value { model: oc_attribute_description }
+[2019-11-26T11:21:24.236] [ERROR] product - Error: Invalid value { model: oc_attribute_description, where: { language_id: 1 } }
+[2019-11-26T11:22:31.162] [ERROR] product - Error: Invalid value { model: oc_attribute_description, where: { language_id: 1 } }
+[2019-11-26T11:42:49.091] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
+[2019-11-26T11:44:35.179] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
+[2019-11-26T11:44:59.198] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
+[2019-11-26T11:48:14.168] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T11:48:26.643] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T11:50:20.489] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T11:50:47.886] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T11:52:01.174] [ERROR] product - Error: oc_attribute_description is not associated to oc_product_attribute!
+[2019-11-26T11:54:02.993] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T11:54:51.409] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T11:58:49.965] [ERROR] product - Error: oc_attribute_description is not associated to oc_product_attribute!
+[2019-11-26T11:58:59.482] [ERROR] product - Error: oc_attribute_description is not associated to oc_product_attribute!
+[2019-11-26T11:59:15.809] [ERROR] product - Error: oc_attribute_description is not associated to oc_product_attribute!
+[2019-11-26T12:35:50.131] [ERROR] db - Error name: SequelizeDatabaseError Address: undefined Port: undefined Syscall: undefined
+[2019-11-26T12:36:54.128] [ERROR] product - Error: Unknown column 'oc_product_attribute.ocAttributeDescriptionAttributeId' in 'field list'
+[2019-11-26T12:37:59.187] [ERROR] product - Error: Unknown column 'oc_product_attribute.ocAttributeDescriptionAttributeId' in 'field list'
+[2019-11-26T12:39:34.655] [ERROR] db - Error name: SequelizeDatabaseError Address: undefined Port: undefined Syscall: undefined
+[2019-11-26T12:46:54.601] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T12:49:29.292] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.ocProductAttributeProductId' in 'field list'
+[2019-11-26T12:55:55.014] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
+[2019-11-26T12:57:04.145] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
+[2019-11-26T12:58:16.206] [ERROR] product - Error: Unknown column 'oc_attribute_descriptions.product_id' in 'field list'
+[2019-11-29T11:26:57.473] [ERROR] category - Error: Unknown column 'oc_category_description.status' in 'on clause'
+[2019-11-29T11:28:19.545] [ERROR] category - Error: Unknown column 'oc_category_description.status' in 'on clause'
+[2019-11-29T11:28:30.717] [ERROR] category - Error: Unknown column 'oc_category_description.status' in 'on clause'
+[2019-11-29T11:36:30.299] [ERROR] category - Error: Unknown column 'oc_category_description.parent_id' in 'field list'
+[2019-12-02T09:46:26.982] [ERROR] customer - refreshToken is null status code 401
+[2019-12-02T09:46:26.992] [ERROR] customer - refreshToken is null status code 401
+[2019-12-02T10:20:32.808] [ERROR] app - Not Found
+[2019-12-02T10:20:33.535] [ERROR] app - Not Found
+[2019-12-02T10:22:18.023] [ERROR] customer - refreshToken is null status code 401
+[2019-12-02T10:22:18.029] [ERROR] customer - refreshToken is null status code 401
+[2019-12-02T12:00:24.134] [ERROR] app - Not Found
+[2019-12-02T12:06:20.103] [ERROR] app - Not Found
+[2019-12-02T13:28:47.252] [ERROR] product - Error: Unknown column 'oc_product_to_category.model' in 'field list'
+[2019-12-02T13:29:04.467] [ERROR] product - Error: Unknown column 'oc_product_to_category.model' in 'field list'
+[2019-12-02T13:37:51.499] [ERROR] app - Not Found
+[2019-12-02T13:38:18.199] [ERROR] app - Not Found
+[2019-12-02T14:18:20.596] [ERROR] customer - refreshToken is null status code 401
+[2019-12-02T14:18:24.055] [ERROR] customer - refreshToken is null status code 401
+[2019-12-02T14:18:24.102] [ERROR] customer - refreshToken is null status code 401
+[2019-12-02T14:20:40.061] [ERROR] customer - refreshToken is null status code 401
+[2019-12-02T14:20:40.075] [ERROR] customer - refreshToken is null status code 401
