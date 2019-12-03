@@ -226,3 +226,4 @@
 [2019-12-02T14:18:24.102] [ERROR] customer - refreshToken is null status code 401
 [2019-12-02T14:20:40.061] [ERROR] customer - refreshToken is null status code 401
 [2019-12-02T14:20:40.075] [ERROR] customer - refreshToken is null status code 401
+[2019-12-03T11:17:59.421] [ERROR] db - Error name: SequelizeConnectionRefusedError Address: 127.0.0.1 Port: 3306 Syscall: connect
