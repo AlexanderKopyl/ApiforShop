@@ -3,8 +3,8 @@ require('dotenv').config();
 exports.config = {
   "prefix" : "oc_",
   "db":"b0s",
-  "user_db":"c0_alex",
-  "user_password": 'Pv7ko@UvHF',
+  "user_db":"{login}",
+  "user_password": '{password}',
   "host": 'localhost',
   "dialect":'mysql',
   "service_mail": 'gmail',
